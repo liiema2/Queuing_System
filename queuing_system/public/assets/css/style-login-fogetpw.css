@@ -1,0 +1,64 @@
+.from-forgetpw-content__first{
+    color: #282739;
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+}
+.from-forgetpw-content__small{
+    color: #282739;
+    font-size: 1.125rem;
+margin-bottom: 0.25rem;
+
+}
+.from-forgetpw-content-input{
+    padding: 10px 270px 10px 12px;
+width: 400px;
+height: 44px;
+font-family: "Nunito";
+margin-bottom: 3rem;
+/* white */
+
+background: #FFFFFF;
+/* Gray/$-gray-100 */
+
+border: 1.5px solid #D4D4D7;
+border-radius: 8px;
+}
+.from-forgetpw-content{
+
+text-align: center ;
+}
+.from-forgetpw-content-btn{
+    border: none;
+    color: #FFF;
+}
+.from-forgetpw-content-btn-cancel{
+padding: 10px 24px;
+
+
+
+width: 162px;
+height: 40px;
+
+/* Orange/$-Orange-400 */
+
+border: 1px solid #FF9138;
+/* down */
+color: #FF9138;
+filter: drop-shadow(0px 0px 6px #E7E9F2);
+border-radius: 8px;
+margin-right: 1.5rem;
+
+}
+.from-forgetpw-backgroup img{
+width: 44.4375rem;
+height: 35rem;
+margin-left: 2.6875rem;
+margin-top: 9.5625rem;
+}
+.from-forgetpw a{
+    text-decoration: none;
+}
+.from-forgetpw a:last-child button{
+
+    color: #FFFFFF;
+}

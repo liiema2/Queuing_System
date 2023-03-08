@@ -1,0 +1,356 @@
+.informtion_page{
+    position: absolute;
+    top:104px;
+    left: 224px;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+/* font-size: 24px;
+line-height: 36px;
+color: #FF7506; */
+
+
+}
+.informtion_page--Orange{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height, or 150% */
+margin-bottom: 24px;
+
+    /* Orange/$-Orange-500 */
+
+    color: #FF7506;
+}
+
+.informtion_page div{
+ text-align: left;
+
+}
+.informtion_page_connter{
+    width: 1112px;
+    margin-left: 14px;
+}
+.form-select{
+    width: 300px;
+}
+.container {
+    padding-left: 0px;
+
+    /* height: 556px; */
+}
+.nvarContent-information div >a{
+    text-decoration: none;
+    color: #7E7D88;
+}
+.col >div{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #282739;
+    margin-top: 1rem;
+}
+.form-select {
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+border: 1px solid #D4D4D7;
+/* Gray/$-gray-400 Text */
+border-radius: 8px;
+padding: 10px 12px;
+color: #535261;
+margin-top: 4px;
+}
+.form-select{
+
+    -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background-image: url("/assets/images/icons/search/fi_chevron-down (1).png");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  /* Thêm padding để tránh bị che khuất bởi hình ảnh */
+  padding-right: 40px;
+}
+.form-select1{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("/assets/images/icons/search/fi_search.png");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    /* Thêm padding để tránh bị che khuất bởi hình ảnh */
+    padding-right: 40px;
+}
+
+.formLast{
+    -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background-image: url("/assets/images/icons/search/fi_search.png");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  /* Thêm padding để tránh bị che khuất bởi hình ảnh */
+  padding-right: 40px;
+}
+.button_add {
+    position: absolute;
+    top:230px;
+    right: 0;
+    width: 80px;
+    height: 94px;
+    background-color: #FFF2E7;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+text-align: center;
+padding: 10px;
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+.button_add_img{
+    margin: 0 auto;
+}
+.button_add >a{
+    display: block;
+   margin: 10px auto 0 auto;;
+}
+.col_2{
+    /* width: 100px;
+     */
+     margin-right: 100px;
+}
+.td_comtus {
+    text-align: left;
+
+}
+.td_comtus >img{
+
+    margin-bottom: 3px;
+}
+.td_list {
+    display: block;
+    text-align: left;
+    padding-left: 10px!important;
+    /* width: 212px; */
+    position: relative;
+    height: 49px;
+}
+.td_list a{
+    /* margin-left: 10px; */
+    /* text-decoration: unset; */
+
+
+}
+.service_link{
+    display: block;
+    margin: 0;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+
+/* Gray/$-gray-400 Text */
+
+color: #535261;
+text-decoration: none;
+}
+.information_service{
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: #FFF;
+    border: 1px solid #FFC89B;
+    padding: 5px 5px;
+    width: 360px;
+    margin: 0;
+}
+td >a{
+    text-decoration: underline;
+
+}
+/* /////////////////////////////////////////// */
+table.blueTable {
+    border: 0px solid #FFFFFF;
+    background-color: #FFFFFF;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+margin-top: 16px;
+width: 1112px;
+text-align: center;
+  }
+  table.blueTable td, table.blueTable th {
+    border: 1px solid #FFF2E7;
+    padding: 3px 2px;
+  }
+  table.blueTable tbody td {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+
+
+
+    /* Gray/$-gray-400 Text */
+
+    color: #535261;
+
+  }
+  table.blueTable tr:nth-child(even) {
+    background: #FFF2E7;
+  }
+  table.blueTable thead {
+    background: #FF9138;
+    background: -moz-linear-gradient(top, #ffac6a 0%, #ff9c4c 66%, #FF9138 100%);
+    background: -webkit-linear-gradient(top, #ffac6a 0%, #ff9c4c 66%, #FF9138 100%);
+    background: linear-gradient(to bottom, #ffac6a 0%, #ff9c4c 66%, #FF9138 100%);
+  }
+  table.blueTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-left: 2px solid #D0E4F5;
+    background-color: #FF9138;;
+  }
+  table.blueTable thead th:first-child {
+    border-left: none;
+  }
+
+  table.blueTable tfoot {
+    font-size: 14px;
+    font-weight: normal;
+
+  }
+  table.blueTable tfoot td {
+    font-size: 14px;
+    background-color: #F6F6F6;
+  }
+  table.blueTable tfoot .links {
+    text-align: right;
+  }
+  table.blueTable tfoot .links a{
+    display: inline-block;
+    background: #F6F6F6;
+    color: #A9A9B0;
+    padding: 2px 8px;
+    border-radius: 5px;
+    margin-top: 22px;
+  }
+  .blueTable tr th:first-child{
+    /* border-top-right-radius: 12px; */
+    border-top-left-radius: 12px;
+  }
+  .blueTable tr th:last-child{
+    border-top-right-radius: 12px;
+    /* border-top-left-radius: 12px; */
+  }
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
+.bell_backgroud{
+
+    background-color:   #FFF2E7;
+    border-radius: 32px;
+    width: 40px;
+    height: 40px;
+margin-right: 24px;
+}
+.bell_backgroud img{
+
+    padding: 10px;
+    margin:0;
+    /* width: 20px;
+    height: 20px; */
+
+}
+.nvarContent_right-xc div:first-child{
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+
+    /* identical to box height, or 150% */
+
+
+    /* Gray/$-gray-300 */
+
+    color: #7E7D88;
+
+}
+.nvarContent_right-xc div a{
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+
+    /* Gray/$-gray-400 Text */
+
+    color: #535261;
+    text-decoration: none;
+}
+.nvarContent-information{
+
+    display: flex;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+
+
+/* gray blue/gray 4 - place holder */
+
+color: #7E7D88;
+}
+.nvarContent-information img{
+
+    width: 5px;
+    height: 8.75px;
+    margin-left: 7.4px;
+    margin-right: 7.4px;
+    margin-top: 9px;
+}
+.imgas_user{
+    margin-right: 8px !important;
+}
+.nvarContent_right-xc div{
+    text-decoration: none;
+}
+.nvarContent_right-xc {
+    margin-top: 0px!important;
+}
+
+.nvarContent_right >div{
+display: flex;
+justify-content: center;
+margin-top: 24px;
+}
+.nvarContent-information div:last-child{
+    color: #FF7506;
+}

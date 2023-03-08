@@ -1,0 +1,117 @@
+.informtion_page_connter{
+    background-color: #FFF;
+    border-radius: 16px;
+}
+.informtion_page_connter >div{
+    margin-left: 24px;
+}
+
+
+.informtion_page_connter_first{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+padding-top: 16px;
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+.col-md-5 label {
+
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+margin-top: 16px;
+
+/* Gray/$-gray-500 */
+
+color: #282739;
+}
+.col-md-10 label{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    margin-top: 16px;
+    /* Gray/$-gray-500 */
+
+    color: #282739;
+}
+.col-md-5{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    margin-top: 16px;
+    /* Gray/$-gray-500 */
+
+    color: #282739;
+}
+/* //////////////////////////////////////////////////////////////////////////// 2 buton huy tiếp tục dưới */
+.button_2_add_cancel{
+    position: absolute;
+    top:730px;
+    left: 370px;
+    width: 80px;
+    height: 94px;
+}
+.col-md-6_cancel{
+    background-color: #FFF2E7
+    ;
+    color: #FF9138;
+    width: 147px;
+    padding: 10px 24px;
+    text-align: center!important;
+
+background: #FFF2E7;
+border: 1.5px solid #FF9138;
+/* down */
+
+box-shadow: 0px 0px 6px #E7E9F2;
+border-radius: 8px;
+}
+.col-md-6_cancel a{
+
+    color: #FF9138;
+}
+.row_2{
+    display: flex;
+    justify-content: space-between;
+    width: 362px;
+}
+ .col-md-6_continew{
+    width: 147px;
+    background-color: #FF9138;
+
+    color : #FFF2E7;
+    padding: 10px 24px;
+margin-right: 32px;
+
+/* Orange/$-Orange-400 */
+
+background: #FF9138;
+/* down */
+
+box-shadow: 0px 0px 6px #E7E9F2;
+border-radius: 8px;
+}
+ .col-md-6_continew a{
+
+
+    color : #FFF2E7;
+}
+/* //////////////////////////////////////////////////////////// */
+

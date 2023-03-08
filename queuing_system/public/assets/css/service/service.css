@@ -1,0 +1,37 @@
+.informtion_page{
+    position: absolute;
+    top:104px;
+    left: 224px;
+    font-family: 'Nunito';}
+
+
+.form-check-label  {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    color: #282739;
+}
+.form-check input{
+
+}
+.form-check{
+padding: 10px;
+box-sizing: border-box;
+/* height: 6px; */
+
+}
+.input3{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+
+/* Gray/$-gray-500 */
+
+color: #282739;
+}

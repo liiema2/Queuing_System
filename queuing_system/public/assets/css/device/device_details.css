@@ -1,0 +1,193 @@
+.informtion_page_connter{
+    background-color: #FFF;
+    border-radius: 16px;
+    padding-top: 16px;
+    height: 604px;
+}
+.informtion_page_connter >div{
+    margin-left: 24px;
+}
+.informtion_page div{
+    text-align: left;
+
+   }
+   .informtion_page{
+    position: absolute;
+    top:104px;
+    left: 224px;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+color: #FF7506;
+
+
+}
+.container {
+    padding-left: 0px;
+}
+.informtion_page_connter_first{
+    padding-bottom: 8px;
+}
+/* ///////////////////////////////////////////////////////////// */
+
+.details{
+display: flex;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* display: flex; */
+align-items: center;
+margin-top: 16px;
+color: #282739;
+
+}
+.details >div:first-child{
+    color: #282739;
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 24px ;
+}
+.details >div:last-child{
+    color: #535261;
+    font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+}
+.col-md-7 {
+    display: block;
+}
+/* /////////////////////////////////////////////////////////////////////////// */
+.button_add {
+    position: absolute;
+    top:230px;
+    right: 0;
+    width: 80px;
+    height: 94px;
+    background-color: #FFF2E7;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+text-align: center;
+padding: 10px;
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+/* //////////////////////////////////////////////////////////////////// menu */
+
+.nvarContent-information{
+
+    display: flex;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+
+
+/* gray blue/gray 4 - place holder */
+
+color: #7E7D88;
+}
+.nvarContent-information a{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+
+
+/* gray blue/gray 4 - place holder */
+text-decoration: none;
+color: #7E7D88;
+}
+.nvarContent-information img{
+
+    width: 5px;
+    height: 8.75px;
+    margin-left: 7.4px;
+    margin-right: 7.4px;
+    margin-top: 9px;
+}
+.nvarContent_right-xc div:first-child{
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+
+    /* identical to box height, or 150% */
+
+
+    /* Gray/$-gray-300 */
+
+    color: #7E7D88;
+
+}
+.nvarContent_right-xc div a{
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+
+    /* Gray/$-gray-400 Text */
+
+    color: #535261;
+    text-decoration: none;
+}
+.nvarContent-information{
+
+    display: flex;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+
+
+/* gray blue/gray 4 - place holder */
+
+color: #7E7D88;
+}
+.nvarContent-information img{
+
+    width: 5px;
+    height: 8.75px;
+    margin-left: 7.4px;
+    margin-right: 7.4px;
+    margin-top: 9px;
+}
+.imgas_user{
+    margin-right: 8px !important;
+}
+.nvarContent_right-xc div{
+    text-decoration: none;
+}
+.nvarContent_right-xc {
+    margin-top: 0px!important;
+}
+
+.nvarContent_right >div{
+display: flex;
+justify-content: center;
+margin-top: 24px;
+}
+.nvarContent-information div:last-child{
+    color: #FF7506;
+}

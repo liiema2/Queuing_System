@@ -1,0 +1,21 @@
+.form-a-forgot-passwd{
+    display: flex!important;
+  align-items: center;
+    /* text-align: left;; */
+    justify-content: flex-start;
+}
+.form-a-forgot-passwd img{
+
+
+    margin: 0px 5px 0px 0px;
+}
+.form-a-forgot-passwd1{
+    /* text-align: center!important; */
+    text-align: center;
+    margin-top: 8px;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+}

@@ -1,0 +1,58 @@
+body{
+
+background-color: #B1B1B1;
+margin: 0 auto;
+}
+#main{
+
+width: 12.5rem;
+background-color:#fff;
+// top-left-radius:16px;
+border-top-left-radius: 16px;
+border-bottom-left-radius: 16px;
+text-align:center;
+}
+.menubar{
+    height: 100vh;
+}
+.menubar_logo img{
+
+    width: 5rem;
+    height: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 3.375rem;
+}
+.menu-bar_list {
+
+    font-family: Nunito;
+    font-style: SemiBold;
+    font-size: 16px;
+    line-height: 24px;
+    line-height: 110%;
+    align: Left;
+    vertical-align: Top;
+
+
+}
+.menu-bar_list a{
+
+    text-align: left;
+    text-decoration: none;
+    color: #7E7D88;
+    display: inline-block;
+    width: 11rem;
+    height: 3rem;
+
+
+
+}
+.menu-bar_list a div{
+
+    display: flex;
+    margin-left:0.75rem;
+    margin-bottom: 0.375rem;
+}
+.menu-bar_list a div div{
+
+    margin: 3px 0;
+}

@@ -1,0 +1,18 @@
+.service_details {
+    display: flex;
+}
+.service_details_left{
+
+    background-color: #FFF;
+    border-radius: 12px;
+    width: 370px;
+height: 606px;
+}
+.service_details_right{
+
+    background-color: #FFF;
+    border-radius: 12px;
+    width: 718px;
+height: 606px;
+margin-left: 24px;
+}

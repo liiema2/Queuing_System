@@ -1,0 +1,113 @@
+
+@use "font.scss" as font;
+@use "src/style_login.scss";
+*{
+    margin: 0 auto;
+    font-size: 16px;
+    box-sizing:border-box;
+}
+
+.login{
+
+    @extend %design-page__logins;
+
+}
+.login-left{
+    @extend %design-page__logins-left;
+    background-color: font.$page-design__main-color-2;
+}
+.login-left-logo{
+    @extend %design-page__logins-left-logo;
+}
+.login-left-from
+{
+    @extend %design-page__logins-from;
+}
+.login-left-from-login input,label {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+
+}
+.login-left-from-login label {
+   color: font.$font-color;
+}
+.form-input-name {
+@extend %design-page__logins-from__label1_1;
+ }
+.form-input-pw{
+    @extend %design-page__logins-from__label1_2;
+ }
+.login-left-from-login input{
+   color: font.$font-color;
+
+ @extend  %design-page__logins-from__input;
+}
+.login-left-from-login  a{
+
+   @extend %design-page__logins-from_a;
+   color:#E73F3F ;
+}
+.submit_login {
+  @extend  %design-page__logins-from_submit;
+}
+.login-right img{
+    width: 37.8125;
+    height: 38.37875rem;
+    margin-top: 7.05875rem;
+    margin-left: 4.75rem;
+}
+.login-right{
+
+margin:0 0;
+position: relative;
+width:53rem ;
+}
+.login-right_meu-connter{
+    position: absolute;
+
+    left: 28.375rem;
+    top:25.4375rem;
+    width:22.5625rem;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+}
+.login-right_connter{
+
+    font-family: font.$font-family;
+    color:font.$page-design__main-color-1;
+    @extend %design-page__left-conter;
+}
+.login-right_connter_system{
+
+    @extend %design-page__left-conter;
+        font-size:2.25rem ;
+        color: font.$page-design__main-color-1;
+        font-style: normal;
+        font-weight: 900;
+}
+.password_position{
+    position: relative;
+}
+.password_position button{
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 1.041875rem;
+    height: 1.041875rem;
+background-color: #FFF;
+    border: none ;
+    padding: 3px;
+
+
+}
+.password_position img{
+    position: absolute;
+    top: 0px;
+    right:0px;
+    width: 1.041875rem;
+    height: 1.041875rem;
+
+}
