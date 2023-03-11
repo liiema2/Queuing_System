@@ -3,13 +3,14 @@
     border-radius: 16px;
     padding-top: 16px;
     height: 604px;
+    width: 1112px!important;
 }
 .informtion_page_connter >div{
     margin-left: 24px;
 }
 .informtion_page div{
     text-align: left;
-
+    width: 810px;
    }
    .informtion_page{
     position: absolute;
@@ -39,9 +40,9 @@ font-style: normal;
 font-weight: 600;
 font-size: 16px;
 line-height: 24px;
-/* identical to box height, or 150% */
+justify-content: space-between;
+width: 150px!important;
 
-/* display: flex; */
 align-items: center;
 margin-top: 16px;
 color: #282739;
@@ -80,6 +81,10 @@ padding: 10px;
 /* Orange/$-Orange-500 */
 
 color: #FF7506;
+}
+.button_add a{
+    margin: 0 auto;
+    display: block;
 }
 /* //////////////////////////////////////////////////////////////////// menu */
 

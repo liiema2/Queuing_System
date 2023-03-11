@@ -1,6 +1,7 @@
 .informtion_page_connter{
     background-color: #FFF;
     border-radius: 16px;
+    height: 550px;
 }
 .informtion_page_connter >div{
     margin-left: 24px;
@@ -60,6 +61,20 @@ color: #282739;
 
     color: #282739;
 }
+.col-md-5-design{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+
+
+/* Gray/$-gray-300 */
+
+color: #7E7D88;
+}
 /* //////////////////////////////////////////////////////////////////////////// 2 buton huy tiếp tục dưới */
 .button_2_add_cancel{
     position: absolute;
@@ -73,7 +88,7 @@ color: #282739;
     ;
     color: #FF9138;
     width: 147px;
-    padding: 10px 24px;
+    padding: 15px 24px;
     text-align: center!important;
 
 background: #FFF2E7;
@@ -90,12 +105,12 @@ border-radius: 8px;
 .row_2{
     display: flex;
     justify-content: space-between;
-    width: 362px;
+    width: 400px;
 }
  .col-md-6_continew{
-    width: 147px;
+    width: 168px!important;
     background-color: #FF9138;
-
+    width: 148px;
     color : #FFF2E7;
     padding: 10px 24px;
 margin-right: 32px;
@@ -113,5 +128,18 @@ border-radius: 8px;
 
     color : #FFF2E7;
 }
+.col-md-6_continew button{
+
+    color: #FFF2E7;
+    background-color: #FF9138;
+    border: none !important;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+/* width: 148px; */
+}
 /* //////////////////////////////////////////////////////////// */
+
 

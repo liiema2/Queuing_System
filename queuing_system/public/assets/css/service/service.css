@@ -12,6 +12,26 @@
     font-size: 16px;
     line-height: 16px;
     color: #282739;
+    display: flex;
+    align-items: center;
+}
+.form-check-label >div {
+    display: flex;
+    align-items: center;
+
+}
+.form-check-input{
+margin-top: 0px;
+}
+
+.check3{
+
+    display: flex;
+    margin-left: 15px;
+    border: 1px solid #D4D4D7;
+  padding: 10px; border-radius: 8px;
+  align-items: center;
+  margin-right: 12px;
 }
 .form-check input{
 
@@ -20,6 +40,10 @@
 padding: 10px;
 box-sizing: border-box;
 /* height: 6px; */
+display: flex;
+/* justify-content: center; */
+
+align-items: center;
 
 }
 .input3{
@@ -34,4 +58,8 @@ line-height: 24px;
 /* Gray/$-gray-500 */
 
 color: #282739;
+}
+.check_for{
+    border: #FFF;
+
 }

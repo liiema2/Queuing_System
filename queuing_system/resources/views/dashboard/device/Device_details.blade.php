@@ -71,7 +71,7 @@
           <div class="col-md-5 details">
 
             <div>
-             Loại thiết bị
+             Loại thiết bị:
 
              </div>
              <div>
@@ -82,7 +82,7 @@
           <div class="col-md-5 details">
 
             <div>
-               Tên thiết bị
+               Tên thiết bị:
 
              </div>
              <div>
@@ -93,7 +93,7 @@
           <div class="col-md-5 details">
 
             <div>
-                Tên Đăng nhập
+                Tên Đăng nhập:
 
              </div>
              <div>
@@ -105,7 +105,7 @@
 
             <div>
 
-Dịa chỉ IP
+Dịa chỉ IP:
              </div>
              <div>
                 {{ $device->ip_address}}
@@ -115,11 +115,11 @@ Dịa chỉ IP
           <div class="col-md-5 details">
 
             <div>
-                {{ $device->password}}
+                Mật khẩu:
 
              </div>
              <div>
-                kiosk
+                {{ $device->password}}
              </div>
 
           </div>
@@ -143,7 +143,7 @@ Dịa chỉ IP
 <a href="{{route('update_devices',['id' => $device->id])}}">
     <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
 </a>
-Thêm vai trò
+Cập nhật thiết bị
 </div>
 @endsection
 

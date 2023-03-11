@@ -57,9 +57,11 @@
 <div class="informtion_page_connter">
 
     <div class="container">
-        <div class="row">
-            <div class="container">
-                <div class="row">
+        {{-- {{ route('devices.index', [$status, $connection, $keyword]) }} --}}
+        <form action="{{ route('devices.index') }}" method="get">
+                 <div class="row">
+
+
                     <div class="col-sm-6 col-md-4 mb-3">
                         <div>Trạng thái hoạt động</div>
                         <select class="form-select filter-status">
@@ -81,10 +83,34 @@
                         <input type="text" class="form-select1  form-select filter-keyword">
                     </div>
                 </div>
+            </form>
             </div>
 
-      <div>
+        <div>
 
+            {{-- <div class="form-group">
+                <label for="status">Status:</label>
+                <select name="status" id="status" class="form-control">
+                    <option value="">All</option>
+                    <option value="1" {{ $status ?? '' == 1 ? 'selected' : '' }}>Connected</option>
+                    <option value="0" {{ $status ?? '' === '0' ? 'selected' : '' }}>Not connected</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="connection">Connection:</label>
+                <select name="connection" id="connection" class="form-control">
+                    <option value="">All</option>
+                    <option value="1" {{ $connection == 1 ? 'selected' : '' }}>Connected</option>
+                    <option value="0" {{ $connection === '0' ? 'selected' : '' }}>Not connected</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="keyword">Keyword:</label>
+                <input type="text" name="keyword" id="keyword" class="form-control" value="{{ $keyword }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Filter</button> --}}
+      </form>
 
         <table class="blueTable">
             <thead>
@@ -106,7 +132,7 @@
             </td>
             </tr>
             </tfoot>
-            <tbody>
+            <tbody >
 
 
            @foreach ($devices as $device)
@@ -130,11 +156,41 @@
           <td class="td_list">
             <a href="#" class="service_link">{{ $device->service }}</a>
 
-  <a class="more_list" href="#">Xem thêm</a>
+  {{-- <a class="more_list" href="#">Xem thêm</a>
+  <div class="information_service" style="display: none;">
+    Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát
+
+  </div> --}}
+  {{-- <td class="td_list">
+    <a href="#" class="service_link">
+        @php
+            $services = json_decode($device->service, true);
+            if ($services) {
+                echo implode(', ', $services);
+            } else {
+                echo $device->service;
+            }
+        @endphp
+    </a> --}}
+
+    {{-- <a class="more_list" href="#">Xem thêm</a>
+    <div class="information_service" style="display: none;">
+        @if ($services)
+            @foreach ($services as $service)
+                {{ $service }}<br>
+            @endforeach
+        @else
+            {{ $device->service }}
+        @endif
+    </div> --}}
+    <a class="more_list" href="#">Xem thêm</a>
   <div class="information_service" style="display: none;">
     Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát
 
   </div>
+    </div>
+</td>
+
             </td>
 
           {{-- <td class="td_list">
@@ -169,7 +225,7 @@
 @section('foter_end')
 
 <div class="button_add">
-    <a href="">
+    <a href="{{ route('update_devices', ['id' => $device->id]) }}">
         <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
     </a>
     Thêm vai trò
@@ -180,39 +236,7 @@
 @section('scripts')
 <script>
 
-/// Lấy danh sách các liên kết "xem thêm", phần tử "service_link" và phần tử "information_service"
-// const moreLinks = document.querySelectorAll('.more_list');
-// const infoServices = document.querySelectorAll('.information_service');
-// const Services = document.querySelectorAll('.service_link');
 
-// // Xử lý sự kiện cho từng liên kết "xem thêm"
-// moreLinks.forEach(function(moreLink, index) {
-//   const serviceLink = moreLink.previousElementSibling; // Phần tử "service_link" tương ứng
-//   const infoService = infoServices[index]; // Phần tử "information_service" tương ứng
-
-//   // Xử lý sự kiện khi người dùng bấm vào liên kết "xem thêm"
-//   moreLink.addEventListener('click', function(event) {
-//     event.preventDefault(); // Ngăn chặn hành động mặc định khi bấm vào liên kết
-
-//     // Ẩn phần tử "service_link" và "more_list"
-//     serviceLink.style.display = 'none';
-//     moreLink.style.display = 'none';
-//     // Services.style.display = 'none';
-//     // Hiển thị phần tử "information_service"
-//     infoService.style.display = 'block';
-//   });
-
-//   // Xử lý sự kiện khi người dùng bấm vào phần tử "information_service"
-//   infoService.addEventListener('click', function() {
-//     // Ẩn phần tử "information_service"
-//     infoService.style.display = 'none';
-
-//     // Hiển thị phần tử "service_link" và "more_list"
-//     serviceLink.style.display = 'block';
-//     moreLink.style.display = 'block';
-//     // Services.style.display = 'block';
-//   });
-// });
 
 
 const moreLinks = document.querySelectorAll('.more_list');
@@ -253,32 +277,202 @@ moreLinks.forEach(function(moreLink, index) {
   });
 });
 
-
-
-    $(document).ready(function() {
-    $('#user-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: {
-            url: '/users',
-            data: function (d) {
-                d['filter-status'] = $('.filter-status').val();
-                d['filter-connection'] = $('.filter-connection').val();
-                d['filter-keyword'] = $('.filter-keyword').val();
-            }
-        },
-        columns: [
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-            {data: 'status', name: 'status'},
-            {data: 'connection', name: 'connection'}
-        ]
-    });
-});
+//////////////////////////////////////////////////////////////////////////////////
 
 
 
 
+// $(document).ready(function() {
+//   // Thực hiện khi chọn tùy chọn
+//   $('.form-select').change(function() {
+//     searchDevices();
+//   });
+
+//   // Thực hiện khi nhập từ khóa
+//   $('.filter-keyword').on('input', function() {
+//     searchDevices();
+//   });
+
+//   // Gửi yêu cầu tìm kiếm và cập nhật dữ liệu trong trang web
+//   function searchDevices() {
+//     var status = $('.filter-status').val();
+//     var connection = $('.filter-connection select').val();
+//     var keyword = $('.filter-keyword').val();
+
+//     $.ajax({
+//   url: '{{ route('devices.index') }}',
+//   type: 'get',
+//   data: {
+//     status: status,
+//     connection: connection,
+//     keyword: keyword
+//   },
+//   success: function(response) {
+//     $('.devices-container').html(response);
+//   },
+//   error: function(jqXHR, textStatus, errorThrown) {
+//     console.log(textStatus, errorThrown);
+//   }
+// });
+//   }
+// });
+// $(document).ready(function() {
+//   // Thực hiện khi chọn tùy chọn
+//   $('.form-select').change(function() {
+//     searchDevices();
+//   });
+
+//   // Thực hiện khi nhập từ khóa
+//   $('.filter-keyword').on('input', function() {
+//     searchDevices();
+//   });
+
+//   // Gửi yêu cầu tìm kiếm và cập nhật dữ liệu trong trang web
+//   function searchDevices() {
+//     var status = $('.filter-status').val();
+//     var connection = $('.filter-connection select').val();
+//     var keyword = $('.filter-keyword').val();
+
+//     $.ajax({
+//       url: '{{ route('devices.index') }}',
+//       type: 'get',
+//       data: {
+//         status: status,
+//         connection: connection,
+//         keyword: keyword
+//       },
+//       success: function(response) {
+//         $('.devices-container').html(response);
+//       },
+//       error: function(jqXHR, textStatus, errorThrown) {
+//         console.log(textStatus, errorThrown);
+//       }
+//     });
+//   }
+// });
+///////////////////////////////////////////
+$('.form-select').change(function() {
+    searchDevices();
+  });
+
+  // Thực hiện khi nhập từ khóa
+  $('.filter-keyword').on('input', function() {
+    searchDevices();
+  });
+
+//   // Gửi yêu cầu tìm kiếm và cập nhật dữ liệu trong trang web
+//   function searchDevices() {
+//     var status = $('.filter-status').val();
+//     var connection = $('.filter-connection select').val();
+//     var keyword = $('.filter-keyword').val();
+
+//     fetch('{{ route('devices.index') }}?status=' + status + '&connection=' + connection + '&keyword=' + keyword)
+//   .then(response => response.json())
+//   .then(data => {
+//     let devices = data.devices;
+//     let newHTML = '';
+
+//     if (devices && devices.length) {
+//       devices.forEach(device => {
+//         newHTML += `
+//           <tr>
+//             <td>${device.code}</td>
+//             <td>${device.nameDevice}</td>
+//             <td>${device.ip_address}</td>
+//             <td class="td_comtus">
+//               <img src="${device.status == 1 ? '/assets/images/icons/status/Ellipse 1 (3).png' : '/assets/images/icons/status/Ellipse 1 (2).png'}" alt="">
+//               ${device.status == 1 ? 'Kết nối' : 'Không kết nối'}
+//             </td>
+//             <td class="td_comtus">
+//               <img src="${device.connection == 1 ? '/assets/images/icons/status/Ellipse 1 (3).png' : '/assets/images/icons/status/Ellipse 1 (2).png'}" alt="">
+//               ${device.connection == 1 ? 'Kết nối' : 'Không kết nối'}
+//             </td>
+//             <td class="td_list">
+//               <a href="#" class="service_link">${device.service}</a>
+//               <a class="more_list" href="#">Xem thêm</a>
+//               <div class="information_service" style="display: none;">
+//                 ${device.service_info}
+//               </div>
+//             </td>
+//             <td>
+//               <a href="${device.details_url}">Chi tiết</a>
+//             </td>
+//             <td>
+//               <a href="${device.update_url}">Cập nhật</a>
+//             </td>
+//           </tr>
+//         `;
+//       });
+//     } else {
+//       newHTML = '<tr><td colspan="8">No devices found.</td></tr>';
+//     }
+
+//     $('.device').html(newHTML);
+//   })
+//   .catch(error => console.error(error));
+
+
+//   }
+
+
+  function updateTableData(status, connection, keyword) {
+  $.ajax({
+    type: 'GET',
+    url: '{{ route('devices.index') }}',
+    data: {
+      status: status,
+      connection: connection,
+      keyword: keyword,
+    },
+    success: function(data) {
+      var devices = data.devices;
+      var html = '';
+      if (devices && devices.length > 0) {
+        devices.forEach(function(device) {
+          html += '<tr>';
+          html += '<td>' + device.code + '</td>';
+          html += '<td>' + device.nameDevice + '</td>';
+          html += '<td>' + device.ip_address + '</td>';
+          html += '<td class="td_comtus">';
+          if (device.status == 1) {
+            html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt=""> Kết nối';
+          } else {
+            html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối';
+          }
+          html += '</td>';
+          html += '<td class="td_comtus">';
+          if (device.connection == 1) {
+            html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt=""> Kết nối';
+          } else {
+            html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối';
+          }
+          html += '</td>';
+          html += '<td class="td_list">';
+          html += '<a href="#" class="service_link">' + device.service + '</a>';
+          html += '<a class="more_list" href="#">Xem thêm</a>';
+          html += '<div class="information_service" style="display: none;">' + device.service_detail + '</div>';
+          html += '</td>';
+          html += '<td><a href="{{ route('details', ['id' => $device->id]) }}">Chi tiết</a></td>';
+        html += '<td><a href="{{ route('update_devices', ['id' => $device->id]) }}">Cập nhật</a></td>';
+
+          html += '</tr>';
+        });
+      } else {
+        html += '<tr><td colspan="8">Không tìm thấy kết quả</td></tr>';
+      }
+      $('tbody').html(html);
+    },
+    error: function() {
+      alert('Đã xảy ra lỗi!');
+    }
+  });
+}
+function searchDevices() {
+  var status = $('.filter-status').val();
+  var connection = $('.filter-connection select').val();
+  var keyword = $('.filter-keyword').val();
+  updateTableData(status, connection, keyword);
+}
 
 </script>
 @endsection

@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="nvarContent">
-    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div> <a href="{{route('device')}}">Danh sách dịch vụ</a> </div> <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""><div>Thêm dịch vụ</div> </div>
+    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div> <a href="{{route('service')}}">Danh  sách dịch vụ </a> </div> <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""><div>Thêm dịch vụ</div> </div>
     <div class="nvarContent_right">
         <div>
             <div class="bell_backgroud">
@@ -51,7 +51,7 @@
 
 <div class="informtion_page">
 
-<div>Danh sách thiết bị</div>
+    <div class="informtion_page--Orange">Quản lý dịch vụ</div>
 
 <div class="informtion_page_connter">
 
@@ -65,11 +65,11 @@
                 <div class="col-md-6">
                   <div class="row" style="height: 100%">
                     <div class="col-md-12">
-                      <label for="input1" class="input3">Nhãn input 1</label>
+                      <label for="input1" class="input3"> Mã dịch vụ</label>
                       <input type="text" id="input1" class="form-control">
                     </div>
                     <div class="col-md-12">
-                      <label for="input2" class="input3">Nhãn input 2</label>
+                      <label for="input2" class="input3">Tên dịch vụ </label>
                       <input type="text" id="input2" class="form-control">
                     </div>
                   </div>
@@ -77,8 +77,8 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-12">
-                      <label for="input3" class="input3">Nhãn input 3</label>
-                      <textarea id="input3" class="form-control" style="height: 112px;"></textarea>
+                      <label for="input3" class="input3">Mô tả</label>
+                      <textarea id="input3" class="form-control" style="height: 112px;"> </textarea>
                     </div>
                   </div>
                 </div>
@@ -89,19 +89,19 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="check1">
                 <label class="form-check-label" for="check1">
-                  Tăng tự động từ
+                  Tăng tự động từ  <div>  <div class="check3">001</div> <div class="check_for">đến</div><div class="check3">9999</div>  </div>
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="check2">
                 <label class="form-check-label" for="check2">
-                  Prefix
+                  Prefix <div div class="check3">0001</div>
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="check3">
                 <label class="form-check-label" for="check3">
-                  Surfix
+                  Surfix  <div class="check3">0001</div>
                 </label>
               </div>
               <div class="form-check">
@@ -137,7 +137,10 @@
 </div>
 
 </div>
+ <div>
 
+
+ </div>
 @endsection
 
 @section('scripts')

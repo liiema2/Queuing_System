@@ -65,12 +65,19 @@ class SessionsController extends Controller
                 ]);
             }
             $username = $request->input('username');
-            $user = User::where('username', $username)->first();
+            $password = $request->input('password');
+            session(['password' => $password]);
+            session(['username' => $username]);
+            $user = DB::table('accounts')->where('username', $username)->first();
+
+
             // Đăng nhập thành công, chuyển hướng đến trang chính.
             if ($user) {
-                $name = $user->name;
-                session(['username' => $name]);
+                session(['username' => $user->name]);
+
+
             }
+            // dd(session('username'));
             return redirect('/dashboard');
         } catch (ValidationException $e) {
             // Xác thực thông tin đăng nhập thất bại, chuyển hướng đến trang lỗi.

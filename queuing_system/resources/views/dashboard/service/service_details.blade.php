@@ -59,27 +59,97 @@
 
             <div class="service_details_left">
 
-<div>Thông tin dịch vụ</div>
-<div>Mã dịch vụ</div>
-<div>Tên dịch vụ</div>
-<div>Mô tả</div>
+<div class="service_details_left_conter">Thông tin dịch vụ</div>
+<div class="service_details_left_conter-small">Mã dịch vụ <div>a</div></div>
+<div class="service_details_left_conter-small">Tên dịch vụ <div>a</div> </div>
+<div class="service_details_left_conter-small">Mô tả <div>a</div></div>
 
-<div>Quy tắc cấp số</div>
-<div>Tăng tự động</div>
-<div>Prefix</div>
-<div>Reset theo ngày</div>
-<div>ví dụ: 201-2001</div>
+<div class="service_details_left_conter">Quy tắc cấp số</div>
+<div class="form-check">
+    {{-- <input class="form-check-input" type="checkbox" value="" id="check1"> --}}
+    <label class="form-check-label" for="check1">
+      Tăng tự động từ  <div>  <div class="check3">001</div> <div class="check_for">đến</div><div class="check3">9999</div>  </div>
+    </label>
+  </div>
+  <div class="form-check">
+    {{-- <input class="form-check-input" type="checkbox" value="" id="check2"> --}}
+    <label class="form-check-label" for="check2">
+      Prefix <div div class="check3">0001</div>
+    </label>
+  </div>
+  <div class="form-check">
+    {{-- <input class="form-check-input" type="checkbox" value="" id="check3"> --}}
+    <label class="form-check-label" for="check3">
+      Surfix  <div class="check3">0001</div>
+    </label>
+  </div>
+  <div class="form-check">
+    {{-- <input class="form-check-input" type="checkbox" value="" id="check4"> --}}
+    <label class="form-check-label" for="check4">
+     Retset theo ngày
+    </label>
+  </div>
 
             </div>
             <div class="service_details_right">
 
-                <div></div>
+                <div class="service_details_right_from">
 
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <label for="select1">Trạng thái:</label>
+                                <select class="form-control form-select" id="select1">
+                                  <option>Option 1</option>
+                                  <option>Option 2</option>
+                                  <option>Option 3</option>
+                                </select>
+                              </div>
+                          <div class="col">
+                            <label for="input2">Thời gian:</label>
+                            <input type="text" class="form-control" id="data1">
+                          </div>
+                          <div class="col">
+                            <label for="input3">Input 3:</label>
+                            <input type="text" class="form-control" id="data2">
+                          </div>
+                          <div class="col">
+                            <label for="input4">Từ khóa</label>
+                            <input type="text" class="form-control form-select1" id="input4">
+                          </div>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="blueTable">
+                            <thead>
+                            <tr>
+                            <th> Số thứ tự</th>
+                            <th> Trạng thái</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                            <td colspan="2">
+                            <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
+                            </td>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            <tr>
+                            <td>cell1_1</td><td>cell2_1</td></tr>
+                            <tr>
+                            <td>cell1_2</td><td>cell2_2</td></tr>
+                            <tr>
+                            <td>cell1_3</td><td>cell2_3</td></tr>
+                            </tbody>
+                            </tr>
+                            </table>
 
-                <div>
-
-
+                    </div>
                 </div>
+
+
+
             </div>
         </div>
 
@@ -88,6 +158,24 @@
 
 </div>
 
+@section('foter_end')
+
+<div class="button_add">
+    <div>
+        <a href="">
+            <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
+        </a>
+        Thêm vai trò
+        </div>
+
+        <a href="">
+            <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
+        </a>
+        Thêm vai trò
+        </div>
+    </div>
+
+@endsection
 @endsection
 
 @section('scripts')

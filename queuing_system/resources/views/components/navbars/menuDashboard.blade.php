@@ -34,7 +34,7 @@
 
 
 
-                <a href="" class="menuIconDashboard">
+                <a href="{{ route('service')}}" class="menuIconDashboard">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/Frame 332.png') }}"
                         alt="">
                     <div> Dịch vụ</div>

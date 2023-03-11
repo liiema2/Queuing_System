@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_store.css') }}">
+<link rel="stylesheet" href="{{ asset('../assets/css/device/update.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 
@@ -57,11 +58,13 @@
 
 <div>
     <div class="container">
-        <form action="{{route('update_check',['id' => $device->id])}}" method="POST" class="form_update">
+        {{-- action="{{route('update_check',['id' => $device->id])}}" --}}
+
+        <form action="{{route('update_device',['id' => $device->id])}}" method="POST" >
             @csrf
         <div class="row">
             <div class="col-md-5">
-              <label for="input1">Mã thiết bị : <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt=""> {{ $device->code }}</label>
+              <label for="input1">Mã thiết bị : <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt=""> </label>
               <input type="text" value="{{ $device->code }}" id="input1" name="code" class="form-control">
             </div>
             <div class="col-md-5">
@@ -91,17 +94,32 @@
 
             <div class="col-md-10 form-group">
               <label for="input7">Dịch vụ sử dụng: <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt=""></label>
-              <div id="input7" name="service" value="" class="form-control form-control-lg" rows="1" >
-                  {{ $device->service }}
-              </div>
-            </div>
+              @php
+              $services = explode(',', $device->service);
+          @endphp
+    <div class="update_devices_change-orange">
+          @foreach ($services as $service)
+
+            <select id="input1" class="form-control form-control-design-color-bg" name="service[]"rows="1">
+                <option value="">{{ trim($service) }}</option>
+                <option value="Khám răng hàm">Khám răng hàm</option>
+                <option value="Khám tai mũi họng" >Khám tai mũi họng</option>
+
+            </select>
+
+
+
+            {{-- parse_str(html_entity_decode($serviceStr), $services); --}}
+          @endforeach
+        </div>
             <div class="button_2_add_cancel">
                 <div class="row_2">
                     <div class="col-md-6_cancel">
                       <a href="{{route('device')}}">Hủy Bỏ</a>
                     </div>
                     <div class=" col-md-6_continew">
-                     <a href="" id="submit-form" type="sumbit" >Tiếp Tục</a>
+                        <button id="submit-form" type="submit" class="btn btn-primary">Thêm thiết bị</button>
+
                     </div>
                   </div>
                 </div>
@@ -111,7 +129,7 @@
 
         </div>
         <div class="row">
-            <div class="col-md-5"><img src="" alt=""> <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt="">là trường Thông tin bắt buột </div>
+            <div class="col-md-5 col-md-5-design"> <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt=""> Là trường Thông tin bắt buộc </div>
 
          </div>
       </div>
@@ -125,13 +143,13 @@
 
 @section('scripts')
 <script>
-    document.getElementById("submit-form").addEventListener("click", function(e) {
-      e.preventDefault(); // prevent default behavior of clicking on an <a> tag
+    // document.getElementById("submit-form").addEventListener("click", function(e) {
+    //   e.preventDefault(); // prevent default behavior of clicking on an <a> tag
 
-      // get the form element and submit it
-      var form = document.querySelector('.form_update');
-      form.submit();
-    });
+    //   // get the form element and submit it
+    //   var form = document.querySelector('.form_update');
+    //   form.submit();
+    // });
   </script>
 
 @endsection

@@ -1,3 +1,129 @@
+.form-check-label >div {
+    display: flex;
+    align-items: center;
+
+}
+.form-check-label  {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    color: #282739;
+    display: flex;
+    align-items: center;
+    margin-top: 22px;
+}
+.form-check-label >div {
+    display: flex;
+    align-items: center;
+
+}
+.form-check-input{
+margin-top: 0px;
+}
+.form-check{
+    padding: 0!important;
+    box-sizing: border-box;
+    /* height: 6px; */
+    display: flex;
+    /* justify-content: center; */
+
+    align-items: center;
+
+    }
+.check3{
+
+    display: flex;
+    margin-left: 15px;
+    border: 1px solid #D4D4D7;
+  padding: 10px; border-radius: 8px;
+  align-items: center;
+  margin-right: 12px;
+}
+.form-check input{
+
+}
+.form-check{
+padding: 10px;
+box-sizing: border-box;
+/* height: 6px; */
+display: flex;
+/* justify-content: center; */
+
+align-items: center;
+
+}
+.input3{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+
+/* Gray/$-gray-500 */
+
+color: #282739;
+}
+.check_for{
+    border: #FFF;
+
+}
+
+
+/* ////////////////////////////////////// */
+
+table.blueTable{
+width: 669px;
+}
+
+.form-select{
+padding: 0 0 0 10px!important;
+width: 160px;
+}
+
+/* ////////////////// */
+
+
+
+.service_details_right_from {
+    margin-top: 16px;
+    margin-left: 24px;
+}
+
+
+.service_details_left_conter{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+.service_details_left_conter-small{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+margin-top: 12px;
+display: flex;
+align-items: center;
+
+/* Gray/$-gray-500 */
+justify-content: space-between;
+color: #282739;
+width: 140px;
+}
+
 .service_details {
     display: flex;
 }
@@ -7,6 +133,8 @@
     border-radius: 12px;
     width: 370px;
 height: 606px;
+padding-left: 16px;
+padding-top: 16px;
 }
 .service_details_right{
 

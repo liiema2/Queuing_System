@@ -2,10 +2,6 @@
 @section('links')
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
 <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 
@@ -21,13 +17,13 @@
 
             </div>
 
-                <a class="user_infor" href="{{route('user')}}
+                <a class="user_infor" href="
                 "> <img class="imgas_user" src="{{ url('/assets/images/users/unsplash_Fyl8sMC2j2Q.png') }}"
                 alt="">
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="">Lê Quỳnh Ái Vân</a> </div>
             </div></a>
 
 
@@ -52,7 +48,7 @@
 
 <div class="informtion_page">
 
-<div class="informtion_page--Orange">Danh sách thiết bị</div>
+<div>Danh sách thiết bị</div>
 
 <div class="informtion_page_connter">
 
@@ -89,40 +85,18 @@
         </div>
       </div>
 
-        <div>
+      <div>
 
-            {{-- <div class="form-group">
-                <label for="status">Status:</label>
-                <select name="status" id="status" class="form-control">
-                    <option value="">All</option>
-                    <option value="1" {{ $status ?? '' == 1 ? 'selected' : '' }}>Connected</option>
-                    <option value="0" {{ $status ?? '' === '0' ? 'selected' : '' }}>Not connected</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="connection">Connection:</label>
-                <select name="connection" id="connection" class="form-control">
-                    <option value="">All</option>
-                    <option value="1" {{ $connection == 1 ? 'selected' : '' }}>Connected</option>
-                    <option value="0" {{ $connection === '0' ? 'selected' : '' }}>Not connected</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="keyword">Keyword:</label>
-                <input type="text" name="keyword" id="keyword" class="form-control" value="{{ $keyword }}">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Filter</button> --}}
-      </form>
 
         <table class="blueTable">
             <thead>
             <tr>
             <th>Mã thiết bị</th>
             <th>Tên thiết bị</th>
-            <th>Mô tả</th>
+            <th>Địa chỉ ip</th>
+            <th>Trạng thái hoạt động</th>
             <th>Trạng thái kết nối</th>
-
+            <th>Dịch vụ sử dụng</th>
             <th></th>
             <th></th>
             </tr>
@@ -134,34 +108,56 @@
             </td>
             </tr>
             </tfoot>
-            <tbody >
-
-                @foreach ($services as $services)
-                <tr>
-                <td>
-                 {{ $services->servicecode }} </td>
-               <td>  {{ $services->servicename }} </td>
-               <td>  {{ $services->description }} </td>
-               <td class="td_comtus">  @if ($services->status == 'active')
-               <img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt="">  Kết nối
-           @else
-           <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối
-           @endif </td>
+            <tbody>
 
 
+           {{-- @foreach ($devices as $device)
+           <tr>
+           <td>
+            {{ $device->code }} </td>
+          <td>  {{ $device->nameDevice }} </td>
+          <td>  {{ $device->ip_address }} </td>
+          <td class="td_comtus">  @if ($device->status == 1)
+          <img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt="">  Kết nối
+      @else
+      <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối
+      @endif </td>
+          <td class="td_comtus">
+            @if ($device->connection == 1)
+            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt="">    Kết nối
+            @else
+            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối
+            @endif
+          </td>
+          <td class="td_list">
+            <a href="#" class="service_link">{{ $device->service }}</a>
+            <br>
+            <a class="more_list" href="#" onclick="toggleService(this)" data-service="{{ $device->service }}">xem thêm</a>
+            <a href="#" style="display:none; text-decoration: none;" class="information_service" data-service="{{ $device->service }}">Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát </a>
+            </td> --}}
+
+          {{-- <td class="td_list">
+            {{ $device->service }}
+            <br>
+            <a class="more_list" href="#" onclick="toggleService()" id="service_link">xem thêm</a>
+            <a href="#" style="display:none; text-decoration: none;" class="information_service" id="service_info">Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát </a>
+        </td> --}}
+        {{-- <td class="td_list" id="service_td">
+            <span id="service_content">{{ $device->service }}</span>
+            <br>
+            <a class="more_list" href="#" onclick="toggleService()" id="service_link">xem thêm</a>
+            <a href="#" style="display:none; text-decoration: none;" class="information_service" id="service_info">Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát </a>
+        </td> --}}
+
+        {{-- <a href="{{ route('details', ['id' => $device->id]) }}" --}}
+            {{-- href="{{ route('details', ['id' => $device->id]) }}" --}}
+          {{-- <td>  <a >Chi tiết</a>
+          </td>
+          <td>  <a href="">Cập nhật</a> </td>
 
 
-
-
-             {{-- {{ route('details', ['id' => $device->id]) }} --}}
-
-               <td>  <a href="">Chi tiết</a>
-               </td>
-               <td>  <a href="">Cập nhật</a> </td>
-
-
-                     </tr>
-                @endforeach
+                </tr>
+           @endforeach --}}
             </tbody>
             </table>
       </div>
@@ -169,16 +165,12 @@
 </div>
 
 </div>
-@section('foter_end')
-
 <div class="button_add">
-    {{-- {{ route('update_devices', ['id' => $device->id]) }} --}}
-    <a href="{{ route('service_store') }}">
-        <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
-    </a>
-    Thêm vai trò
-    </div>
-@endsection
+<a href="">
+    <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
+</a>
+Thêm vai trò
+</div>
 @endsection
 
 @section('scripts')

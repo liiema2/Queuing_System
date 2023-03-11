@@ -54,7 +54,7 @@
                     <p>Tên đăng nhập:</p>
                 <div> <input type="text" value="{{ session('username') }}" ></div>
                     <p>Mật khẩu:</p>
-                <div> <input type="text" value="123456 ">  </div>
+                <div> <input type="text" value="{{ session('password') }}">  </div>
                     <p>Vai trò:</p>
                 <div> <input type="text" value="{{ session('role') }}"></div>
 

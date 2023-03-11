@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\Devices;
+use App\Http\Controllers\services;
 use App\Http\Controllers\RegisterColler;
 
 // Route::get('/', function () {
@@ -24,7 +25,7 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 Route::get('/new', function () {
-    return view('dashboard.service.service_details');
+    return view('dashboard.service.service');
 });
 Route::get('/a', function () {
     return view('dashboard.device.device');
@@ -63,17 +64,40 @@ Route::get('user', [Devices::class, 'show'])->middleware('auth')->name('user');
 
 // Route::get('device', [Devices::class, 'new'])->middleware('guest')->name('device');
 // Route::get('/device', [Devices::class, 'new'])->name('device');
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// Route::get('device', [Devices::class, 'new'])->middleware('auth')->name('device');
+
+
+// Route::get('/devices', [devices::class, 'index'])->middleware('auth')->name('devices.index');
+
+
+// Route::get('device/details/{id}', [devices::class, 'details'])->middleware('auth')->name('details');
+// Route::get('device/details/update/{id}', [devices::class, 'update'])->middleware('auth')->name('update_devices');
+// Route::get('update-check/{id}', [devices::class, 'updated_ed'])->middleware('auth')->name('update_check');
+
+
+
+
+
 Route::get('device', [Devices::class, 'new'])->middleware('auth')->name('device');
-// Route::get('/device', [Devices::class, 'new'])->middleware('guest')->name('a');
-// Route::get('device', [devices::class, 'index'])->middleware('guest')->name('device');
-Route::get('device/details/{id}', [devices::class, 'details'])->middleware('auth')->name('details');
-Route::get('device/details/update/{id}', [devices::class, 'update'])->middleware('auth')->name('update_devices');
+Route::get('/devices', [Devices::class, 'index'])->middleware('auth')->name('devices.index');
+Route::get('device/details/{id}', [Devices::class, 'details'])->middleware('auth')->name('details');
+Route::get('device/details/update/{id}', [Devices::class, 'update'])->middleware('auth')->name('update_devices');
+// Route::post('device/details/update/{id}', [devices::class, 'updated_ed'])->middleware('auth')->name('update_check');
+// Route::get('update-check/{id}', [Devices::class, 'updated_ed'])->middleware('auth')->name('update_check');
+Route::post('update-check/{id}', [Devices::class, 'updated'])->middleware('auth')->name('update_device');
 
-Route::post('/device/details/update/{id}', [devices::class, 'updated'])->name('update_check');
-// Route::post('reset-password', [SessionsController::class, 'update'])->middleware('guest')->name('password.update');
-// Route::post('/update/{id}', [devices::class, 'updated'])->middleware('guest')->name('update_check');
-// Route::get('verify', function () {
-//     return view('sessions.password.verify');
-// })->middleware('guest')->name('verify');
+///////////////////////////////////////////////////////////////////////////
 
 
+Route::get('service', [services::class, 'new'])->middleware('auth')->name('service');
+Route::get('service/store', [services::class, 'store'])->middleware('auth')->name('service_store');
+// Route::get('service', [services::class, 'new'])->middleware('auth')->name('service');
