@@ -78,7 +78,7 @@
                             <option value="0">Mất kết nối</option>
                         </select>
                     </div>
-                    <div class="col-sm-12 col-md-4 mb-3 filter-connection ">
+                    <div class="col-auto" style="margin-left: 50px;"  >
                         <div>Từ khóa</div>
                         <input type="text" class="form-select1  form-select filter-keyword">
                     </div>
@@ -88,28 +88,7 @@
 
         <div>
 
-            {{-- <div class="form-group">
-                <label for="status">Status:</label>
-                <select name="status" id="status" class="form-control">
-                    <option value="">All</option>
-                    <option value="1" {{ $status ?? '' == 1 ? 'selected' : '' }}>Connected</option>
-                    <option value="0" {{ $status ?? '' === '0' ? 'selected' : '' }}>Not connected</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="connection">Connection:</label>
-                <select name="connection" id="connection" class="form-control">
-                    <option value="">All</option>
-                    <option value="1" {{ $connection == 1 ? 'selected' : '' }}>Connected</option>
-                    <option value="0" {{ $connection === '0' ? 'selected' : '' }}>Not connected</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="keyword">Keyword:</label>
-                <input type="text" name="keyword" id="keyword" class="form-control" value="{{ $keyword }}">
-            </div>
 
-            <button type="submit" class="btn btn-primary">Filter</button> --}}
       </form>
 
         <table class="blueTable">
@@ -173,21 +152,29 @@
         @endphp
     </a> --}}
 
-    {{-- <a class="more_list" href="#">Xem thêm</a>
-    <div class="information_service" style="display: none;">
-        @if ($services)
-            @foreach ($services as $service)
-                {{ $service }}<br>
-            @endforeach
-        @else
-            {{ $device->service }}
-        @endif
-    </div> --}}
+
+
+
+
     <a class="more_list" href="#">Xem thêm</a>
+    <div class="information_service" style="display: none;">
+        @if ($device)
+            {{-- @foreach ($device as $service) --}}
+                {{$device->service}}<br>
+            {{-- @endforeach --}}
+
+        @endif
+    </div>
+
+    {{-- <a class="more_list" href="#">Xem thêm</a>
   <div class="information_service" style="display: none;">
     Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát
 
-  </div>
+  </div> --}}
+
+
+
+
     </div>
 </td>
 
@@ -225,7 +212,7 @@
 @section('foter_end')
 
 <div class="button_add">
-    <a href="{{ route('update_devices', ['id' => $device->id]) }}">
+    <a href="{{ route('more') }}">
         <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
     </a>
     Thêm vai trò
@@ -473,6 +460,26 @@ function searchDevices() {
   var keyword = $('.filter-keyword').val();
   updateTableData(status, connection, keyword);
 }
+
+
+
+
+// Lấy ngày hiện tại
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; // Tháng bắt đầu từ 0
+var yyyy = today.getFullYear();
+
+// Đặt backcolor màu cam cho ngày hiện tại
+var currentDate = document.getElementsByTagName('td');
+for (var i = 0; i < currentDate.length; i++) {
+  if (currentDate[i].textContent == dd && currentDate[i].parentNode.rowIndex != 0) {
+    currentDate[i].style.backgroundColor = 'orange';
+  }
+}
+
+// Hiển thị ngày hiện tại trong tiêu đề của lịch
+document.querySelector('.card-body h4').innerHTML = 'Tháng ' + mm + ', ' + yyyy;
 
 </script>
 @endsection

@@ -70,6 +70,7 @@ padding-top: 10px;
     box-sizing: border-box;
     margin-top: 10px;
     justify-content: center;
+    position: relative;
 }
 .menu-bar_list a:last-child {
 
@@ -77,6 +78,25 @@ padding-top: 10px;
   margin-top:  16.5rem;
     color: #FF7506;
 }
+
+.menuIconDashboard_iteam_option{
+position: absolute;
+top: 460px;
+left: 200px;
+}
+.menuIconDashboard_iteam_option div a{
+margin: 10px 0 0 12px!important;
+color: #7E7D88!important;
+text-decoration: none;
+}
+.menuIconDashboard_iteam_option div {
+background-color: #FFF;
+border-top-right-radius: 8px ;
+border-bottom-right-radius: 8px ;
+width: 200px;
+
+}
+
 /* .menuIconDashboard:hover ~ .menuIconDashboard_iteam {
 
 

@@ -19,7 +19,7 @@
                 <img src="{{ url('/assets/images/logo/Logo alta.png') }}" alt="Alta Media Company">
             </div>
             <div class="menu-bar_list">
-                <a href="" class="menuIconDashboard">
+                <a href="{{route('dashboard')}}" class="menuIconDashboard">
                     <img class="menuIconDashboard_iteam"src="{{ url('/assets/images/icons/element-4a.png') }}"
                         alt="">
                     <div> Dashboard</div>
@@ -39,7 +39,7 @@
                         alt="">
                     <div> Dịch vụ</div>
                 </a>
-                <a href="" class="menuIconDashboard">
+                <a href="{{ route('number_order')}}" class="menuIconDashboard">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/icon dasboard03.png') }}"
                         alt="">
                     <div> Cấp số</div>
@@ -49,11 +49,17 @@
                         alt="">
                     <div>Báo cáo</div>
                 </a>
-                <a href=""class="menuIconDashboard">
-                    <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/setting.png') }}"
+                <a href=""class="menuIconDashboard menuIconDashboard_iteam_system">
+                    <img class="menuIconDashboard_iteam " src="{{ url('/assets/images/icons/setting.png') }}"
                         alt="">
                     <div>Cài đặt hệ thống
+
+                        <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/fi_more-vertical.png') }}">
                     </div>
+
+
+
+
                 </a>
                 <a href="{{route('logout')}}"class="menuIconDashboard">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/fi_log-out.png') }}"
@@ -69,7 +75,11 @@
 
             </div>
         </div>
-
+        <div class="menuIconDashboard_iteam_option"   style="display:none" >
+            <div> <a href="">Quản lý vai trò</a> </div>
+            <div> <a href="">Quản lý tài khoản </a></div>
+            <div> <a href="">Nhật ký người dùng</a></div>
+        </div>
         <div class="menudashboard">
             @yield('content')
 
@@ -90,3 +100,21 @@
 
 </html>
 @yield('scripts')
+
+<script>
+const menuIconDashboardIteamSystem = document.querySelector('.menuIconDashboard_iteam_system');
+const menuIconDashboardIteamOption = document.querySelector('.menuIconDashboard_iteam_option');
+
+menuIconDashboardIteamSystem.addEventListener('mouseover', function() {
+  menuIconDashboardIteamOption.style.display = 'block';
+});
+
+menuIconDashboardIteamSystem.addEventListener('mouseout', function() {
+  menuIconDashboardIteamOption.style.display = 'none';
+});
+
+</script>
+
+
+
+

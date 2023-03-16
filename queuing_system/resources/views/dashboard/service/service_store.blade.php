@@ -59,18 +59,18 @@
 
 <div>
     <div class="container">
-        <form  method="POST" class="form_update">
+        <form  acction={{route('service_update')}} method="POST" class="form_update">
             @csrf
             <div class="row">
                 <div class="col-md-6">
                   <div class="row" style="height: 100%">
                     <div class="col-md-12">
                       <label for="input1" class="input3"> Mã dịch vụ</label>
-                      <input type="text" id="input1" class="form-control">
+                      <input type="text" id="input1" name="servicecode" class="form-control">
                     </div>
                     <div class="col-md-12">
                       <label for="input2" class="input3">Tên dịch vụ </label>
-                      <input type="text" id="input2" class="form-control">
+                      <input type="text" id="input2"name="servicename" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -78,7 +78,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <label for="input3" class="input3">Mô tả</label>
-                      <textarea id="input3" class="form-control" style="height: 112px;"> </textarea>
+                      <textarea id="input3" class="form-control" name="description" style="height: 112px; width:483px"> </textarea>
                     </div>
                   </div>
                 </div>
@@ -87,25 +87,26 @@
 
               <div class="informtion_page_connter_first">Thông tin thiết bị</div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check1">
+                <input class="form-check-input" type="checkbox"  name="check1" id="check1">
                 <label class="form-check-label" for="check1">
-                  Tăng tự động từ  <div>  <div class="check3">001</div> <div class="check_for">đến</div><div class="check3">9999</div>  </div>
+                  Tăng tự động từ  <div>
+                      <div class="check3">001</div> <div class="check_for">đến</div><div class="check3">9999</div>  </div>
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check2">
+                <input class="form-check-input" type="checkbox"  name="check2" id="check2">
                 <label class="form-check-label" for="check2">
                   Prefix <div div class="check3">0001</div>
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check3">
+                <input class="form-check-input" type="checkbox" name="check3" id="check3">
                 <label class="form-check-label" for="check3">
                   Surfix  <div class="check3">0001</div>
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check4">
+                <input class="form-check-input" type="checkbox" name="check4" id="check4">
                 <label class="form-check-label" for="check4">
                  Retset theo ngày
                 </label>
@@ -118,7 +119,7 @@
                       <a >Hủy Bỏ</a>
                     </div>
                     <div class=" col-md-6_continew">
-                     <a href="" id="submit-form" type="sumbit" >Tiếp Tục</a>
+                     <a href="" id="submit-form" type="sumbit" >Thêm dịch vụ</a>
                     </div>
                   </div>
                 </div>
@@ -152,6 +153,14 @@
       var form = document.querySelector('.form_update');
       form.submit();
     });
+
+
+    $check1 = isset($_POST['check1']) ? true : false;
+        $check2 = isset($_POST['check2']) ? true : false;
+        $check3 = isset($_POST['check3']) ? true : false;
+        $check4 = isset($_POST['check4']) ? true : false;
+
+
   </script>
 
 @endsection

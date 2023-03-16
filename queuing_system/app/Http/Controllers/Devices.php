@@ -9,6 +9,26 @@ use App\Models\Device;
 class Devices extends Controller
 {
     //
+
+    public function more_update(Request $request){
+        $nextId = DB::table('devices')->max('id') + 1;
+
+        $data = [
+            'id' => $nextId,
+            'code' => $request->input('code'),
+            'name' => $request->input('name'),
+            'nameDevice' => $request->input('nameDevice'),
+            'username' => $request->input('username'),
+            'ip_address' => $request->input('ip_address'),
+            'status'=>0,
+            'connection'=>0,
+            'password' => $request->input('password'),
+            'service' => $request->input('service'),
+        ];
+
+        $devices = DB::table('devices')->get();
+        return view('dashboard.device.device', ['devices' => $devices]);
+    }
     public function updated(Request $request, $id)
 {
 
@@ -101,6 +121,13 @@ return redirect()->route('device')->with('success', 'Cập nhật thiết bị t
 
         $devices = DB::table('devices')->get();
         return view('dashboard.device.device', ['devices' => $devices]);
+
+    }
+
+    public function more(){
+
+
+        return view('dashboard.device.device_store');
 
     }
     public function details($id) {

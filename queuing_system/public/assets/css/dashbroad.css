@@ -1,0 +1,333 @@
+.nvarContent_right-white{
+
+    padding-left: 109px;
+    margin-top: 0!important;
+    padding-top: 24px;
+
+    padding-bottom: 24px;
+}
+
+.nvarContent_right{
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: #FFF;
+    border-top-right-radius: 8px ;
+    border-top-left-radius: 8px ;
+}
+.nvarContent_left{
+    position: absolute;
+    top:104px;
+    left: 24px;
+}
+.informtion_page_4{
+    width: 186px;
+height: 120px;
+left: 4px;
+top: 4px;
+
+/* Orange/$-Orange-50 */
+
+background: #FFFFFF;
+border-radius: 10px;
+margin-left: 15px;
+}
+.informtion_page_4-img {
+    display: flex;
+
+    margin-left: 12px;
+}
+.informtion_page_4-img div:first-child{
+
+    margin-right: 12px;
+    margin-top: 8px;
+
+}
+.informtion_page_4-img div:last-child{
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 14px;
+    color: #535261;
+    width: 70px;
+}
+.informtion_page_4-img1 div:first-child{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    /* identical to box height, or 150% */
+
+
+    /* Gray/$-gray-400 Text */
+
+    color: #535261;
+}
+.informtion_page_4-img1{
+    display: flex;
+   align-items: center;
+   margin-left: 12px;
+}
+.informtion_page_4-img1 div:last-child{
+
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 8px;
+line-height: 12px;
+/* identical to box height, or 150% */
+
+
+/* Orange/$-Orange-400 */
+margin-left: 35px;
+color: #FF9138;
+background-color: #FF9138;
+width: 48px;
+height: 14.98px;
+margin-top: 1px;
+
+background: rgba(255, 149, 1, 0.15);
+border-radius: 7.18115px;
+}
+.informtion_page_4-img1 div:last-child img{
+
+    margin-left: 6px;
+    margin-right: 3.40px;
+}
+.nvarContent_left {
+
+}
+.informtion_page_4_img{
+    display: flex;
+
+}
+.nvarContent_right-xc{
+    margin-right: 62px;
+}
+.nvarContent_right-xc-tq{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height, or 150% */
+
+text-align: left;
+/* Orange/$-Orange-500 */
+justify-content: initial!important;
+color: #FF7506;
+margin-left: 24px;
+}
+.list_service_device{
+    background: #FFFFFF;
+box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+border-radius: 12px;
+width: 353px;
+display: block;
+height: 83px;
+margin-bottom: 12px;
+position: relative;
+}
+.list_service{
+    display: block!important;
+    margin-left: 24px
+}
+.list_service_device img{
+    margin-top: 11px;
+    margin-left: 16px;
+}
+.list_service_device_infor{
+    position: absolute;
+    top:10px;
+    left: 88px;
+}
+.list_service_device_infor div:first-child{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height, or 150% */
+
+
+/* Gray/$-gray-400 Text */
+
+color: #535261;
+}
+.list_service_device_infor-small{
+    margin-top: 0px!important;
+    margin-left: 0px!important;
+    margin-right: 4px!important;
+}
+.list_service_device_more_infor{
+    position: absolute;
+    left: 200px;
+    top:18px;
+}
+.list_service_device_more_infor div:first-child{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    /* identical to box height, or 175% */
+
+    display: flex;
+    /* Gray/$-gray-300 */
+    align-items: center;
+    color: #7E7D88;
+}
+.list_service_device_more_infor div:last-child{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    display: flex;
+    /* identical to box height, or 175% */
+    align-items: center;
+
+    /* Gray/$-gray-300 */
+
+    color: #7E7D88;
+}
+.list_service_device_more_infor div{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    display: flex;
+    /* identical to box height, or 175% */
+    align-items: center;
+
+    /* Gray/$-gray-300 */
+
+    color: #7E7D88;
+}
+.list_service_device_more_infor div:last-child img {
+   margin-right: 4px;
+   margin-left: 0;
+   margin-top: 0;
+   margin-bottom: 0;
+}
+.list_service_device_more_infor div:first-child img {
+   margin-right: 4px;
+   margin-left: 0;
+   margin-top: 0;
+   margin-bottom: 0;
+}
+.list_service_device_more_infor div img {
+   margin-right: 4px;
+   margin-left: 0;
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+.list_service_device_more_infor_design{
+
+    font-size: 14px!important;
+color: #FF7506 !important;
+margin-left: 4px;
+}
+
+.nvarContent_right div img:first-child{
+
+    /* margin: 0 4px 0 0!important; */
+}
+.list_service_device >img{
+
+    margin-top: 11px;
+    margin-left: 16px;
+}
+
+.list_service_device_more_infor-last img{
+    margin: 0 4px 0 0!important;
+
+}
+.text-center_date_conter{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height */
+
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+.table-responsive{
+    overflow-x: hidden;
+}
+.table-responsive th{
+    padding: 10px;
+}
+.card-body table, tr, th, td{
+   border: none!important;
+}
+.card-body{
+    border: none!important;
+}
+.card-header{
+    background-color: #FFF;
+    border-bottom: 1px solid #DCDDFD;
+    width: 288px;
+    margin: 0 auto;
+}
+.text-center_date_conter{
+    width: 120px;
+}
+.row{
+    margin-top: 10px;
+}
+.chart {
+    position: relative;
+}
+.chart_input{
+    position: absolute;
+    top:24px;
+    right: 24px;
+}
+.chart_input label{
+   margin-right: 8px;
+   color: #282739;
+   font-family: 'Nunito';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 24px;
+}
+.chart_input select{
+    align-items: center;
+    /* padding: 10px 12px; */
+    /* gap: 24px; */
+    padding-left: 12px;
+    width: 106px;
+    height: 42px;
+
+    /* white */
+
+    /* background: #FFFFFF; */
+    /* Gray/$-gray-100 */
+
+    border: 1.5px solid #D4D4D7;
+    border-radius: 8px;
+
+
+
+}
+.form-select_input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("/assets/images/icons/search/fi_chevron-down (1)");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+}

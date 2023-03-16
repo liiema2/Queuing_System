@@ -11,6 +11,10 @@ color: #FF7506; */
 
 
 }
+.container{
+    width: 1112px;
+    padding-right: 0!important;
+}
 .informtion_page--Orange{
     font-family: 'Nunito';
     font-style: normal;
@@ -81,6 +85,21 @@ margin-top: 4px;
   background-repeat: no-repeat;
   /* Thêm padding để tránh bị che khuất bởi hình ảnh */
   padding-right: 40px;
+}
+.form-select_service-date{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    border: 1px solid #D4D4D7;
+    /* Gray/$-gray-400 Text */
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #535261;
+    margin-top: 4px;
 }
 .form-select1{
     -webkit-appearance: none;

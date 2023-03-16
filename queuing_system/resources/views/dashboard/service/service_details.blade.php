@@ -60,9 +60,9 @@
             <div class="service_details_left">
 
 <div class="service_details_left_conter">Thông tin dịch vụ</div>
-<div class="service_details_left_conter-small">Mã dịch vụ <div>a</div></div>
-<div class="service_details_left_conter-small">Tên dịch vụ <div>a</div> </div>
-<div class="service_details_left_conter-small">Mô tả <div>a</div></div>
+<div class="service_details_left_conter-small">Mã dịch vụ <div>{{$service->servicecode}}</div></div>
+<div class="service_details_left_conter-small">Tên dịch vụ <div>{{$service->servicename}}</div> </div>
+<div class="service_details_left_conter-small">Mô tả <div>{{$service->description}}</div></div>
 
 <div class="service_details_left_conter">Quy tắc cấp số</div>
 <div class="form-check">
@@ -135,14 +135,29 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            <tr>
-                            <td>cell1_1</td><td>cell2_1</td></tr>
-                            <tr>
-                            <td>cell1_2</td><td>cell2_2</td></tr>
-                            <tr>
-                            <td>cell1_3</td><td>cell2_3</td></tr>
+
+
+                                @foreach ($numerical_orders as $numerical_order)
+                                <tr>
+                                    <td>
+                                        {{ $numerical_order->numerical_order }}
+                                    </td>
+                                    <td>
+                                        @if ($numerical_order->status == 1)
+                                            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt=""> Đã hoàn thành
+                                        @elseif($numerical_order->status == 2)
+                                            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Đang thực hiện
+                                        @elseif($numerical_order->status == 3)
+                                            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Vắng
+                                        @else
+                                            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Bỏ lượt
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+
                             </tbody>
-                            </tr>
+
                             </table>
 
                     </div>

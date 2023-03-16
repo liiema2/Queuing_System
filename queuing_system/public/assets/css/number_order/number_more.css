@@ -1,0 +1,37 @@
+.informtion_page_connter_first {
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 48px;
+/* identical to box height, or 150% */
+
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+text-align: center!important;
+margin: 0 auto;
+/* margin-left: 0!important; */
+}
+.container label{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+.container {
+    display: block;
+    justify-content: center;
+}
+.container div{
+    display: block;
+    /* text-align: center;
+     */
+    margin: 20px auto 0 auto!important;
+}
+.container select{
+    display: block;
+    /* text-align: center;
+     */
+    margin: 20px auto 0 auto!important;
+}

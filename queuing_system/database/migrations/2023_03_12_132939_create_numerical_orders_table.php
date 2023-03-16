@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('numerical_order', function (Blueprint $table) {
+        Schema::create('numerical_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('numerical_order', 50);
-            $table->string('service_id', 50);
-
-
+            $table->string('numerical_order');
+            $table->unsignedBigInteger('service_id');
+            $table->boolean('status')->default(false);
             $table->timestamps();
-
-
-
         });
     }
 
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('numerical_order');
+        Schema::dropIfExists('numerical_orders');
     }
 };

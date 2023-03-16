@@ -1,19 +1,17 @@
 @extends('components.navbars.menuDashboard')
 @section('links')
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
-<link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+{{-- <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}"> --}}
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 
 @endsection
 @section('content')
 
 <div class="nvarContent">
-    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Danh sách thiết bị</div> </div>
+    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Danh sách cấp số</div> </div>
     <div class="nvarContent_right">
         <div>
             <div class="bell_backgroud">
@@ -52,15 +50,33 @@
 
 <div class="informtion_page">
 
-<div class="informtion_page--Orange">Danh sách thiết bị</div>
+<div class="informtion_page--Orange">Quản lý cấp số</div>
 
 <div class="informtion_page_connter">
 
     <div class="container">
         <div class="row">
-          <div class="col-auto">
-            <div>Trạng thái hoạt động</div>
-            <select class="form-select">
+          <div class="col-auto" style="width: 150px; margin-right:24px">
+            <div>Tên dịch vụ</div>
+            <select class="form-select" style="width: 150px; ">
+              <option  selected>tất cả</option>
+              <option  value="1">Lựa chọn 1</option>
+              <option value="2">Lựa chọn 2</option>
+              <option value="3">Lựa chọn 3</option>
+            </select>
+          </div>
+          <div class="col-auto" style="width: 150px; margin-right:24px">
+            <div>Tình trạng</div>
+            <select class="form-select" style="width: 150px;  ">
+              <option  selected>tất cả</option>
+              <option  value="1">Lựa chọn 1</option>
+              <option value="2">Lựa chọn 2</option>
+              <option value="3">Lựa chọn 3</option>
+            </select>
+          </div>
+          <div class="col-auto" style="width: 150px; margin-right:24px">
+            <div>Tình trạng</div>
+            <select class="form-select" style="width: 150px;  ">
               <option  selected>tất cả</option>
               <option  value="1">Lựa chọn 1</option>
               <option value="2">Lựa chọn 2</option>
@@ -75,9 +91,9 @@
             <div style="visibility: hidden;">Trạng thái kết nối</div>
             <input class="form-select_service-date" type="date" id="date-input" style="width: 150px;" name="date-of-birth">
           </div>
-          <div class="col-auto" style="margin-left: 105px;">
+          <div class="col-auto" >
             <div>Trạng thái hoạt động</div>
-            <select class="form-select">
+            <select class="form-select"style="width: 200px;" >
               <option  selected>tất cả</option>
               <option  value="1">Lựa chọn 1</option>
               <option value="2">Lựa chọn 2</option>
@@ -136,32 +152,6 @@
             </tfoot>
             <tbody >
 
-                @foreach ($services as $services)
-                <tr>
-                <td>
-                 {{ $services->servicecode }} </td>
-               <td>  {{ $services->servicename }} </td>
-               <td>  {{ $services->description }} </td>
-               <td class="td_comtus">  @if ($services->status == 'active')
-               <img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt="">  Kết nối
-           @else
-           <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối
-           @endif </td>
-
-
-
-
-
-
-             {{-- {{ route('details', ['id' => $device->id]) }} --}}
-
-               <td>  <a href="{{route('service_details',['id' => $services->id])}}">Chi tiết</a>
-               </td>
-               <td>  <a href="">Cập nhật</a> </td>
-
-
-                     </tr>
-                @endforeach
             </tbody>
             </table>
       </div>
@@ -176,7 +166,7 @@
     <a href="{{ route('service_store') }}">
         <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
     </a  >
-    Thêm dịch vụ
+    Cấp số mới
     </div>
 @endsection
 @endsection
