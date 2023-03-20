@@ -10,17 +10,23 @@ class service extends Model
     use HasFactory;
     protected $table = 'services';
 
+
+
     protected $fillable = [
-        'servicecode',
-        'servicename',
-        'description',
-        'status',
-        'priority'
+        'servicename', 'description', 'status', 'priority', 'devices_id'
     ];
-    public function numericalOrders()
-    {
-        return $this->hasMany(number_order::class, 'service_id');
-    }
+    protected $guarded = [
+        'id', 'created_at', 'updated_at'
+    ];
+
+    public function service()
+{
+    return $this->hasOne(Service::class);
+}
+    public function orders()
+{
+    return $this->hasOne(orders::class);
+}
 
 
 }

@@ -95,7 +95,7 @@ Route::get('device', [Devices::class, 'new'])->middleware('auth')->name('device'
 Route::get('/devices', [Devices::class, 'index'])->middleware('auth')->name('devices.index');
 Route::get('device/details/{id}', [Devices::class, 'details'])->middleware('auth')->name('details');
 Route::get('device/more', [Devices::class, 'more'])->middleware('auth')->name('more');
-Route::post('device/more', [Devices::class, 'more_update'])->middleware('auth')->name('more_update');
+Route::post('device/more', [Devices::class, 'more_update'])->middleware('auth')->name('more_update_device');
 
 Route::get('device/details/update/{id}', [Devices::class, 'update'])->middleware('auth')->name('update_devices');
 Route::post('device/details/update/{id}', [devices::class, 'updated_ed'])->middleware('auth')->name('update_check');
@@ -106,8 +106,11 @@ Route::post('update-check/{id}', [Devices::class, 'updated'])->middleware('auth'
 
 
 Route::get('service', [services::class, 'new'])->middleware('auth')->name('service');
+Route::post('service', [services::class, 'index'])->middleware('auth')->name('service.index');
+
 Route::get('service/more', [services::class, 'store'])->middleware('auth')->name('service_store');
-Route::post('service/more', [services::class, 'more'])->middleware('auth')->name('more_updat');
+
+Route::post('service/more', [services::class, 'more'])->middleware('auth')->name('more_update');
 Route::get('service/details/{id}', [services::class, 'details'])->middleware('auth')->name('service_details');
 // Route::get('service/more_service', [services::class, 'more_service'])->middleware('auth')->name('more_service');
 Route::get('service/update', [services::class, 'store'])->middleware('auth')->name('service_update');
@@ -117,3 +120,7 @@ Route::get('service/update', [services::class, 'store'])->middleware('auth')->na
 
 
 Route::get('number_order}', [number_order::class, 'index'])->middleware('auth')->name('number_order');
+Route::get('number_order/more}', [number_order::class, 'more'])->middleware('auth')->name('number_order_more');
+// Route::get('number_order/more_update}', [number_order::class, 'update'])->middleware('auth')->name('update_number_order');
+Route::post('number_order/more', [number_order::class, 'update'])->middleware('auth');
+

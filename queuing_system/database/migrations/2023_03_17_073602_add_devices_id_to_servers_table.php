@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->integer('priority')->default(0);
+            $table->integer('devices_id')->unsigned()->nullable();
+            $table->foreign('devices_id')->references('id')->on('devices');
         });
     }
 
@@ -26,7 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('services', function (Blueprint $table) {
-            //
+            $table->dropForeign(['devices_id']);
+            $table->dropColumn('devices_id');
         });
     }
 };

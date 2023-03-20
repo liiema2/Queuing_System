@@ -106,6 +106,7 @@ border-radius: 8px;
     display: flex;
     justify-content: space-between;
     width: 400px;
+    align-items: center;
 }
  .col-md-6_continew{
     width: 168px!important;

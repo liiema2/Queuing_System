@@ -57,7 +57,7 @@
 
 <div>
     <div class="container">
-        <form action="{{route('more_update')}}" method="POST" >
+        <form action="{{route('more_update_device')}}" method="POST" >
             @csrf
         <div class="row">
           <div class="col-md-5">

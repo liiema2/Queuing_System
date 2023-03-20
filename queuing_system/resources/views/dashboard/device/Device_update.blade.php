@@ -4,6 +4,11 @@
 {{-- <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_store.css') }}">
 <link rel="stylesheet" href="{{ asset('../assets/css/device/update.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script> --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 
@@ -60,7 +65,7 @@
     <div class="container">
         {{-- action="{{route('update_check',['id' => $device->id])}}" --}}
 
-        <form action="{{route('update_device',['id' => $device->id])}}" method="POST" >
+        <form action="{{route('update_device',['id' => $device->id])}}" class="form_update" method="POST" >
             @csrf
         <div class="row">
             <div class="col-md-5">
@@ -100,17 +105,35 @@
     <div class="update_devices_change-orange">
           @foreach ($services as $service)
 
-            <select id="input1" class="form-control form-control-design-color-bg" name="service[]"rows="1">
+            {{-- <select id="input1" class="form-control form-control-design-color-bg" name="service[]"rows="1">
                 <option value="">{{ trim($service) }}</option>
                 <option value="Khám răng hàm">Khám răng hàm</option>
                 <option value="Khám tai mũi họng" >Khám tai mũi họng</option>
 
-            </select>
+            </select> --}}
+<div class="newcodeinput">
+
+    <select  id="input{{$loop->index}}"    name="service[]" class="form-control-design-color-bg" >
+    {{-- <img src="{{ url('/assets/images/icons/fi_x.png') }}" alt=""> --}}
+    {{-- style="display: none; border:1px solid #FFF;" --}}
+     <option class="option" >{{ trim($service) }}
+     </option>
+
+    </select>
 
 
+<div id="selectArrow"></div>
+
+</div>
 
             {{-- parse_str(html_entity_decode($serviceStr), $services); --}}
           @endforeach
+
+          <div id="selectArrowoption" style="display: none">
+            <div>Tất cả</div>
+            <div>Khám răng hàm</div>
+            <div>Khám tai mũi họng</div>
+        </div>
         </div>
             <div class="button_2_add_cancel">
                 <div class="row_2">
@@ -118,7 +141,7 @@
                       <a href="{{route('device')}}">Hủy Bỏ</a>
                     </div>
                     <div class=" col-md-6_continew">
-                        <button id="submit-form" type="submit" class="btn btn-primary">Thêm thiết bị</button>
+                        <button id="submit-form" type="submit" class="btn btn-primary">Cập nhật</button>
 
                     </div>
                   </div>
@@ -128,8 +151,8 @@
 
 
         </div>
-        <div class="row">
-            <div class="col-md-5 col-md-5-design"> <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt=""> Là trường Thông tin bắt buộc </div>
+        <div class="conter_update_device">
+            <div class="col-md-5-design"> <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt=""> Là trường Thông tin bắt buộc </div>
 
          </div>
       </div>
@@ -143,13 +166,64 @@
 
 @section('scripts')
 <script>
-    // document.getElementById("submit-form").addEventListener("click", function(e) {
-    //   e.preventDefault(); // prevent default behavior of clicking on an <a> tag
+    document.getElementById("submit-form").addEventListener("click", function(e) {
+      e.preventDefault(); // prevent default behavior of clicking on an <a> tag
 
-    //   // get the form element and submit it
-    //   var form = document.querySelector('.form_update');
-    //   form.submit();
-    // });
+      // get the form element and submit it
+      var form = document.querySelector('.form_update');
+      form.submit();
+    });
+
+
+
+
+
+// $(document).ready(function() {
+//   let clickedSelect = null; // khởi tạo biến lưu trữ select được click
+
+//   $('.newcodeinput #selectArrow').click(function() {
+//     const select = $(this).siblings('select');
+//     select.css('display', 'none');
+//   });
+
+//   $('.newcodeinput select').click(function() {
+//     const select = $(this);
+//     clickedSelect = select; // lưu select được click vào biến
+
+//     $('#selectArrowoption').css('display', 'block');
+//     $('#selectArrowoption div').click(function() {
+//       const selectedValue = $(this).text();
+//       clickedSelect.find('option:selected').text(selectedValue).val(selectedValue);
+//       $('#selectArrowoption').css('display', 'none');
+//       clickedSelect = null; // trả giá trị biến về null sau khi thay đổi option
+//     });
+//   });
+// });
+
+$(document).ready(function() {
+  let clickedSelect = null; // khởi tạo biến lưu trữ select được click
+
+  $('.newcodeinput #selectArrow').click(function() {
+    const select = $(this).siblings('select');
+    select.css('display', 'none');
+    select.removeAttr('name');
+  });
+
+  $('.newcodeinput select').click(function() {
+    const select = $(this);
+    clickedSelect = select; // lưu select được click vào biến
+
+    $('#selectArrowoption').css('display', 'block');
+    $('#selectArrowoption div').click(function() {
+      const selectedValue = $(this).text();
+      clickedSelect.find('option:selected').text(selectedValue).val(selectedValue);
+      $('#selectArrowoption').css('display', 'none');
+      clickedSelect = null; // trả giá trị biến về null sau khi thay đổi option
+    });
+  });
+});
+
+
   </script>
 
 @endsection

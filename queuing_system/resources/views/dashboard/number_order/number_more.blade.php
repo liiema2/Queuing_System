@@ -63,16 +63,20 @@
  <div>
 
     <div class="container">
-        <label for="">Dịch vụ khách hàng lựa chọn</label>
-        <div>
-            <select  class="form-select">
+        <form action="{{'more'}}" method="post">
+            @csrf
+      <label for="">Dịch vụ khách hàng lựa chọn</label>
+            <div>
+                <select name="number_order" class="form-select">
+                    <option value="Khám tim mạch">Khám tim mạch</option>
+                    <option value="Khám sản - Phụ khoa">Khám sản - Phụ khoa</option>
+                    <option value="Khám răng hàm mặt">Khám răng hàm mặt</option>
+                    <option value="Khám tai mũi họng">Khám tai mũi họng</option>
+                  </select>
+            </div>
 
-                <option value="">Khám tim mạch</option>
-            <option value="">Khám sản - Phụ khoa</option>
-            <option value="">Khám răng hàm mặt</option>
-            <option value="">Khám tai mũi họng</option>
-            </select>
-        </div>
+        </form>
+
 
 
         </div>
@@ -84,21 +88,38 @@
 <div class="button_2_add_cancel">
     <div class="row_2">
         <div class="col-md-6_cancel">
-          <a href="">Hủy Bỏ</a>
+          <a href="{{route('number_order')}}">Hủy Bỏ</a>
         </div>
         <div class=" col-md-6_continew">
-         <button type="submit">In số</button>
+         <a href="  ">In số</a>
         </div>
       </div>
+    </div>
+    <div class="backgroud_number_order"></div>
+    <div class="number_order_render">
+        <div class="number_order_render_conter">
+
+
+            <div  class="number_order_render_conter-gay" > Số thứ tự được cấp</div>
+            <div  class="" > DV:  <span>(tại quầy số 1)</span></div>
+        </div>
+        <div>
+            <div> thời gian cấp </div>
+            <div> hạn sử dụng</div>
+
+        </div>
     </div>
 @endsection
 
 @section('scripts')
 <script>
 
+const continueBtn = document.querySelector('.col-md-6_continew a');
+    continueBtn.addEventListener('click', (event) => {
+        event.preventDefault(); // prevent the default action of clicking on a link
+        const form = document.querySelector('form');
+        form.submit();
 
-
-
-
+    });
 </script>
 @endsection

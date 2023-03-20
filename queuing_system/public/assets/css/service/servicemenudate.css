@@ -1,0 +1,143 @@
+.table td, .table th{
+
+    text-align: center;
+    padding: 0.5rem;
+}
+.arrow-right{
+    padding: 40px 0 0 0 !important;
+}
+.highlighted {
+    background-color: #FF7506;
+    border-radius: 8px;
+
+  }
+.body_connter_service tr td{
+
+    padding: 10px 10px 10px 16px;
+    text-align: left;
+}
+.blueTable tr th{
+    padding-left:  16px;
+    text-align: left;
+}
+
+.col_degin{
+    padding-left: 0!important;
+}
+  /* //////////////////////////////////////////// */
+.form-select_service-date {
+    border: 1px solid #ccc; /* màu đường viền */
+    border-radius: 4px; /* bo tròn góc */
+    padding: 10px 35px!important; /* khoảng cách giữa đường viền và nội dung */
+    font-size: 14px; /* cỡ chữ */
+    background-color: #fff; /* màu nền */
+    color: #555; /* màu chữ */
+    width: 150px; /* chiều rộng của input */
+    background-image: url('/assets/images/icons/calendar.png');
+    /* no-repeat: no-repeat; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-position: left 12px center;
+    background-repeat: no-repeat;
+    padding-right: 40px
+  }
+
+  /* thiết lập kiểu hover khi di chuột vào input */
+  .form-select_service-date:hover {
+    border-color: #888;
+  }
+
+  /* thiết lập kiểu khi input được focus */
+  .form-select_service-date:focus {
+    border-color: #00c;
+    box-shadow: 0 0 3px #00c;
+  }
+  .col-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-select_service-date {
+    border: 1px solid #ccc; /* màu đường viền */
+    border-radius: 4px; /* bo tròn góc */
+    padding: 6px 38px; /* khoảng cách giữa đường viền và nội dung */
+    font-size: 14px; /* cỡ chữ */
+    background-color: #fff; /* màu nền */
+    color: #555; /* màu chữ */
+    width: 150px; /* chiều rộng của input */
+
+  }
+
+  /* thiết lập kiểu hover khi di chuột vào input */
+  .form-select_service-date:hover {
+    border-color: #888;
+  }
+
+  /* thiết lập kiểu khi input được focus */
+  .form-select_service-date:focus {
+    border-color: #00c;
+    box-shadow: 0 0 3px #00c;
+  }
+.informtion_page_connter {
+    position: relative;
+}
+.informtion_page_connter_date{
+    position: absolute;
+    top: 238px;
+    left: 554px;
+    /* position: relative; */
+width: 320px;
+/* height: 336px; */
+
+background: #FFFFFF;
+/* dropdown */
+
+box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25)
+}
+
+/* /////////////////////////////////////////////////////// menu date */
+
+.text-center_date_conter{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height */
+
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+.table-responsive{
+    overflow-x: hidden;
+}
+.table-responsive th{
+    padding: 10px;
+}
+.card-body table, tr, th, td{
+   /* border: none!important; */
+}
+.card-body{
+    border: none!important;
+}
+.card-header{
+    background-color: #FFF;
+    border-bottom: 1px solid #DCDDFD;
+    width: 288px;
+    margin: 0 auto;
+}
+.text-center_date_conter{
+    width: 120px;
+}
+.row{
+    margin-top: 10px;
+}
+.card-body{
+    padding: 1rem;
+}

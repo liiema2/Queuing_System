@@ -25,7 +25,7 @@ class Devices extends Controller
             'password' => $request->input('password'),
             'service' => $request->input('service'),
         ];
-
+        DB::table('devices')->insert($data);
         $devices = DB::table('devices')->get();
         return view('dashboard.device.device', ['devices' => $devices]);
     }
@@ -61,12 +61,12 @@ return redirect()->route('device')->with('success', 'Cập nhật thiết bị t
 
     function index(Request $request)
     {
-        $status = $request->input('status');
-        $connection = $request->input('connection');
-        $keyword = $request->input('keyword');
+        // $status = $request->input('status');
+        // $connection = $request->input('connection');
+        // $keyword = $request->input('keyword');
+// dd($status);
 
 
-{
     $status = $request->input('status');
     $connection = $request->input('connection');
     $keyword = $request->input('keyword');
@@ -93,7 +93,7 @@ return redirect()->route('device')->with('success', 'Cập nhật thiết bị t
     $devices = $query->get()->toArray();
 
     return response()->json(['devices' => $devices]);
-}
+
     }
     public function store(){
 

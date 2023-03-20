@@ -1,7 +1,176 @@
+.newbody tr td{
+    text-align: left!important;
+    padding-left: 17px;
+}
+.form-control[readonly]{
+background-color: #FFF!important;
+}
+.newbottom tr td{
+    background-color: #FFF!important;
+    border: none !important;
+}
+.links{
+    background-color: #FFF;
+    border: 1px solid #FFF !important;
+}
+.blueTable tr ,th{
+
+}
+.form-select_service-date {
+    border: 1px solid #ccc; /* màu đường viền */
+    border-radius: 4px; /* bo tròn góc */
+    padding: 10px 5px 10px 35px!important; /* khoảng cách giữa đường viền và nội dung */
+    font-size: 14px; /* cỡ chữ */
+    background-color: #fff; /* màu nền */
+    color: #555; /* màu chữ */
+
+    background-image: url('/assets/images/icons/calendar.png');
+    /* no-repeat: no-repeat; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-position: left 12px center;
+    background-repeat: no-repeat;
+    padding-right: 40px
+  }
+.informtion_page_connter_date{
+    position: absolute;
+    top: 235px;
+   left:  817px;
+    /* position: relative; */
+width: 310px;
+/* height: 336px; */
+
+background: #FFFFFF;
+/* dropdown */
+
+box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25)
+}
+.col_date{
+    padding: 0!important;
+    width: 130px!important;
+}
+.col_date1{
+    /* width: 160px!important; */
+}
+.text-center_date_conter{
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height */
+
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+.table-responsive{
+    overflow-x: hidden;
+}
+.table-responsive th{
+    padding: 10px;
+}
+.card-body table, tr, th, td{
+   border: none!important;
+   text-align: left;
+   /* padding-left: 17px!important; */
+}
+.card-body{
+    border: none!important;
+}
+.card-header{
+    background-color: #FFF;
+    border-bottom: 1px solid #DCDDFD;
+    width: 288px;
+    margin: 0 auto;
+}
+.text-center_date_conter{
+    width: 120px;
+}
+.row{
+    margin-top: 10px;
+}
+.card-body{
+    padding: 1rem;
+}
+
+.table td, .table th{
+
+    text-align: center;
+    padding: 0.5rem;
+}
+.arrow-right{
+    padding: 40px 0 0 0 !important;
+}
+.highlighted {
+    background-color: #FF7506;
+    border-radius: 8px;
+
+  }
+.body_connter_service tr td{
+
+    padding: 10px 10px 10px 16px;
+    text-align: left;
+    border: none;
+
+}
+.blueTable tr th{
+    padding-left:  16px;
+    text-align: left;
+    border: none;
+
+}
+.table-responsive th {
+width: 38px!important;
+}
+.col_degin{
+    padding-left: 0!important;
+}
+
+
+.card-header{
+    background-color: #FFF;
+    border-bottom: 1px solid #DCDDFD;
+    width: 288px;
+    margin: 0 auto;
+}
+.text-center_date_conter{
+    width: 120px;
+}
+.row{
+    margin-top: 10px;
+}
+.card-body{
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* sad */
 .form-check-label >div {
     display: flex;
     align-items: center;
 
+}
+.service_details_left_conter-small div:last-child{
+    margin-left: 20px;
+}
+.service_details_left_conter-small div:first-child{
+   width: 100px;
 }
 .form-check-label  {
     font-family: 'Nunito';
@@ -72,7 +241,11 @@ color: #282739;
 
 }
 
-
+.container{
+    width: 96.5%;
+    margin: 0!important;
+    padding: 0!important;
+}
 /* ////////////////////////////////////// */
 
 table.blueTable{
@@ -107,6 +280,7 @@ line-height: 30px;
 
 color: #FF7506;
 }
+
 .service_details_left_conter-small{
     font-family: 'Nunito';
 font-style: normal;
@@ -119,9 +293,9 @@ display: flex;
 align-items: center;
 
 /* Gray/$-gray-500 */
-justify-content: space-between;
+/* justify-content: space-between; */
 color: #282739;
-width: 140px;
+/* width: 140px; */
 }
 
 .service_details {

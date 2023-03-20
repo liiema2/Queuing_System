@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('numerical_orders', function (Blueprint $table) {
-            $table->id();
-            $table->string('numerical_order');
-            $table->unsignedBigInteger('service_id');
-            $table->boolean('status')->default(false);
-            $table->timestamps();
+        Schema::table('orders', function (Blueprint $table) {
+            //
+            $table->dropColumn('provided_at');
         });
     }
 
@@ -29,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('numerical_orders');
+        Schema::table('orders', function (Blueprint $table) {
+            //
+            $table->timestamp('provided_at')->nullable();
+        });
     }
 };

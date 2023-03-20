@@ -11,7 +11,7 @@
 @section('content')
 
 <div class="nvarContent">
-    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Danh sách cấp số</div> </div>
+    <div class="nvarContent-information">Cấp số  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Danh sách cấp số</div> </div>
     <div class="nvarContent_right">
         <div>
             <div class="bell_backgroud">
@@ -55,32 +55,33 @@
 <div class="informtion_page_connter">
 
     <div class="container">
+      <form action="">
         <div class="row">
           <div class="col-auto" style="width: 150px; margin-right:24px">
             <div>Tên dịch vụ</div>
             <select class="form-select" style="width: 150px; ">
               <option  selected>tất cả</option>
-              <option  value="1">Lựa chọn 1</option>
-              <option value="2">Lựa chọn 2</option>
-              <option value="3">Lựa chọn 3</option>
+              <option  value="1">Khám sản - Phụ Khoa</option>
+              <option value="2">Khám răng hàm mặt</option>
+              <option value="3">Khám mũi họng</option>
             </select>
           </div>
           <div class="col-auto" style="width: 150px; margin-right:24px">
             <div>Tình trạng</div>
             <select class="form-select" style="width: 150px;  ">
               <option  selected>tất cả</option>
-              <option  value="1">Lựa chọn 1</option>
-              <option value="2">Lựa chọn 2</option>
-              <option value="3">Lựa chọn 3</option>
+              <option  value="1">Đang chờ </option>
+              <option value="2">Đã  sử dụng</option>
+              <option value="3">Bỏ qua</option>
             </select>
           </div>
           <div class="col-auto" style="width: 150px; margin-right:24px">
-            <div>Tình trạng</div>
+            <div>Nguồn</div>
             <select class="form-select" style="width: 150px;  ">
               <option  selected>tất cả</option>
-              <option  value="1">Lựa chọn 1</option>
-              <option value="2">Lựa chọn 2</option>
-              <option value="3">Lựa chọn 3</option>
+              <option  value="1">Kios</option>
+              <option value="2">Hệ thống</option>
+
             </select>
           </div>
           <div class="col-3 col-md-auto">
@@ -92,14 +93,11 @@
             <input class="form-select_service-date" type="date" id="date-input" style="width: 150px;" name="date-of-birth">
           </div>
           <div class="col-auto" >
-            <div>Trạng thái hoạt động</div>
-            <select class="form-select"style="width: 200px;" >
-              <option  selected>tất cả</option>
-              <option  value="1">Lựa chọn 1</option>
-              <option value="2">Lựa chọn 2</option>
-              <option value="3">Lựa chọn 3</option>
-            </select>
+            <div>Từ khóa</div>
+          <input type="text" class="form-select1 form-select filter-keyword" style="width:219px" >
           </div>
+      </form>
+
           </div>
 
         </div>
@@ -134,12 +132,14 @@
         <table class="blueTable">
             <thead>
             <tr>
-            <th>Mã thiết bị</th>
-            <th>Tên thiết bị</th>
-            <th>Mô tả</th>
-            <th>Trạng thái kết nối</th>
+            <th>STT</th>
+            <th>Tên khách hàng</th>
+            <th>Tên dich vụ</th>
+            <th>Thời gian cấp</th>
+            <th>Hạn sử dụng</th>
 
-            <th></th>
+            <th>Trạng thái </th>
+            <th>Nguồn</th>
             <th></th>
             </tr>
             </thead>
@@ -152,6 +152,44 @@
             </tfoot>
             <tbody >
 
+              @foreach ($number_order as $order)
+              <tr>
+                  {{-- <td>{{ $order->id }}</td> --}}
+                  <td>{{ $order->number_order }}</td>
+                  <td>{{ $order->username }}</td>
+
+                  @php
+                  $service = DB::table('services')
+                             ->join('orders', 'services.id', '=', 'orders.service_id')
+                             ->select('servicename as service_name', 'orders.*')
+                             ->where('orders.id', '=', $order->id)
+                             ->get();
+                  @endphp
+
+                  @foreach ($service as $item)
+                      <td>{{ $item->service_name }}</td>
+                  @endforeach
+
+                  <td>{{ $order->created_at }}</td>
+                  <td>{{ $order->created_at }}</td>
+
+                  {{-- <td>{{ $order->status }}</td> --}}
+
+                  <td class="td_comtus">  @if ($order->status == '1')
+                    <img src="{{ url('/assets/images/icons/status/Ellipse 1 (6).png') }}" alt="">  Đã sử dụng
+                   @elseif($order->status=='2')
+                   <img src="{{ url('/assets/images/icons/status/Ellipse 1 (5).png') }}" alt="">  Đang chờ
+                @else
+                <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Bỏ qua
+                @endif </td>
+                  <td>{{ $order->source }}</td>
+                  {{-- <td>{{ $order->updated_at }}</td> --}}
+                  <td><a href="">Chi tiết</a></td>
+              </tr>
+          @endforeach
+
+
+
             </tbody>
             </table>
       </div>
@@ -163,7 +201,7 @@
 
 <div class="button_add">
     {{-- {{ route('update_devices', ['id' => $device->id]) }} --}}
-    <a href="{{ route('service_store') }}">
+    <a href="{{ route('number_order_more') }}">
         <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
     </a  >
     Cấp số mới

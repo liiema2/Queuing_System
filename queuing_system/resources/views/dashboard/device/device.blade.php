@@ -180,20 +180,7 @@
 
             </td>
 
-          {{-- <td class="td_list">
-            {{ $device->service }}
-            <br>
-            <a class="more_list" href="#" onclick="toggleService()" id="service_link">xem thêm</a>
-            <a href="#" style="display:none; text-decoration: none;" class="information_service" id="service_info">Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát </a>
-        </td> --}}
-        {{-- <td class="td_list" id="service_td">
-            <span id="service_content">{{ $device->service }}</span>
-            <br>
-            <a class="more_list" href="#" onclick="toggleService()" id="service_link">xem thêm</a>
-            <a href="#" style="display:none; text-decoration: none;" class="information_service" id="service_info">Khám tim mạch, Khám Sản - Phụ Khoa,Khám răng hàm mặt Khám tai mũi họng, Khám Hô hấp, Khám tổng quát </a>
-        </td> --}}
 
-        {{-- <a href="{{ route('details', ['id' => $device->id]) }}" --}}
 
           <td>  <a href="{{ route('details', ['id' => $device->id]) }}">Chi tiết</a>
           </td>
@@ -269,75 +256,6 @@ moreLinks.forEach(function(moreLink, index) {
 
 
 
-// $(document).ready(function() {
-//   // Thực hiện khi chọn tùy chọn
-//   $('.form-select').change(function() {
-//     searchDevices();
-//   });
-
-//   // Thực hiện khi nhập từ khóa
-//   $('.filter-keyword').on('input', function() {
-//     searchDevices();
-//   });
-
-//   // Gửi yêu cầu tìm kiếm và cập nhật dữ liệu trong trang web
-//   function searchDevices() {
-//     var status = $('.filter-status').val();
-//     var connection = $('.filter-connection select').val();
-//     var keyword = $('.filter-keyword').val();
-
-//     $.ajax({
-//   url: '{{ route('devices.index') }}',
-//   type: 'get',
-//   data: {
-//     status: status,
-//     connection: connection,
-//     keyword: keyword
-//   },
-//   success: function(response) {
-//     $('.devices-container').html(response);
-//   },
-//   error: function(jqXHR, textStatus, errorThrown) {
-//     console.log(textStatus, errorThrown);
-//   }
-// });
-//   }
-// });
-// $(document).ready(function() {
-//   // Thực hiện khi chọn tùy chọn
-//   $('.form-select').change(function() {
-//     searchDevices();
-//   });
-
-//   // Thực hiện khi nhập từ khóa
-//   $('.filter-keyword').on('input', function() {
-//     searchDevices();
-//   });
-
-//   // Gửi yêu cầu tìm kiếm và cập nhật dữ liệu trong trang web
-//   function searchDevices() {
-//     var status = $('.filter-status').val();
-//     var connection = $('.filter-connection select').val();
-//     var keyword = $('.filter-keyword').val();
-
-//     $.ajax({
-//       url: '{{ route('devices.index') }}',
-//       type: 'get',
-//       data: {
-//         status: status,
-//         connection: connection,
-//         keyword: keyword
-//       },
-//       success: function(response) {
-//         $('.devices-container').html(response);
-//       },
-//       error: function(jqXHR, textStatus, errorThrown) {
-//         console.log(textStatus, errorThrown);
-//       }
-//     });
-//   }
-// });
-///////////////////////////////////////////
 $('.form-select').change(function() {
     searchDevices();
   });
@@ -347,59 +265,6 @@ $('.form-select').change(function() {
     searchDevices();
   });
 
-//   // Gửi yêu cầu tìm kiếm và cập nhật dữ liệu trong trang web
-//   function searchDevices() {
-//     var status = $('.filter-status').val();
-//     var connection = $('.filter-connection select').val();
-//     var keyword = $('.filter-keyword').val();
-
-//     fetch('{{ route('devices.index') }}?status=' + status + '&connection=' + connection + '&keyword=' + keyword)
-//   .then(response => response.json())
-//   .then(data => {
-//     let devices = data.devices;
-//     let newHTML = '';
-
-//     if (devices && devices.length) {
-//       devices.forEach(device => {
-//         newHTML += `
-//           <tr>
-//             <td>${device.code}</td>
-//             <td>${device.nameDevice}</td>
-//             <td>${device.ip_address}</td>
-//             <td class="td_comtus">
-//               <img src="${device.status == 1 ? '/assets/images/icons/status/Ellipse 1 (3).png' : '/assets/images/icons/status/Ellipse 1 (2).png'}" alt="">
-//               ${device.status == 1 ? 'Kết nối' : 'Không kết nối'}
-//             </td>
-//             <td class="td_comtus">
-//               <img src="${device.connection == 1 ? '/assets/images/icons/status/Ellipse 1 (3).png' : '/assets/images/icons/status/Ellipse 1 (2).png'}" alt="">
-//               ${device.connection == 1 ? 'Kết nối' : 'Không kết nối'}
-//             </td>
-//             <td class="td_list">
-//               <a href="#" class="service_link">${device.service}</a>
-//               <a class="more_list" href="#">Xem thêm</a>
-//               <div class="information_service" style="display: none;">
-//                 ${device.service_info}
-//               </div>
-//             </td>
-//             <td>
-//               <a href="${device.details_url}">Chi tiết</a>
-//             </td>
-//             <td>
-//               <a href="${device.update_url}">Cập nhật</a>
-//             </td>
-//           </tr>
-//         `;
-//       });
-//     } else {
-//       newHTML = '<tr><td colspan="8">No devices found.</td></tr>';
-//     }
-
-//     $('.device').html(newHTML);
-//   })
-//   .catch(error => console.error(error));
-
-
-//   }
 
 
   function updateTableData(status, connection, keyword) {
@@ -464,22 +329,7 @@ function searchDevices() {
 
 
 
-// Lấy ngày hiện tại
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1; // Tháng bắt đầu từ 0
-var yyyy = today.getFullYear();
 
-// Đặt backcolor màu cam cho ngày hiện tại
-var currentDate = document.getElementsByTagName('td');
-for (var i = 0; i < currentDate.length; i++) {
-  if (currentDate[i].textContent == dd && currentDate[i].parentNode.rowIndex != 0) {
-    currentDate[i].style.backgroundColor = 'orange';
-  }
-}
-
-// Hiển thị ngày hiện tại trong tiêu đề của lịch
-document.querySelector('.card-body h4').innerHTML = 'Tháng ' + mm + ', ' + yyyy;
 
 </script>
 @endsection
