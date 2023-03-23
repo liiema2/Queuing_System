@@ -26,7 +26,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="">Lê Quỳnh Ái Vân</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
             </div></a>
 
 
@@ -65,7 +65,7 @@
             <div class="row_group">
 
                     <div class="col">
-                        <input type="text" style="visibility: hidden;" id="input1" name="id" value="{{ $account->id }}" class="form-control">
+                        {{-- <input type="text" style="visibility: hidden;" id="input1" name="id" value="{{ $account->id }}" class="form-control"> --}}
 
                       <label for="input1" class="input3"> Tên vai trò:</label>
                       <input type="text" id="input1" name="role" class="form-control">

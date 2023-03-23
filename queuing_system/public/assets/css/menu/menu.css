@@ -90,6 +90,72 @@ padding-top: 10px;
 top: 460px;
 left: 170px;
 }
+.bell_head{
+    background: #FF9138;
+    color: #FFF;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+padding-left: 24px;
+height: 48px;
+padding-top: 9px;
+}
+.bell_body{
+  width:   312px;
+  border-bottom: 1px solid  #D4D4D7;
+margin: 16px auto 0 auto;
+height: 65px;
+/* padding-top: 16xp; */
+}
+.bell_body div:first-child{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+
+    /* Orange/$-Orange-600 */
+
+    color: #BF5805
+/* padding-top: 16xp; */
+}
+.bell_body div:last-child{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+
+    /* Gray/$-gray-400 Text */
+
+    color: #535261;
+/* padding-top: 16xp; */
+}
+.bell
+{
+
+    position: absolute;
+top: 100px;
+right: 50px;
+
+background-color: #FFF;
+border-radius: 10px;
+
+
+}
+.bell_body-scroll{
+    overflow: scroll;
+    width: 360px;
+height: 526px;
+}
 .menuIconDashboard_iteam_option{
 position: absolute;
 top: 460px;
@@ -201,7 +267,7 @@ display: flex;
 display: inline-block;
 color: #535261;
 margin-top: -0.25rem;
-margin-right: 11rem;
+margin-right: 64px;
 }
 .nvarContent_right div img:first-child{
 
@@ -229,6 +295,7 @@ margin-right: 11rem;
     width:15.5rem;
     height: 15.5rem;
     margin-top: 2.5rem;
+
    margin-left:  1.5rem;
 }
 

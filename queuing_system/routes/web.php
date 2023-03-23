@@ -18,6 +18,7 @@ use App\Http\Controllers\Devices;
 use App\Http\Controllers\notify;
 use App\Http\Controllers\number_order;
 use App\Http\Controllers\services;
+use App\Http\Controllers\user_log;
 
 use App\Http\Controllers\RegisterColler;
 
@@ -29,7 +30,7 @@ Route::get('/new', function () {
     return view('dashboard.ordinalNumber.ordinalNumber');
 });
 Route::get('/a', function () {
-    return view('dashboard.manager.manager');
+    return view('dashboard.user_log.user_log');
 });
 Route::get('/a2', function () {
     return view('dashboard.manager.manager_more');
@@ -112,7 +113,8 @@ Route::get('service/update', [services::class, 'store'])->middleware('auth')->na
 
 Route::get('number_order', [number_order::class, 'index'])->middleware('auth')->name('number_order');
 Route::get('number_orders', [number_order::class, 'indexnew'])->middleware('auth')->name('number_order.index');
-Route::get('number_order/more}', [number_order::class, 'more'])->middleware('auth')->name('number_order_more');
+Route::get('number_order/more', [number_order::class, 'more'])->middleware('auth')->name('number_order_more');
+Route::get('number_order/details/{id}', [number_order::class, 'number_details'])->middleware('auth')->name('number_order_details');
 // Route::get('number_order/more_update}', [number_order::class, 'update'])->middleware('auth')->name('update_number_order');
 Route::post('number_order/more', [number_order::class, 'update'])->middleware('auth');
 
@@ -126,7 +128,9 @@ Route::get('administer', [notify::class, 'index_admin'])->middleware('auth')->na
 Route::get('administer/more', [notify::class, 'more'])->middleware('auth')->name('administer_more');
 Route::post('administer/more', [notify::class, 'mores'])->middleware('auth')->name('administer_more_updates');
 
-Route::get('administer/update/{id}', [notify::class, 'update_ad'])->middleware('auth')->name('update_more_administer');
+Route::get('administer/update', [notify::class, 'update_ad'])->middleware('auth')->name('update_more_administer');
 Route::post('administer/updated', [notify::class, 'updated_ad'])->middleware('auth')->name('manager_updated');
 
 // Route::post('administer/updated', [notify::class, 'updated_ad'])->middleware('auth')->name('manager_updated');
+Route::get('user_log', [user_log::class, 'index'])->middleware('auth')->name('user_log');
+Route::get('manager_user', [user_log::class, 'manager_user'])->middleware('auth')->name('manager_user');

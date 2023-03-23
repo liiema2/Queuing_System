@@ -68,8 +68,8 @@
             <select class="form-select service_id" style="width: 150px; ">
               <option  value="" selected>tất cả</option>
               <option  value="Khám sản - phụ khoa">Khám sản - Phụ Khoa</option>
-              <option value="Khám răng hàm mặ">Khám răng hàm mặt</option>
-              <option value="Khám mũi họn">Khám mũi họng</option>
+              <option value="2">Khám răng hàm mặt</option>
+              <option value="20">Khám mũi họng</option>
             </select>
           </div>
           <div class="col-auto" style="width: 150px; margin-right:24px">
@@ -95,21 +95,21 @@
             <div> Chọn thời gian</div>
             @php
 
- $minCreatedAtmax = date('d/m/Y', strtotime($services->max('created_at')));
- $minCreatedAt = date('d/m/Y', strtotime($services->min('created_at')));
+ $minCreatedAtmax = date('d/m/Y', strtotime($number_order->max('created_at')));
+ $minCreatedAt = date('d/m/Y', strtotime($number_order->min('created_at')));
 
   $getdayat = substr($minCreatedAt, 0, 2);
         $getdayatmax= substr($minCreatedAtmax,0,2)
 //  dd($getdayat);
 @endphp
-            <input class="form-select_service-date "  style="width: 150px;" value="{{$minCreatedAt}}">
+            <input class="form-select_service-date " readonly style="width: 150px;" value="{{$minCreatedAt}}">
           </div>
           <div class="col-auto arrow-right">
             <img src="{{ url('/assets/images/icons/arrow-right.png') }}" alt="">
           </div>
           <div class="col-auto">
             <div style="visibility: hidden;">Trạng thái kết nối</div>
-            <input class="form-select_service-date"  id="date-input" value="{{ $minCreatedAtmax}}" style="width: 150px;" name="date-of-birth">
+            <input class="form-select_service-date"  id="date-input" readonly value="{{ $minCreatedAtmax}}" style="width: 150px;" name="date-of-birth">
           </div>
           <div class="" >
             <div>Từ khóa</div>
@@ -181,7 +181,9 @@
                 @endif </td>
                   <td>{{ $order->source }}</td>
                   {{-- <td>{{ $order->updated_at }}</td> --}}
-                  <td><a href="">Chi tiết</a></td>
+                  <td><a href="{{ route('number_order_details', ['id' => $order->id]) }}">Chi tiết</a></td>
+
+                  {{-- <td><a href="{{'number_order_details',['id' => $order->id]}}">Chi tiết</a></td> --}}
               </tr>
           @endforeach
 
@@ -419,7 +421,7 @@ $('.status').change(function() {
   searchOrders();
 });
 $('.service_id').change(function() {
-    searchDevices();
+    searchOrders();
   });
 $('.source1').change(function() {
     searchOrders();
@@ -444,14 +446,34 @@ function updateTableData(status, keyword, service_id, source) {
     success: function(data) {
 
       var orders = data.orders;
+      var service = data.service;
         console.log(orders);
+        console.log(service );
+
+        var serviceMap = {};
+
+// Create a map of service_id to service_name
+service.forEach(function(service) {
+    serviceMap[service.id] = service.servicename;
+    console.log(serviceMap[service.id]);
+  });
+
+  orders.forEach(function(order) {
+    order.service_name = serviceMap[order.service_id];
+  });
       var html = '';
       if (orders && orders.length > 0) {
 
         orders.forEach(function(order) {
           html += '<tr>';
           html += '<td>' + order.number_order + '</td>';
+          /////
+
           html += '<td>' + order.username + '</td>';
+////////////////////////////////
+    //       var serviceName = serviceMap[service.id];
+    //   html += '<td>' + serviceName + '</td>';
+
           html += '<td>' + order.service_name + '</td>';
           html += '<td>' + order.created_at + '</td>';
           html += '<td>' + order.updated_at + '</td>';
@@ -471,7 +493,7 @@ function updateTableData(status, keyword, service_id, source) {
       } else {
         html += '<tr><td colspan="8">Không tìm thấy kết quả</td></tr>';
       }
-      $('tbody').html(html);
+      $('.body_connter_service').html(html);
     },
     error: function() {
       alert('Đã xảy ra lỗi!');
@@ -482,6 +504,7 @@ function updateTableData(status, keyword, service_id, source) {
 // Define the search function
 function searchOrders() {
   var service_id = $('.service_id').val();
+//   console.log(service_id);
   var status = $('.status').val();
   var source = $('.source1').val();
   var keyword = $('.filter-keyword').val();

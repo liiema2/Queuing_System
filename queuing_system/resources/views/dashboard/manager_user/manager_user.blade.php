@@ -2,6 +2,7 @@
 @section('links')
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
 <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}">
+<link rel="stylesheet"  href="{{ asset('../assets/css/service/servicemenudate.css') }}">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
@@ -13,7 +14,7 @@
 @section('content')
 
 <div class="nvarContent">
-    <div class="nvarContent-information">Cài đặt hệ thống  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Quản lý vai trò</div> </div>
+    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Danh sách thiết bị</div> </div>
     <div class="nvarContent_right">
         <div>
             <div class="bell_backgroud">
@@ -52,18 +53,30 @@
 
 <div class="informtion_page">
 
-<div class="informtion_page--Orange">Danh sách vai trò</div>
+<div class="informtion_page--Orange">Danh sách thiết bị</div>
 
 <div class="informtion_page_connter">
 
-    <div class="container"  >
+    <div class="container">
         {{-- {{ route('devices.index', [$status, $connection, $keyword]) }} --}}
         <form action="{{ route('devices.index') }}" method="get">
+                 <div class="row justify-content-between">
 
-                    <div class="col-auto" style="margin-left:72%; "  >
+
+                    <div class="col-sm-6 col-md-4 mb-3" style="padding-left:0 ">
+                        <div>Trạng thái hoạt động</div>
+                        <select class="form-select filter-status">
+                            <option selected value="">Tất cả</option>
+                            <option value="1">Hoạt động</option>
+                            <option value="0">Ngưng hoạt động</option>
+                        </select>
+                    </div>
+                    <div class="col-auto" style="margin-right: 16px;"  >
                         <div>Từ khóa</div>
                         <input type="text" class="form-select1  form-select filter-keyword">
                     </div>
+                    </div>
+
                 </div>
             </form>
             </div>
@@ -73,14 +86,17 @@
 
       </form>
 
-        <table class="blueTable">
+        <table class="blueTable" style="margin-right:0px!important ">
             <thead>
             <tr>
-            <th>Tên Vai trò</th>
-            <th>Số người </th>
-
-            <th>Mô tả</th>
+            <th>Tên đăng nhập</th>
+            <th>Họ Tên</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Vai trò</th>
+            <th>Trang thái</th>
             <th></th>
+
             </tr>
             </thead>
             <tfoot class="tfoot">
@@ -90,52 +106,9 @@
             </td>
             </tr>
             </tfoot>
-            {{-- @foreach ($account as $item)
-            <tr>
-                    <td>
-                       {{ $item->count}}
-                    </td>
-                    <td>
-                        @php
-
-                    $number_role = DB::table('accounts')->get();
 
 
-                       @endphp
-                        {{ $number_role}}
-                    </td>
-                    <td> {{ $item->description}}</td>
-
-                    <td><a href="{{route('update_more_administer',['id' => $number_role->id])}}">Cập nhật</a></td>
-                </tr>
-            @endforeach --}}
-            @foreach ($account as $item)
-    <tr>
-        <td>
-            {{ $item->count }}
-        </td>
-        <td>
-            {{ $item->role }}
-        </td>
-        <td>
-            {{ $item->description }}
-        </td>
-        <td>
-            <a href="{{route('update_more_administer')}}">Cập nhật</a>
-        </td>
-        {{-- <td> --}}
-            {{-- @php
-
-            $number_role = DB::table('accounts')->get();
-
-
-               @endphp --}}
-               {{-- href="{{ route('update_more_administer', ['id' => $item->id]) }}" --}}
-
-
-        {{-- </td> --}}
-    </tr>
-@endforeach
+            </tbody>
             </table>
       </div>
 
@@ -145,7 +118,7 @@
 @section('foter_end')
 
 <div class="button_add">
-    <a href="{{ route('administer_more') }}">
+    <a href="{{ route('more') }}">
         <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
     </a>
     Thêm vai trò
@@ -155,13 +128,6 @@
 
 @section('scripts')
 <script>
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////
 
 
 

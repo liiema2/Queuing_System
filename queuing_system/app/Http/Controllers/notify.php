@@ -12,8 +12,9 @@ class notify extends Controller
         $number_order= DB::table('orders')->get();
 
 
-        $services = DB::table('services')->get();
-        return view('dashboard.ordinalNumber.ordinalNumber',['number_order'=>$number_order, 'services' => $services] );
+        // $services = DB::table('services')->get();
+        // dd($services);
+        return view('dashboard.ordinalNumber.ordinalNumber',['number_order'=>$number_order] );
     }
 
 
@@ -35,41 +36,41 @@ class notify extends Controller
     }
     public function mores(Request $request){
 
-        $role = $request->input('role');
-        $description = $request->input('description');
-        $name = uniqid();
-        DB::table('accounts')->insert([
-            'name' => $name,
-            'username' => $name,
-            'phone_number' => 12324645,
-            'email' => $name,
-            'password' => 123245,
-            'role' => $role,
-            'description' => $description,
-        ]);
-        $number_order = DB::table('accounts')->get();
+        // $role = $request->input('role');
+        // $description = $request->input('description');
+        // $name = uniqid();
+        // DB::table('accounts')->insert([
+        //     'name' => $name,
+        //     'username' => $name,
+        //     'phone_number' => 12324645,
+        //     'email' => $name,
+        //     'password' => 123245,
+        //     'role' => $role,
+        //     'description' => $description,
+        // ]);
+        // $number_order = DB::table('accounts')->get();
 
-        return view('dashboard.manager.manager',['account' => $number_order]);
+        return view('dashboard.manager.manager');
     }
-    public function update_ad($id){
+    public function update_ad(){
 
-        $number_order= DB::table('accounts')->where('id',$id)->first();
+
         // dd( $number_order);
 
-        return view('dashboard.manager.manager_more_update',['account'=>$number_order]);
+        return view('dashboard.manager.manager_more_update');
     }
     public function updated_ad(Request $request){
 
-            $id = $request->input('id');
-        $role = $request->input('role');
-        $description = $request->input('description');
+//             $id = $request->input('id');
+//         $role = $request->input('role');
+//         $description = $request->input('description');
 
-    DB::table('accounts')
-    ->where('id', $id)
-    ->update(['role' => $role, 'description' => $description]);
-// dd($id ,$role, $description);
-$number_order = DB::table('accounts')->get();
-return view('dashboard.manager.manager',['account' => $number_order]);
+//     DB::table('accounts')
+//     ->where('id', $id)
+//     ->update(['role' => $role, 'description' => $description]);
+// // dd($id ,$role, $description);
+// $number_order = DB::table('accounts')->get();
+return view('dashboard.manager.manager');
     }
 
 }

@@ -71,7 +71,7 @@
                     <option value="Khám tim mạch">Khám tim mạch</option>
                     <option value="Khám sản - Phụ khoa">Khám sản - Phụ khoa</option>
                     <option value="Khám răng hàm mặt">Khám răng hàm mặt</option>
-                    <option value="Khám tai mũi họng">Khám tai mũi họng</option>
+                    <option value="Khám mũi họng">Khám tai mũi họng</option>
                   </select>
             </div>
 
@@ -91,7 +91,7 @@
           <a href="{{route('number_order')}}">Hủy Bỏ</a>
         </div>
         <div class=" col-md-6_continew">
-         <a href="  ">In số</a>
+         <a href="  ">In số </a>
         </div>
       </div>
     </div>

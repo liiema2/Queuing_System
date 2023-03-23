@@ -15,34 +15,52 @@ class number_order extends Controller
         // dd($number_order);
 
         $services = DB::table('services')->get();
-        return view('dashboard.number_order.number_order',['number_order'=>$number_order, 'services' => $services] );
+        return view('dashboard.number_order.number_order',['number_order'=>$number_order] );
+    }
+    public function number_details($id){
+        // dd($id);
+        $number_order= DB::table('orders')->where('id',$id)->first();
+        // dd($number_order->username)
+        return view('dashboard.number_order.number_order_details',['number_order'=> $number_order] );
     }
     public function indexnew(Request $request ){
 
     $status = $request->input('status');
     $keyword = $request->input('keyword');
-    $service_id = $request->input('service_id');
     $source = $request->input('source');
+ $service=   $service_id = $request->input('service_id');
+
 
     $query = DB::table('orders');
+    $query_service = DB::table('services');
 if ($status !== null) {
     $query->where('status', $status);
 }
 if ($source !== null) {
     $query->where('source','like', "%$source%");
 }
+// $service =DB::table('services')->where('nameservice','like',"%$service_id%");
+if($service_id!==null) {
+    $query_service->where('id',$service_id);
+}
+if($service_id!==null) {
+    $query->where('service_id',$service_id);
+}
 
 if ($keyword !== null) {
-    $query->where(function($query) use ($keyword) {
+    $query->where(function($query) use ($keyword, $service_id) {
         $query->where('status', $keyword)
-              ->orWhere('source', 'like', "%$keyword%");
+              ->orWhere('source', 'like', "%$keyword%")
+              ->orWhere('service_id', $service_id);
     });
 }
 
+
+
 // dd($query->toSql()); // Debug query string
 $orders = $query->get()->toArray();
-
-    return response()->json(['orders' => $orders]);
+$service=$query_service->get()->toArray();
+    return response()->json(['orders' => $orders,'service' => $service]);
 }
     public function more(){
 
@@ -57,7 +75,8 @@ $orders = $query->get()->toArray();
 
 
         $number_order = $request->input('number_order');
-        $number_order_name=   $number_order;
+        $number_order_name=  $number_order;
+        // dd($number_order);
             // dd($number_order );
 $service = Service::where('servicename', 'like', $number_order )->first();
 if ($service) {
@@ -68,6 +87,7 @@ if ($service) {
     // Handle the case where no matching service is found
 
 }
+// dd($service);
 
         // dd($service_id);
         $orders = orders::where('service_id', $service_id)->get();

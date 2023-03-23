@@ -4,12 +4,9 @@
 {{-- <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('../assets/css/menu/notify.css') }}">
 <link rel="stylesheet"  href="{{ asset('../assets/css/service/servicemenudate.css') }}">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-
+{{-- <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> --}}
 @endsection
 @section('content')
 
@@ -45,9 +42,13 @@
 
 </div>
 
+<div>
 
 
-<div class="informtion_page" style="width::1112px">
+
+</div>
+
+<div class="informtion_page">
 
 {{-- <div>Danh sách thiết bị</div> --}}
 
@@ -55,24 +56,18 @@
 
     <div class="container">
         <div class="row">
-@php
 
-
-$minCreatedAtmax = date('d/m/Y', strtotime($number_order->max('created_at')));
-$minCreatedAt = date('d/m/Y', strtotime($number_order->min('created_at')));
-
- $getdayat = substr($minCreatedAt, 0, 2);
-       $getdayatmax= substr($minCreatedAtmax,0,2)
-//  dd($getdayat);
-@endphp
-
-          <div class="col-auto" style="padding-left:0px ">
+          <div class="col-auto">
             <div>Trạng thái kết nối</div>
-            <input  class="form-select_service-date" readonly value="{{$minCreatedAt}}" >
+            <input  class="form-select_service-date" readonly>
           </div>
-          <div class="col-auto" style="padding-left:0px ">
+          <div class="col-auto">
             <div>Trạng thái kết nối</div>
-            <input class="form-select_service-date" readonly value="{{$minCreatedAtmax}}">
+            <input  class="form-select_service-date" readonly>
+          </div>
+          <div class="col-auto">
+            <div>Từ khóa</div>
+            <input  id="date-input" class="form-select1 form-select filter-keyword">
           </div>
 
           </div>
@@ -80,37 +75,17 @@ $minCreatedAt = date('d/m/Y', strtotime($number_order->min('created_at')));
         </div>
       </div>
 
-      {{-- <div style="width:1112px"> --}}
+      <div>
 
 
         <table class="blueTable">
             <thead>
             <tr>
-            <th class="notify"><select name="" id="">
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Tên dịch vụ</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Thời gian cấp</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Tình trạng</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Nguồn cấp</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
+                <th>Tên đăng nhập</th>
+                <th>Thời gian thao tác </th>
+
+                <th>ip thực hiện</th>
+                <th>Thao tác thực hiện</th>
             </tr>
             </thead>
             <tfoot class="tfoot">
@@ -122,60 +97,30 @@ $minCreatedAt = date('d/m/Y', strtotime($number_order->min('created_at')));
                 </tfoot>
                 <tbody class="body_connter_service">
 
-                    @foreach ($number_order as $order)
+                    @foreach($user_log as $item)
                     <tr>
-                        {{-- <td>{{ $order->id }}</td> --}}
-                        <td>{{ $order->number_order }}</td>
-                        {{-- <td>{{ $order->username }}</td> --}}
+
+                        <td>{{$item->username}}</td>
 
                         @php
-                        $service = DB::table('services')
-                                   ->join('orders', 'services.id', '=', 'orders.service_id')
-                                   ->select('servicename as service_name', 'orders.*')
-                                   ->where('orders.id', '=', $order->id)
-                                   ->get();
-
-
+                         $minCreatedAtmax = date('d/m/Y h:i:s', strtotime($item->created_at));
                         @endphp
+                        <td>{{  $minCreatedAtmax }}</td>
 
-                        @foreach ($service as $item)
-                            <td>{{ $item->service_name }}</td>
-                        @endforeach
-
-                        <td>{{ $order->created_at }}</td>
-                        {{-- <td>{{ $order->created_at }}</td> --}}
-
-                        {{-- <td>{{ $order->status }}</td> --}}
-
-                        <td class="td_comtus">  @if ($order->status == '1')
-                          <img src="{{ url('/assets/images/icons/status/Ellipse 1 (6).png') }}" alt="">  Đã sử dụng
-                         @elseif($order->status=='2')
-                         <img src="{{ url('/assets/images/icons/status/Ellipse 1 (5).png') }}" alt="">  Đang chờ
-                      @else
-                      <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Bỏ qua
-                      @endif </td>
-                        <td>{{ $order->source }}</td>
-                        {{-- <td>{{ $order->updated_at }}</td> --}}
-                        {{-- <td><a href="">Chi tiết</a></td>
-                    </tr> --}}
-                @endforeach
-
+                        <td>{{$item->ip_address}}</td>
+                        <td>{{$item->action}}</td>
+                    </tr>
+                    @endforeach
 
 
                   </tbody>
             </table>
-      {{-- </div> --}}
+      </div>
 
 </div>
 
 </div>
 
-<div class="button_add">
-<a href="">
-    <img class="button_add_img"src="{{ url('/assets/images/icons/document-download.png') }}" alt="">
-</a>
-Tải về
-</div>
 @endsection
 @section('foter_end')
 <div class="informtion_page_connter_date" style="display:none;top: 188px;
@@ -267,33 +212,27 @@ left: 224px;">
 @section('scripts')
 <script>
 
+function toggleService(event) {
+    event.preventDefault();
+    var moreLink = event.target;
+    var td = moreLink.parentNode;
+    var infoLink = td.querySelector('.information_service');
+    var service = td.querySelector('.service_link').innerHTML;
+    if (infoLink.style.display === "none" || infoLink.style.display === "") {
+        infoLink.style.display = "inline";
+        infoLink.innerHTML = service;
+        moreLink.innerHTML = "thu gọn";
+    } else {
+        infoLink.style.display = "none";
+        moreLink.innerHTML = "xem thêm";
+    }
+}
 
-
-$('.form-select_service-date').click(function() {
-  $('.informtion_page_connter_date').toggle();
-  $(document).ready(function() {
-    $('td').filter(function() {
-      // Get the text content of the current cell
-      var cellText = $(this).text();
-
-      // Convert the values of $getdayat and $getdayatmax to integers
-      var start = parseInt('{{ $getdayat }}');
-      var end = parseInt('{{ $getdayatmax }}');
-
-      // Check if the cell value is within the range of start and end
-      if (!isNaN(cellText) && parseInt(cellText) >= start && parseInt(cellText) <= end) {
-        // If the cell value is within the range, apply the range color
-        $(this).addClass('range-highlighted');
-      }
-       if (parseInt(cellText) === start) {
-        // If the cell value is the start point, apply the start color
-        $(this).addClass('start-highlighted');
-      }
-       if (parseInt(cellText) === end) {
-        // If the cell value is the end point, apply the end color
-        $(this).addClass('end-highlighted');
-      }
-    });
+$(document).ready(function() {
+  $('.input-group.date').datepicker({
+    format: 'dd/mm/yyyy',
+    autoclose: true,
+    todayHighlight: true
   });
 });
 

@@ -101,10 +101,32 @@
 
 
     <div class="menu-menuIconDashboard_iteam_option"></div>
+    @php
+
+      $order= DB::table('orders')->get();
+    @endphp
     <div class="menuIconDashboard_iteam_option" style="display:none" >
         <div> <a href="{{route('administer')}}">Quản lý vai trò</a> </div>
-        <div> <a href="{{route('administer_more')}}">Quản lý tài khoản </a></div>
-        <div> <a href="">Nhật ký người dùng</a></div>
+        <div> <a href="{{route('manager_user')}}">Quản lý tài khoản </a></div>
+        <div> <a href="{{route('user_log')}}">Nhật ký người dùng</a></div>
+    </div>
+    <div class="bell" style="display:none" >
+       <div class="bell_head">Thông báo</div>
+
+            <div class="bell_body-scroll">
+
+
+                @foreach($order as $oder)
+
+                <div class="bell_body">
+                    <div>Người dùng: {{$oder->username}}</div>
+                    <div>Thời gian nhận số: {{date('H:i \n\g\à\y d/m/Y', strtotime($oder->created_at))}}</div>
+                </div>
+
+                @endforeach
+            </div>
+       </div>
+
     </div>
 
 
@@ -135,7 +157,12 @@ menuIconDashboardIteamOption.addEventListener('mouseout', function() {
 
 
 
+$('.bell_backgroud').click(function() {
+  $('.bell').toggle();
 
+
+
+});
 </script>
 
 

@@ -254,21 +254,6 @@
 @section('scripts')
 <script>
 
-function toggleService(event) {
-    event.preventDefault();
-    var moreLink = event.target;
-    var td = moreLink.parentNode;
-    var infoLink = td.querySelector('.information_service');
-    var service = td.querySelector('.service_link').innerHTML;
-    if (infoLink.style.display === "none" || infoLink.style.display === "") {
-        infoLink.style.display = "inline";
-        infoLink.innerHTML = service;
-        moreLink.innerHTML = "thu gọn";
-    } else {
-        infoLink.style.display = "none";
-        moreLink.innerHTML = "xem thêm";
-    }
-}
 
 
 
