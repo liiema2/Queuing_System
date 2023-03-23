@@ -112,13 +112,13 @@
             <th></th>
             </tr>
             </thead>
-            <tfoot class="newbottom">
-            <tr>
-            <td colspan="8">
-            <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
-            </td>
-            </tr>
-            </tfoot>
+            <tfoot class="tfoot">
+                <tr>
+                <td colspan="8">
+                <div class="links"><a href="#"><img src="{{url('/assets/images/icons/fi_chevron_down (3).png')}}" alt=""></a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#"><img src="{{url('/assets/images/icons/fi_chevron_down (4).png')}}" alt=""></a></div>
+                </td>
+                </tr>
+                </tfoot>
             <tbody class="body_connter_service">
 
                 @foreach ($services as $services)
@@ -182,8 +182,8 @@
           </div>
         </div>
         <div class="card-body">
-          <table class="table table-bordered table-responsive">
-            <thead>
+          <table class="table table-bordered table-responsive" id="menudate-boder-none">
+            <thead class="menudate-boder-none--tr">
               <tr>
 
                 <th>Mo</th>
@@ -195,7 +195,7 @@
                 <th>Su</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="menudate-boder-body-none--tr">
               <tr>
 
                   <td id="t2">27</td>
@@ -335,16 +335,45 @@ function searchDevices() {
 
 
 
+// $('.form-select_service-date').click(function() {
+//   $('.informtion_page_connter_date').toggle();
+//   $(document).ready(function() {
+//     $('td').filter(function() {
+//       return $(this).text() == '{{ $getdayat }}' || $(this).text() == '{{  $getdayatmax }}';
+//     }).addClass('highlighted');
+//   });
+
+
+// });
 $('.form-select_service-date').click(function() {
   $('.informtion_page_connter_date').toggle();
   $(document).ready(function() {
     $('td').filter(function() {
-      return $(this).text() == '{{ $getdayat }}' || $(this).text() == '{{  $getdayatmax }}';
-    }).addClass('highlighted');
+      // Get the text content of the current cell
+      var cellText = $(this).text();
+
+      // Convert the values of $getdayat and $getdayatmax to integers
+      var start = parseInt('{{ $getdayat }}');
+      var end = parseInt('{{ $getdayatmax }}');
+
+      // Check if the cell value is within the range of start and end
+      if (!isNaN(cellText) && parseInt(cellText) >= start && parseInt(cellText) <= end) {
+        // If the cell value is within the range, apply the range color
+        $(this).addClass('range-highlighted');
+      }
+       if (parseInt(cellText) === start) {
+        // If the cell value is the start point, apply the start color
+        $(this).addClass('start-highlighted');
+      }
+       if (parseInt(cellText) === end) {
+        // If the cell value is the end point, apply the end color
+        $(this).addClass('end-highlighted');
+      }
+    });
   });
-
-
 });
+
+
 
 </script>
 @endsection

@@ -28,7 +28,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="">Lê Quỳnh Ái Vân</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
             </div></a>
 
 
@@ -70,7 +70,7 @@
 <div class="form-check">
     {{-- <input class="form-check-input" type="checkbox" value="" id="check1"> --}}
     <label class="form-check-label" for="check1">
-      Tăng tự động từ  <div>  <div class="check3">001</div> <div class="check_for">đến</div><div class="check3">9999</div>  </div>
+      Tăng tự động từ  <div>  <div class="check3">0001</div> <div class="check_for">đến</div><div class="check3">9999</div>  </div>
     </label>
   </div>
   <div class="form-check">
@@ -79,12 +79,12 @@
       Prefix <div div class="check3">0001</div>
     </label>
   </div>
-  <div class="form-check">
-    {{-- <input class="form-check-input" type="checkbox" value="" id="check3"> --}}
+  {{-- <div class="form-check">
+
     <label class="form-check-label" for="check3">
       Surfix  <div class="check3">0001</div>
     </label>
-  </div>
+  </div> --}}
   <div class="form-check">
     {{-- <input class="form-check-input" type="checkbox" value="" id="check4"> --}}
     <label class="form-check-label" for="check4">
@@ -96,7 +96,7 @@
             <div class="service_details_right">
 
                 <div class="service_details_right_from">
-
+                        <form action="{{ route('service_details.index') }}" method="post">
                     <div class="container">
                         <div class="row">
                             @php
@@ -112,11 +112,12 @@
                            @endphp
                             <div class="col-auto col_date1">
                                 <label for="select1">Trạng thái:</label>
-                                <select class="form-control form-select" id="select1">
-                                  <option>tất cả</option>
-                                  <option>Đã Hoàn thành</option>
-                                  <option>Đang thực hiện</option>
-                                  <option>vắng</option>
+                                <select class="form-control form-select filter-status" id="select1">
+                                  <option value="">Tất cả</option>
+                                  <option value="1">Đã Hoàn thành</option>
+                                  <option value="2">Đang thực hiện</option>
+                                  <option value="3"> Vắng</option>
+                                  <option value="0">Bỏ qua</option>
                                 </select>
                               </div>
                           <div class="col col_date col-2">
@@ -136,6 +137,7 @@
                           </div>
                         </div>
                     </div>
+                </form>
                     <div>
                         <table class="blueTable">
                             <thead>
@@ -157,6 +159,10 @@
                                 @foreach ($numerical_orders as $numerical_order)
                                 <tr>
                                     <td>
+                                        @php
+
+                                            $id=$numerical_order->id;
+                                            @endphp
                                         {{ $numerical_order->number_order }}
                                     </td>
                                     <td>
@@ -193,13 +199,16 @@
 @section('foter_end')
 
 <div class="button_add">
-    <div>
+    <div class="button_add_more_service">
         <a href="{{route('service_store')}}">
             <img class="button_add_img"src="{{ url('/assets/images/icons/Edit Square.png') }}" alt="">
         </a>
-        Thêm vai trò
+       Cập nhật danh sách
         </div>
 
+    </div>
+    <div class="button_add_1">
+    <div class="button_add_more_service_2" >
         <a href="{{route('service')}}">
             <img class="button_add_img"src="{{ url('/assets/images/icons/back-square.png') }}" alt="">
         </a>
@@ -300,12 +309,91 @@ $('.form-select_service-date').click(function() {
   $('.informtion_page_connter_date').toggle();
   $(document).ready(function() {
     $('td').filter(function() {
-      return $(this).text() == '{{ $getdayat }}' || $(this).text() == '{{  $getdayatmax }}';
-    }).addClass('highlighted');
+      // Get the text content of the current cell
+      var cellText = $(this).text();
+
+      // Convert the values of $getdayat and $getdayatmax to integers
+      var start = parseInt('{{ $getdayat }}');
+      var end = parseInt('{{ $getdayatmax }}');
+
+      // Check if the cell value is within the range of start and end
+      if (!isNaN(cellText) && parseInt(cellText) >= start && parseInt(cellText) <= end) {
+        // If the cell value is within the range, apply the range color
+        $(this).addClass('range-highlighted');
+      }
+       if (parseInt(cellText) === start) {
+        // If the cell value is the start point, apply the start color
+        $(this).addClass('start-highlighted');
+      }
+       if (parseInt(cellText) === end) {
+        // If the cell value is the end point, apply the end color
+        $(this).addClass('end-highlighted');
+      }
+    });
+  });
+});
+
+
+
+
+$('#select1').change(function() {
+    searchDevices();
   });
 
+  // Thực hiện khi nhập từ khóa
+  $('.form-select1').on('input', function() {
+    searchDevices();
+  });
 
-});
+  function updateTableData(status, keyword) {
+    $.ajax({
+      type: 'post',
+      url: '{{ route('service_details.index') }}',
+
+    // url: '{{ route('service_details.index', ['id' => $id]) }}',
+      data: {
+        status: status,
+        keyword: keyword,
+        _token: '{{ csrf_token() }}'
+      },
+      success: function(data) {
+        var devices = data.devices;
+        var html = '';
+        if (devices && devices.length > 0) {
+          devices.forEach(function(device) {
+            html += '<tr>';
+            html += '<td>' + device.code + '</td>';
+            html += '<td>' + device.nameDevice + '</td>';
+            html += '<td>' + device.ip_address + '</td>';
+            html += '<td class="td_comtus">';
+            if (device.status == 1) {
+              html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt=""> Đã hoàn thành';
+            } else if (device.status == 2) {
+              html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Đang thực hiện';
+            } else if (device.status == 3) {
+              html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Vắng';
+            } else {
+              html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Bỏ lượt';
+            }
+            html += '</td>';
+            html += '</tr>';
+          });
+        } else {
+          html += '<tr><td colspan="4">Không tìm thấy kết quả</td></tr>';
+        }
+        $('tbody.newbody').html(html);
+      },
+      error: function() {
+        alert('Đã xảy ra lỗi!');
+      }
+    });
+  }
+
+  function searchDevices() {
+    var status = $('.filter-status').val();
+    var keyword = $('.form-select1').val();
+    updateTableData(status, keyword);
+  }
   </script>
 
 @endsection

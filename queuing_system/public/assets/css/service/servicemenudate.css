@@ -6,11 +6,25 @@
 .arrow-right{
     padding: 40px 0 0 0 !important;
 }
-.highlighted {
+
+  .range-highlighted{
+    background-color: #FFF2E7;
+  }
+  .informtion_page_connter{
+    margin-left: 15px;
+  }
+
+  .end-highlighted {
     background-color: #FF7506;
     border-radius: 8px;
 
   }
+  .start-highlighted {
+    background-color: #FF7506;
+    border-radius: 8px;
+
+  }
+
 .body_connter_service tr td{
 
     padding: 10px 10px 10px 16px;
@@ -140,4 +154,17 @@ color: #FF7506;
 }
 .card-body{
     padding: 1rem;
+}
+/* .table-responsive tr,th, td{
+    border: none!important;
+
+} */
+#menudate-boder-none  {
+    border: none!important;
+}
+.menudate-boder-none--tr tr th{
+    border: none!important;
+}
+.menudate-boder-body-none--tr tr td{
+    border: none!important;
 }

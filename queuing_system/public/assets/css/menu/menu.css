@@ -59,7 +59,10 @@ body {
 padding-top: 10px;
 }
 
+.menuIconDashboard_iteam_system :hover{
 
+
+}
 
 
 .menuIconDashboard{
@@ -79,22 +82,49 @@ padding-top: 10px;
     color: #FF7506;
 }
 
+.menu-menuIconDashboard_iteam_option
+{
+    width: 200px;
+    height: 170px;
+    position: absolute;
+top: 460px;
+left: 170px;
+}
 .menuIconDashboard_iteam_option{
 position: absolute;
 top: 460px;
+width: 200px;
 left: 200px;
-}
-.menuIconDashboard_iteam_option div a{
-margin: 10px 0 0 12px!important;
-color: #7E7D88!important;
-text-decoration: none;
-}
-.menuIconDashboard_iteam_option div {
 background-color: #FFF;
 border-top-right-radius: 8px ;
 border-bottom-right-radius: 8px ;
-width: 200px;
+}
+.menuIconDashboard_iteam_option  a{
+margin: 10px 0 0 12px!important;
+color: #7E7D88!important;
+text-decoration: none;
+height: 48px!important;
 
+}
+.menuIconDashboard_iteam_option div:hover {
+
+color: #FFF!important;
+background-color:#FF9138;
+}
+.menuIconDashboard_iteam_option div:hover > a{
+
+color: #FFF!important;
+/* background-color:#FF9138; */
+text-decoration: none;
+}
+.menuIconDashboard_iteam_option div {
+/* background-color: #FFF; */
+height: 49px;
+/* width: 200px; */
+align-items: center;
+padding-left: 12px;
+padding-top: 10px;
+padding-bottom: 10px;
 }
 
 /* .menuIconDashboard:hover ~ .menuIconDashboard_iteam {

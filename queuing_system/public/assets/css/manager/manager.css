@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+}
+.container-left{
+    width: 505px;
+}
+.contatner-right_body{
+    width: 560px;
+height: 420px;
+padding-left: 24px;
+
+/* Orange/$-Orange-50 */
+
+background: #FFF2E7;
+border-radius: 8px;
+}
+.container-left .col{
+    padding-left: 0;
+}
+.col div{
+    padding-left: 0;
+}
+.col label{
+    margin-top: 12px;
+}
+.contatner-right_top{
+    margin-bottom: 8px;
+}
+.contatner-right_body_conter {
+    padding-top: 16px;
+    padding-bottom: 12px;
+    font-family: 'Nunito';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+/* identical to box height, or 150% */
+
+
+/* Orange/$-Orange-500 */
+
+color: #FF7506;
+}
+.form-check {
+    margin-bottom: 12px;
+}
+.button_2_add_cancel {
+
+    left: 586px!important;
+
+}

@@ -1,0 +1,54 @@
+.notify select {
+border: none !important;
+background-color: #FF9138;
+width: 222px;
+border-radius: none !important;
+/* background: #FFFFFF; */
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+color: #FFF;
+padding-left: 16px;
+}
+.notify select option{
+border: none !important;
+background-color: #FF9138;
+background: #FFFFFF;
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+
+font-size: 14px;
+line-height: 21px;
+padding-top: 10px;
+/* identical to box height, or 150% */
+/* padding-left: 16px; */
+
+/* Gray/$-gray-500 */
+
+color: #282739;
+}
+.notify{
+    /* width: 222px; */
+}
+.notify select:focus-visible {
+    outline: none;
+  }
+.notify select{
+    background-image:  url('/assets/images/icons/arrow-right_2.png');
+    background-repeat: no-repeat;
+    appearance: none;
+
+    background-position: right 12px center;
+
+    padding-right: 40px;
+    height: 49px;
+}
+/* .blueTable th{
+
+} */
+.informtion_page{
+    /* width: 1112px; */
+}

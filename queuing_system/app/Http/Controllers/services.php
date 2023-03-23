@@ -10,6 +10,32 @@ use Illuminate\Support\Facades\DB;
 class services extends Controller
 {
     //
+    public function details_new(Request $request){
+
+        $status = $request->input('status');
+        $keyword = $request->input('keyword');
+
+        // Lấy ra service_id
+        $query = DB::table('orders')->where('status',  $status);
+
+        if ($status !== null) {
+            $query->where('status',$status);
+        }
+
+    if ($keyword !== null) {
+        $query->where(function($query) use ($keyword) {
+            $query->where('number_order', 'like', "%$keyword%")
+                //   ->orWhere('servicename', 'like', "%$keyword%")
+                  ->orWhere('status',  "$keyword");
+                //   ->orWhere('service', 'like', "%$keyword%");
+        });
+    }
+        $orders= $query->get()->toArray();
+return response()->json(['orders' => $orders]);
+
+        return response()->json(['orders' => $orders]);
+
+    }
     public function index(Request $request){
 
         $status = $request->input('status');

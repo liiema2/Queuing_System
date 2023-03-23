@@ -135,7 +135,20 @@ border-radius: 6px;
 padding: 10px ;box-sizing: border-box;
 color:  #535261;
 border: 1px solid #FFF;
-;
+
+font-family: 'Nunito';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+
+/* Gray/$-gray-400 Text */
+
+color: #535261;
+
+opacity: 0.5;
 }
 .informtion_user__form-left p{
     margin-bottom: 0.5rem ;

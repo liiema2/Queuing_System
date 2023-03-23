@@ -95,24 +95,40 @@
         </div>
       </div>
     </div>
-    {{-- <div class="backgroud_number_order"></div>
+    <div class="backgroud_number_order"></div>
     <div class="number_order_render">
         <div class="number_order_render_conter">
-
+            <div class="number_order_render_conter_img"> <img src="{{ url('/assets/images/icons/fi_x (1).png') }}" alt=""></div>
 
             <div  class="number_order_render_conter-gay" > Số thứ tự được cấp</div>
-            <div  class="" > DV:  <span>(tại quầy số 1)</span></div>
+            <div  class="number_order_render_conter-orange" >{{$number_new}}</div>
+            <div  class="number_order_render_conter-Dv" > DV: {{$name}} <span>(tại quầy số 1)</span></div>
         </div>
-        <div>
-            <div> thời gian cấp </div>
-            <div> hạn sử dụng</div>
+        <div class="number_order_render_conter_footer">
+            <div> Thời gian cấp: <div>{{$created}}</div></div>
+            <div> Hạn sử dụng: <div>{{$created_end}}</div></div>
 
         </div>
-    </div> --}}
+    </div>
 @endsection
 
 @section('scripts')
 <script>
+
+function hideNumberOrder() {
+  var numberOrder = document.getElementsByClassName("number_order_render");
+  var backgroundNumberOrder = document.getElementsByClassName("backgroud_number_order");
+  for (var i = 0; i < numberOrder.length; i++) {
+    numberOrder[i].style.display = "none";
+  }
+  for (var i = 0; i < backgroundNumberOrder.length; i++) {
+    backgroundNumberOrder[i].style.display = "none";
+  }
+}
+
+var numberOrderRenderConterImg = document.getElementsByClassName("number_order_render_conter_img")[0];
+numberOrderRenderConterImg.addEventListener("click", hideNumberOrder);
+
 
 const continueBtn = document.querySelector('.col-md-6_continew a');
     continueBtn.addEventListener('click', (event) => {
@@ -121,8 +137,5 @@ const continueBtn = document.querySelector('.col-md-6_continew a');
         form.submit();
 
     });
-
-
-
 </script>
 @endsection

@@ -15,21 +15,24 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\Devices;
+use App\Http\Controllers\notify;
 use App\Http\Controllers\number_order;
 use App\Http\Controllers\services;
+
 use App\Http\Controllers\RegisterColler;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('dashboard.index');
-});
+
 Route::get('/new', function () {
-    return view('dashboard.service.service_store');
+    return view('dashboard.ordinalNumber.ordinalNumber');
 });
 Route::get('/a', function () {
-    return view('dashboard.number_order.number_more');
+    return view('dashboard.manager.manager');
+});
+Route::get('/a2', function () {
+    return view('dashboard.manager.manager_more');
 });
 Route::get('/ab', function () {
     return view('dashboard.administer.administer');
@@ -45,16 +48,11 @@ Route::get('/', function () {
     return redirect('sign-in');
 })->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-// Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
-// Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest');
-// Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest')->name('login');
-//
 
-// Route::post('verify', [RegisterController::class, 'store'])->middleware('guest')->name('reset');
-
+Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 
 Route::get('error', [SessionsController::class, 'error'])->middleware('guest')->name('error');
-Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest')->name('login');
+
 Route::get('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 Route::post('sign-in', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('verify', [SessionsController::class, 'show'])->middleware('guest');
@@ -77,15 +75,7 @@ Route::get('user', [Devices::class, 'show'])->middleware('auth')->name('user');
 
 
 ////////////////////////////////////////////////////////////////////////////
-// Route::get('device', [Devices::class, 'new'])->middleware('auth')->name('device');
 
-
-// Route::get('/devices', [devices::class, 'index'])->middleware('auth')->name('devices.index');
-
-
-// Route::get('device/details/{id}', [devices::class, 'details'])->middleware('auth')->name('details');
-// Route::get('device/details/update/{id}', [devices::class, 'update'])->middleware('auth')->name('update_devices');
-// Route::get('update-check/{id}', [devices::class, 'updated_ed'])->middleware('auth')->name('update_check');
 
 
 
@@ -112,6 +102,7 @@ Route::get('service/more', [services::class, 'store'])->middleware('auth')->name
 
 Route::post('service/more', [services::class, 'more'])->middleware('auth')->name('more_update');
 Route::get('service/details/{id}', [services::class, 'details'])->middleware('auth')->name('service_details');
+Route::post('service/details', [services::class, 'details_new'])->middleware('auth')->name('service_details.index');
 // Route::get('service/more_service', [services::class, 'more_service'])->middleware('auth')->name('more_service');
 Route::get('service/update', [services::class, 'store'])->middleware('auth')->name('service_update');
 
@@ -119,8 +110,23 @@ Route::get('service/update', [services::class, 'store'])->middleware('auth')->na
 
 
 
-Route::get('number_order}', [number_order::class, 'index'])->middleware('auth')->name('number_order');
+Route::get('number_order', [number_order::class, 'index'])->middleware('auth')->name('number_order');
+Route::get('number_orders', [number_order::class, 'indexnew'])->middleware('auth')->name('number_order.index');
 Route::get('number_order/more}', [number_order::class, 'more'])->middleware('auth')->name('number_order_more');
 // Route::get('number_order/more_update}', [number_order::class, 'update'])->middleware('auth')->name('update_number_order');
 Route::post('number_order/more', [number_order::class, 'update'])->middleware('auth');
 
+
+
+
+///////////////////////////////////
+
+Route::get('notify', [notify::class, 'index'])->middleware('auth')->name('notify');
+Route::get('administer', [notify::class, 'index_admin'])->middleware('auth')->name('administer');
+Route::get('administer/more', [notify::class, 'more'])->middleware('auth')->name('administer_more');
+Route::post('administer/more', [notify::class, 'mores'])->middleware('auth')->name('administer_more_updates');
+
+Route::get('administer/update/{id}', [notify::class, 'update_ad'])->middleware('auth')->name('update_more_administer');
+Route::post('administer/updated', [notify::class, 'updated_ad'])->middleware('auth')->name('manager_updated');
+
+// Route::post('administer/updated', [notify::class, 'updated_ad'])->middleware('auth')->name('manager_updated');

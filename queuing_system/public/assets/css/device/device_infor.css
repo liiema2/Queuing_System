@@ -1,3 +1,17 @@
+.links a:hover{
+    background-color: #FF7506!important;
+    color: #FFF !important;
+    text-decoration: none;
+}
+.links a:first-child:hover{
+    background: #F6F6F6!important;
+    color: #FFF!important;
+}
+.links a:last-child:hover{
+    background: #F6F6F6!important;
+    color: #FFF!important;
+
+}
 .informtion_page{
     position: absolute;
     top:104px;
@@ -36,7 +50,7 @@ margin-bottom: 24px;
 
 .informtion_page_connter{
     width: 1112px;
-    margin-left: 14px;
+    /* margin-left: 14px; */
 }
 .form-select{
     width: 300px;

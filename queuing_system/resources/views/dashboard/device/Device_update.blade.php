@@ -65,10 +65,11 @@
     <div class="container">
         {{-- action="{{route('update_check',['id' => $device->id])}}" --}}
 
-        <form action="{{route('update_device',['id' => $device->id])}}" class="form_update" method="POST" >
+        <form action="{{route('update_device')}}" class="form_update" method="POST" >
             @csrf
         <div class="row">
             <div class="col-md-5">
+
               <label for="input1">Mã thiết bị : <img src="{{ url('/assets/images/icons/Vector (2).png') }}" alt=""> </label>
               <input type="text" value="{{ $device->code }}" id="input1" name="code" class="form-control">
             </div>

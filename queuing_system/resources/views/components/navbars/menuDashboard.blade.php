@@ -1,3 +1,4 @@
+{{-- @extends('layout_degisn_login') --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +45,7 @@
                         alt="">
                     <div> Cấp số</div>
                 </a>
-                <a href=""class="menuIconDashboard">
+                <a href="{{ route('notify')}}"class="menuIconDashboard">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/Frame.png') }}"
                         alt="">
                     <div>Báo cáo</div>
@@ -75,11 +76,12 @@
 
             </div>
         </div>
-        <div class="menuIconDashboard_iteam_option"   style="display:none" >
+
+        {{-- <div class="menuIconDashboard_iteam_option"   style="display:none" >
             <div> <a href="">Quản lý vai trò</a> </div>
             <div> <a href="">Quản lý tài khoản </a></div>
             <div> <a href="">Nhật ký người dùng</a></div>
-        </div>
+        </div> --}}
         <div class="menudashboard">
             @yield('content')
 
@@ -94,7 +96,17 @@
 
 
     </div>
+
     @yield('foter_end')
+
+
+    <div class="menu-menuIconDashboard_iteam_option"></div>
+    <div class="menuIconDashboard_iteam_option" style="display:none" >
+        <div> <a href="{{route('administer')}}">Quản lý vai trò</a> </div>
+        <div> <a href="{{route('administer_more')}}">Quản lý tài khoản </a></div>
+        <div> <a href="">Nhật ký người dùng</a></div>
+    </div>
+
 
 </body>
 
@@ -102,16 +114,27 @@
 @yield('scripts')
 
 <script>
-const menuIconDashboardIteamSystem = document.querySelector('.menuIconDashboard_iteam_system');
+const menuIconDashboardIteamSystem = document.querySelector('.menu-menuIconDashboard_iteam_option');
 const menuIconDashboardIteamOption = document.querySelector('.menuIconDashboard_iteam_option');
 
 menuIconDashboardIteamSystem.addEventListener('mouseover', function() {
   menuIconDashboardIteamOption.style.display = 'block';
 });
 
+menuIconDashboardIteamOption.addEventListener('mouseover', function() {
+  menuIconDashboardIteamOption.style.display = 'block';
+});
+
 menuIconDashboardIteamSystem.addEventListener('mouseout', function() {
   menuIconDashboardIteamOption.style.display = 'none';
 });
+
+menuIconDashboardIteamOption.addEventListener('mouseout', function() {
+  menuIconDashboardIteamOption.style.display = 'none';
+});
+
+
+
 
 </script>
 

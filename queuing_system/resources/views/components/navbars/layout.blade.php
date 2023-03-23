@@ -28,6 +28,7 @@
         @yield('background_group')
 
     </div>
-@yield('scripts')
+
 </body>
 </html>
+@yield('scripts')
