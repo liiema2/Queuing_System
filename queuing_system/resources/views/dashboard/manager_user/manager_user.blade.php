@@ -14,7 +14,7 @@
 @section('content')
 
 <div class="nvarContent">
-    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Danh sách thiết bị</div> </div>
+    <div class="nvarContent-information">Thiết bị  <img src="{{ url('/assets/images/icons/Vector (1).png') }}" alt=""> <div>Quản lý tài khoản</div> </div>
     <div class="nvarContent_right">
         <div>
             <div class="bell_backgroud">
@@ -28,7 +28,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -53,13 +53,13 @@
 
 <div class="informtion_page">
 
-<div class="informtion_page--Orange">Danh sách thiết bị</div>
+<div class="informtion_page--Orange">Danh sách tài khoản</div>
 
 <div class="informtion_page_connter">
 
     <div class="container">
         {{-- {{ route('devices.index', [$status, $connection, $keyword]) }} --}}
-        <form action="{{ route('devices.index') }}" method="get">
+        <form action="{{route('manager_user.index')}}" class="body_connter_service" method="get">
                  <div class="row justify-content-between">
 
 
@@ -106,7 +106,32 @@
             </td>
             </tr>
             </tfoot>
+   <tbody class="body_connter_service">
+                @foreach ($account as $item)
+                    <tr>
 
+
+
+                        <td>{{$item->username}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->phone_number}}</td>
+                        <td>{{$item->email}}</td>
+                        <td>{{$item->role}}</td>
+                        <td>
+                            @if ($item->status == 1)
+                            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt="">    Kết nối
+                            @else
+                            <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối
+                            @endif
+
+
+                        </td>
+                        <td><a href="{{route('manager_updated',['id'=>$item->id])}}">Cập nhật</a></td>
+                    </tr>
+
+
+
+                @endforeach
 
             </tbody>
             </table>
@@ -118,10 +143,10 @@
 @section('foter_end')
 
 <div class="button_add">
-    <a href="{{ route('more') }}">
+    <a href="{{ route('manager_user_more') }}">
         <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
     </a>
-    Thêm vai trò
+    Thêm <br> tài khoản
     </div>
 @endsection
 @endsection
@@ -129,9 +154,77 @@
 @section('scripts')
 <script>
 
+// <div class="col-sm-6 col-md-4 mb-3" style="padding-left:0 ">
+//                         <div>Trạng thái hoạt động</div>
+//                         <select class="form-select filter-status">
+//                             <option selected value="">Tất cả</option>
+//                             <option value="1">Hoạt động</option>
+//                             <option value="0">Ngưng hoạt động</option>
+//                         </select>
+//                     </div>
+//                     <div class="col-auto" style="margin-right: 16px;"  >
+//                         <div>Từ khóa</div>
+//                         <input type="text" class="form-select1  form-select filter-keyword">
+//                     </div>
+
+
+$('.form-select').change(function() {
+    searchDevices();
+  });
+
+  // Thực hiện khi nhập từ khóa
+  $('.filter-keyword').on('input', function() {
+    searchDevices();
+  });
 
 
 
+  function updateTableData(status,  keyword) {
+  $.ajax({
+    type: 'GET',
+    url: '{{ route('manager_user.index') }}',
+    data: {
+      status: status,
+      keyword: keyword,
+    },
+    success: function(data) {
+  var accounts = data.accounts;
+  var html = '';
+  if (accounts && accounts.length > 0) {
+    accounts.forEach(function(account) {
+      html += '<tr>';
+      html += '<td>' + account.username + '</td>';
+      html += '<td>' + account.name + '</td>';
+      html += '<td>' + account.phone_number + '</td>';
+      html += '<td>' + account.email + '</td>';
+      html += '<td>' + account.role + '</td>';
+      html += '<td class="td_comtus">';
+      if (account.status == 1) {
+        html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt=""> Kết nối';
+      } else {
+        html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Không kết nối';
+      }
+      html += '</td>';
+      html += '<td><a href="{{route('manager_updated',['id'=>$item->id])}}">Cập nhật</a></td>';
+      html += '</tr>';
+    });
+  } else {
+    html += '<tr><td colspan="7">Không tìm thấy kết quả</td></tr>';
+  }
+  $('tbody').html(html);
+},
+
+    error: function() {
+      alert('Đã xảy ra lỗi!');
+    }
+  });
+}
+function searchDevices() {
+  var status = $('.filter-status').val();
+//   var connection = $('.filter-connection select').val();
+  var keyword = $('.filter-keyword').val();
+  updateTableData(status,  keyword);
+}
 
 
 

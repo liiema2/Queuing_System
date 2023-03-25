@@ -3,7 +3,10 @@
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
 <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}">
 <link rel="stylesheet"  href="{{ asset('../assets/css/service/servicemenudate.css') }}">
+<link rel="stylesheet" href="{{ asset('../assets/css/device/service.css') }}">
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,7 +31,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -142,7 +145,7 @@
 
                <td>  <a href="{{route('service_details',['id' => $services->id])}}">Chi tiết</a>
                </td>
-               <td>  <a href="">Cập nhật</a> </td>
+               <td>  <a href="{{route('service_update',['id'=>$services->id])}}">Cập nhật</a> </td>
 
 
                      </tr>
@@ -173,7 +176,7 @@
                   <img style="margin-top:5px ;margin-left:4px" src="{{ url('/assets/images/dashbroad/Vector (4).png') }}" alt="">
             </div>
             <div class="col-5 text-center"style="margin-left:35px;margin-right:50px">
-              <div  class="text-center_date_conter" >T19 Now 2021</div>
+              <div  class="text-center_date_conter" > Now 2021</div>
             </div>
             <div class="col-1 text-end">
               {{-- <a href="#" class="btn btn-primary">&gt;</a> --}}

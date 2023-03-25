@@ -26,7 +26,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -60,7 +60,7 @@
 <div>
     <div class="container">
         <div class="container-left">
-        <form   action="{{ route('manager_updated') }}"  method="post" class="form_update">
+        <form   action=""  method="post" class="form_update">
             @csrf
             <div class="row_group">
 
@@ -152,7 +152,7 @@
                   <a href="">Hủy Bỏ</a>
                 </div>
                 <div class=" col-md-6_continew">
-                 <a type="submit" id="submit-form">Cập nhật</a>
+                 <a type="submit" id="submit-form">Thêm</a>
                 </div>
               </div>
             </div>
@@ -162,14 +162,7 @@
 
 @section('scripts')
 <script>
- document.getElementById("submit-form").addEventListener("click", function(e) {
-      e.preventDefault(); // prevent default behavior of clicking on an <a> tag
 
-      // get the form element and submit it
-      var form = document.querySelector('.form_update');
-    //   console.log(form);
-      form.submit();
-    });
 
 
   </script>

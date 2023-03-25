@@ -1,0 +1,13 @@
+.service_d1esging{
+    background: #FF7506;
+    color: #FFF;
+}
+.service_d1esging div{
+
+    color: #FFF;
+}
+.service_d1esging img{
+    filter: grayscale(100%) brightness(200%);
+  }
+
+  .service_d1esging { pointer-events: none; }

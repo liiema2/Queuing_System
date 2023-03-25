@@ -1,6 +1,7 @@
 @extends('components.navbars.menuDashboard')
 @section('links')
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
+<link rel="stylesheet" href="{{ asset('../assets/css/device/ordinalNumber.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset('../assets/css/menu/notify.css') }}">
 <link rel="stylesheet"  href="{{ asset('../assets/css/service/servicemenudate.css') }}">
@@ -28,7 +29,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -47,9 +48,8 @@
 
 
 
-<div class="informtion_page" style="width::1112px">
+<div class="informtion_page" >
 
-{{-- <div>Danh sách thiết bị</div> --}}
 
 <div class="informtion_page_connter">
 
@@ -78,97 +78,94 @@ $minCreatedAt = date('d/m/Y', strtotime($number_order->min('created_at')));
           </div>
 
         </div>
+
       </div>
 
-      {{-- <div style="width:1112px"> --}}
 
-
-        <table class="blueTable">
-            <thead>
+      <table class="blueTable" style="width:1112px">
+        <thead>
+        <tr>
+        <th class="notify"><select name="" id="">
+            <option value="">Số thứ tự</option>
+            <option value="">Số thứ tự</option>
+            <option value="">Số thứ tự</option>
+        </select></th>
+        <th class="notify"><select name="" id="">
+            <option value="">Tên dịch vụ</option>
+            <option value="">Số thứ tự</option>
+            <option value="">Số thứ tự</option>
+        </select></th>
+        <th class="notify"><select name="" id="">
+            <option value="">Thời gian cấp</option>
+            <option value="">Số thứ tự</option>
+            <option value="">Số thứ tự</option>
+        </select></th>
+        <th class="notify"><select name="" id="">
+            <option value="">Tình trạng</option>
+            <option value="">Số thứ tự</option>
+            <option value="">Số thứ tự</option>
+        </select></th>
+        <th class="notify"><select name="" id="">
+            <option value="">Nguồn cấp</option>
+            <option value="">Số thứ tự</option>
+            <option value="">Số thứ tự</option>
+        </select></th>
+        </tr>
+        </thead>
+        <tfoot class="tfoot">
             <tr>
-            <th class="notify"><select name="" id="">
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Tên dịch vụ</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Thời gian cấp</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Tình trạng</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
-            <th class="notify"><select name="" id="">
-                <option value="">Nguồn cấp</option>
-                <option value="">Số thứ tự</option>
-                <option value="">Số thứ tự</option>
-            </select></th>
+            <td colspan="8">
+            <div class="links"><a href="#"><img src="{{url('/assets/images/icons/fi_chevron_down (3).png')}}" alt=""></a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#"><img src="{{url('/assets/images/icons/fi_chevron_down (4).png')}}" alt=""></a></div>
+            </td>
             </tr>
-            </thead>
-            <tfoot class="tfoot">
+            </tfoot>
+            <tbody class="body_connter_service">
+
+                @foreach ($number_order as $order)
                 <tr>
-                <td colspan="8">
-                <div class="links"><a href="#"><img src="{{url('/assets/images/icons/fi_chevron_down (3).png')}}" alt=""></a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#"><img src="{{url('/assets/images/icons/fi_chevron_down (4).png')}}" alt=""></a></div>
-                </td>
-                </tr>
-                </tfoot>
-                <tbody class="body_connter_service">
+                    {{-- <td>{{ $order->id }}</td> --}}
+                    <td>{{ $order->number_order }}</td>
+                    {{-- <td>{{ $order->username }}</td> --}}
 
-                    @foreach ($number_order as $order)
-                    <tr>
-                        {{-- <td>{{ $order->id }}</td> --}}
-                        <td>{{ $order->number_order }}</td>
-                        {{-- <td>{{ $order->username }}</td> --}}
-
-                        @php
-                        $service = DB::table('services')
-                                   ->join('orders', 'services.id', '=', 'orders.service_id')
-                                   ->select('servicename as service_name', 'orders.*')
-                                   ->where('orders.id', '=', $order->id)
-                                   ->get();
+                    @php
+                    $service = DB::table('services')
+                               ->join('orders', 'services.id', '=', 'orders.service_id')
+                               ->select('servicename as service_name', 'orders.*')
+                               ->where('orders.id', '=', $order->id)
+                               ->get();
 
 
-                        @endphp
+                    @endphp
 
-                        @foreach ($service as $item)
-                            <td>{{ $item->service_name }}</td>
-                        @endforeach
+                    @foreach ($service as $item)
+                        <td>{{ $item->service_name }}</td>
+                    @endforeach
 
-                        <td>{{ $order->created_at }}</td>
-                        {{-- <td>{{ $order->created_at }}</td> --}}
+                    <td>{{ $order->created_at }}</td>
+                    {{-- <td>{{ $order->created_at }}</td> --}}
 
-                        {{-- <td>{{ $order->status }}</td> --}}
+                    {{-- <td>{{ $order->status }}</td> --}}
 
-                        <td class="td_comtus">  @if ($order->status == '1')
-                          <img src="{{ url('/assets/images/icons/status/Ellipse 1 (6).png') }}" alt="">  Đã sử dụng
-                         @elseif($order->status=='2')
-                         <img src="{{ url('/assets/images/icons/status/Ellipse 1 (5).png') }}" alt="">  Đang chờ
-                      @else
-                      <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Bỏ qua
-                      @endif </td>
-                        <td>{{ $order->source }}</td>
-                        {{-- <td>{{ $order->updated_at }}</td> --}}
-                        {{-- <td><a href="">Chi tiết</a></td>
-                    </tr> --}}
-                @endforeach
+                    <td class="td_comtus">  @if ($order->status == '1')
+                      <img src="{{ url('/assets/images/icons/status/Ellipse 1 (6).png') }}" alt="">  Đã sử dụng
+                     @elseif($order->status=='2')
+                     <img src="{{ url('/assets/images/icons/status/Ellipse 1 (5).png') }}" alt="">  Đang chờ
+                  @else
+                  <img src="{{ url('/assets/images/icons/status/Ellipse 1 (2).png') }}" alt=""> Bỏ qua
+                  @endif </td>
+                    <td>{{ $order->source }}</td>
+                    {{-- <td>{{ $order->updated_at }}</td> --}}
+                    {{-- <td><a href="">Chi tiết</a></td>
+                </tr> --}}
+            @endforeach
 
 
 
-                  </tbody>
-            </table>
-      {{-- </div> --}}
-
+              </tbody>
+        </table>
 </div>
 
-</div>
+
 
 <div class="button_add">
 <a href="">

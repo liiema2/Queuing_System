@@ -28,7 +28,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -96,7 +96,7 @@
             <div class="service_details_right">
 
                 <div class="service_details_right_from">
-                        <form action="{{ route('service_details.index') }}" method="post">
+                        <form action="{{ route('service_details.index') }}" method="get">
                     <div class="container">
                         <div class="row">
                             @php
@@ -347,24 +347,26 @@ $('#select1').change(function() {
 
   function updateTableData(status, keyword) {
     $.ajax({
-      type: 'post',
+
+      type: 'get',
       url: '{{ route('service_details.index') }}',
 
-    // url: '{{ route('service_details.index', ['id' => $id]) }}',
       data: {
         status: status,
         keyword: keyword,
+
         _token: '{{ csrf_token() }}'
       },
       success: function(data) {
-        var devices = data.devices;
+
+        var orders = data.orders;
         var html = '';
-        if (devices && devices.length > 0) {
-          devices.forEach(function(device) {
+        if (orders && orders.length > 0) {
+            orders.forEach(function(device) {
             html += '<tr>';
-            html += '<td>' + device.code + '</td>';
-            html += '<td>' + device.nameDevice + '</td>';
-            html += '<td>' + device.ip_address + '</td>';
+
+            html += '<td>' + device.number_order + '</td>';
+
             html += '<td class="td_comtus">';
             if (device.status == 1) {
               html += '<img src="{{ url('/assets/images/icons/status/Ellipse 1 (3).png') }}" alt=""> Đã hoàn thành';
@@ -392,6 +394,7 @@ $('#select1').change(function() {
   function searchDevices() {
     var status = $('.filter-status').val();
     var keyword = $('.form-select1').val();
+    console.log(status);
     updateTableData(status, keyword);
   }
   </script>

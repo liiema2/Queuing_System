@@ -22,7 +22,10 @@ class if_account extends Seeder
             'phone_number' => '0123456789',
             'email' => 'van@example.com',
             'password' => bcrypt('123456'),
-            'role' => 'Kế toán'
+            'role' => 'Kế toán',
+            'description'=>'Thông kê',
+            'status' => 1
+
         ]);
     }
 }

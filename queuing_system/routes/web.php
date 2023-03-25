@@ -22,28 +22,11 @@ use App\Http\Controllers\user_log;
 
 use App\Http\Controllers\RegisterColler;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/new', function () {
-    return view('dashboard.ordinalNumber.ordinalNumber');
-});
-Route::get('/a', function () {
-    return view('dashboard.user_log.user_log');
-});
-Route::get('/a2', function () {
-    return view('dashboard.manager.manager_more');
-});
-Route::get('/ab', function () {
-    return view('dashboard.administer.administer');
-});
-Route::get('/list', function () {
-    return view('sessions.password.reset_error');
-});
-// Route::get('/menu', function () {
-//     return view('menu');
-// });
+
 
 Route::get('/', function () {
     return redirect('sign-in');
@@ -90,8 +73,10 @@ Route::post('device/more', [Devices::class, 'more_update'])->middleware('auth')-
 
 Route::get('device/details/update/{id}', [Devices::class, 'update'])->middleware('auth')->name('update_devices');
 Route::post('device/details/update/{id}', [devices::class, 'updated_ed'])->middleware('auth')->name('update_check');
+
+
 Route::get('update-check/{id}', [Devices::class, 'updated_ed'])->middleware('auth')->name('update_check');
-Route::post('update-check/{id}', [Devices::class, 'updated'])->middleware('auth')->name('update_device');
+Route::post('update-check', [Devices::class, 'updated'])->middleware('auth')->name('update_device');
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -101,11 +86,16 @@ Route::post('service', [services::class, 'index'])->middleware('auth')->name('se
 
 Route::get('service/more', [services::class, 'store'])->middleware('auth')->name('service_store');
 
-Route::post('service/more', [services::class, 'more'])->middleware('auth')->name('more_update');
+Route::get('service/mores', [services::class, 'more'])->middleware('auth')->name('more_update');
+
+
+
 Route::get('service/details/{id}', [services::class, 'details'])->middleware('auth')->name('service_details');
-Route::post('service/details', [services::class, 'details_new'])->middleware('auth')->name('service_details.index');
+Route::get('service/details', [services::class, 'details_new'])->middleware('auth')->name('service_details.index');
 // Route::get('service/more_service', [services::class, 'more_service'])->middleware('auth')->name('more_service');
-Route::get('service/update', [services::class, 'store'])->middleware('auth')->name('service_update');
+Route::get('service/update/{id}', [services::class, 'more_service'])->middleware('auth')->name('service_update');
+Route::post('service/updated', [services::class, 'more_serviced'])->middleware('auth')->name('service_updated');
+// Route::get('service/updated', [services::class, 'more'])->middleware('auth')->name('service_update');
 
 // Route::get('service/more_service', [services::class, 'details'])->middleware('auth')->name('update_service');
 
@@ -128,9 +118,18 @@ Route::get('administer', [notify::class, 'index_admin'])->middleware('auth')->na
 Route::get('administer/more', [notify::class, 'more'])->middleware('auth')->name('administer_more');
 Route::post('administer/more', [notify::class, 'mores'])->middleware('auth')->name('administer_more_updates');
 
-Route::get('administer/update', [notify::class, 'update_ad'])->middleware('auth')->name('update_more_administer');
-Route::post('administer/updated', [notify::class, 'updated_ad'])->middleware('auth')->name('manager_updated');
+Route::get('administer/new', [notify::class, 'update_ad'])->middleware('auth')->name('manager_updated_a');
+Route::get('administer/news', [notify::class, 'update_ad'])->middleware('auth')->name('manager_updated_1232');
 
 // Route::post('administer/updated', [notify::class, 'updated_ad'])->middleware('auth')->name('manager_updated');
 Route::get('user_log', [user_log::class, 'index'])->middleware('auth')->name('user_log');
+Route::get('user_logs', [user_log::class, 'ajax_index'])->middleware('auth')->name('user_log.index');
 Route::get('manager_user', [user_log::class, 'manager_user'])->middleware('auth')->name('manager_user');
+Route::get('manager_users', [user_log::class, 'ajax'])->middleware('auth')->name('manager_user.index');
+
+Route::get('manager_user/more', [user_log::class, 'manager_more'])->middleware('auth')->name('manager_user_more');
+Route::post('manager_user/more', [user_log::class, 'update'])->middleware('auth')->name('manager_user_update');
+// Route::get('manager_user/update/{id}', [user_log::class, 'updated'])->middleware('auth')->name('manager_user_update');
+// Route::get('manager_user/update/{id}', [user_log::class, 'updated'])->middleware('auth')->name('manager_user_updated');
+Route::get('manager_user/update/{id}', [user_log::class, 'newupdated'])->middleware('auth')->name('manager_updated');
+Route::get('manager_user/updated/{id}', [user_log::class, 'updated'])->middleware('auth')->name('manager_updated_1');

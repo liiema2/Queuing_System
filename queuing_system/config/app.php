@@ -81,6 +81,15 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
+    'providers' => [
+        // ...
+        FusionCharts\Laravel\FusionChartsServiceProvider::class,
+    ],
+
+    'aliases' => [
+        // ...
+        'FusionCharts' => FusionCharts\Laravel\FusionChartsFacade::class,
+    ],
 
     'locale' => 'en',
 

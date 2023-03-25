@@ -29,10 +29,12 @@ class Devices extends Controller
         $devices = DB::table('devices')->get();
         return view('dashboard.device.device', ['devices' => $devices]);
     }
-    public function updated(Request $request, $id)
+    public function updated(Request $request )
 {
 
+
     $validatedData = [
+        'id'=>$request->input('id'),
         'code' => $request->input('code'),
         'name' => $request->input('name'),
         'nameDevice' => $request->input('nameDevice'),
@@ -41,10 +43,11 @@ class Devices extends Controller
         'password' => $request->input('password'),
         'service' => $request->input('service'),
     ];
+
     $services = $request->input('service');
     $serviceStr = implode(',', $services);
 DB::table('devices')
-    ->where('id', $id)
+    ->where('id', $validatedData['id'])
     ->update([
         'code' => $validatedData['code'],
         'name' => $validatedData['name'],
@@ -56,7 +59,8 @@ DB::table('devices')
     ]);
 
 
-return redirect()->route('device')->with('success', 'Cập nhật thiết bị thành công');
+    $devices = DB::table('devices')->get();
+    return view('dashboard.device.device', ['devices' => $devices]);
 }
 
     function index(Request $request)
@@ -146,27 +150,29 @@ return redirect()->route('device')->with('success', 'Cập nhật thiết bị t
     public function updated_ed(Request $request, $id) {
 
 
-        // $validatedData = $request->validate([
-        //     'code' => 'required',
-        //     'name' => 'required',
-        //     'nameDevice' => 'required',
-        //     'username' => 'required',
-        //     'ip_address' => 'required',
-        //     'password' => 'required',
-        //     'service' => 'required'
-        // ]);
+        $device = DB::table('devices')->where('id', $id)->first();
+        return view('dashboard.device.Device_updated',['device' => $device]);
+//         $validatedData = $request->validate([
+//             'code' => 'required',
+//             'name' => 'required',
+//             'nameDevice' => 'required',
+//             'username' => 'required',
+//             'ip_address' => 'required',
+//             'password' => 'required',
+//             'service' => 'required'
+//         ]);
 
-        // $device = DB::table('devices')->findOrFail($id);
-        // $device->code = $validatedData['code'];
-        // $device->name = $validatedData['name'];
-        // $device->nameDevice = $validatedData['nameDevice'];
-        // $device->username = $validatedData['username'];
-        // $device->ip_address = $validatedData['ip_address'];
-        // $device->password = $validatedData['password'];
-        // $device->service = $validatedData['service'];
-        // $device->save();
+//         $device = DB::table('devices')->findOrFail($id);
+//         $device->code = $validatedData['code'];
+//         $device->name = $validatedData['name'];
+//         $device->nameDevice = $validatedData['nameDevice'];
+//         $device->username = $validatedData['username'];
+//         $device->ip_address = $validatedData['ip_address'];
+//         $device->password = $validatedData['password'];
+//         $device->service = $validatedData['service'];
+//         $device->save();
 
-        // return redirect()->route('device')->with('success', 'Cập nhật thiết bị thành công');
+
 
 
 //              // Kiểm tra xem thiết bị có tồn tại trong database không
@@ -185,7 +191,7 @@ return redirect()->route('device')->with('success', 'Cập nhật thiết bị t
 //    // Chuyển hướng về trang danh sách thiết bị
 //    return redirect()->route('device');
 
-return "ok";
+// return "ok";
     }
 
 //     public function reload(Request $request)

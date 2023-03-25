@@ -1,0 +1,15 @@
+.Dashboard_d1esging{
+    background: #FF7506;
+    color: #FFF;
+}
+.Dashboard_d1esging div{
+
+    color: #FFF;
+}
+.Dashboard_d1esging img{
+    filter: grayscale(100%) brightness(200%);
+  }
+  .Dashboard_d1esging :hover {
+
+  }
+  .Dashboard_d1esging { pointer-events: none; }

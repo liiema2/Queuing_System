@@ -67,13 +67,13 @@ class SessionsController extends Controller
             $username = $request->input('username');
             $password = $request->input('password');
             session(['password' => $password]);
-            session(['username' => $username]);
+            // session(['name' => $name]);
             $user = DB::table('accounts')->where('username', $username)->first();
 
 
             // Đăng nhập thành công, chuyển hướng đến trang chính.
             if ($user) {
-                session(['username' => $user->name]);
+                session(['name' => $user->name]);
 
 
             }

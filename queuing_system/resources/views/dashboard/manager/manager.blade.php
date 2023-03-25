@@ -27,7 +27,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -121,7 +121,7 @@
             {{ $item->description }}
         </td>
         <td>
-            <a href="{{route('update_more_administer')}}">Cập nhật</a>
+            <a href="{{route('administer_more')}}">Cập nhật</a>
         </td>
         {{-- <td> --}}
             {{-- @php
@@ -145,7 +145,7 @@
 @section('foter_end')
 
 <div class="button_add">
-    <a href="{{ route('administer_more') }}">
+    <a href="   {{route('manager_updated_a')}}">
         <img class="button_add_img"src="{{ url('/assets/images/icons/buton/add-square.png') }}" alt="">
     </a>
     Thêm vai trò

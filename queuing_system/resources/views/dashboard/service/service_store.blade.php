@@ -26,7 +26,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="">Lê Quỳnh Ái Vân</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -59,7 +59,8 @@
 
 <div>
     <div class="container">
-        <form  acction={{route('service_update')}} method="POST" class="form_update">
+        {{-- --}}
+        <form action="{{ route('more_update') }}" method="get" class="form_update">
             @csrf
             <div class="row">
                 <div class="col-md-6">
@@ -116,10 +117,10 @@
             <div class="button_2_add_cancel">
                 <div class="row_2">
                     <div class="col-md-6_cancel">
-                      <a >Hủy Bỏ</a>
+                      <a href="{{route('service')}}">Hủy Bỏ</a>
                     </div>
                     <div class=" col-md-6_continew">
-                     <a href="" id="submit-form" type="sumbit" >Thêm dịch vụ</a>
+                     <button id="submit-form" type="sumbit" >Thêm dịch vụ</button>
                     </div>
                   </div>
                 </div>
@@ -146,19 +147,9 @@
 
 @section('scripts')
 <script>
-    document.getElementById("submit-form").addEventListener("click", function(e) {
-      e.preventDefault(); // prevent default behavior of clicking on an <a> tag
-
-      // get the form element and submit it
-      var form = document.querySelector('.form_update');
-      form.submit();
-    });
 
 
-    $check1 = isset($_POST['check1']) ? true : false;
-        $check2 = isset($_POST['check2']) ? true : false;
-        $check3 = isset($_POST['check3']) ? true : false;
-        $check4 = isset($_POST['check4']) ? true : false;
+
 
 
   </script>

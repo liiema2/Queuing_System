@@ -1,7 +1,7 @@
 .notify select {
 border: none !important;
 background-color: #FF9138;
-width: 222px;
+width: 200px;
 border-radius: none !important;
 /* background: #FFFFFF; */
 font-family: 'Nunito';
@@ -44,7 +44,7 @@ color: #282739;
     background-position: right 12px center;
 
     padding-right: 40px;
-    height: 49px;
+    /* height: 49px; */
 }
 /* .blueTable th{
 

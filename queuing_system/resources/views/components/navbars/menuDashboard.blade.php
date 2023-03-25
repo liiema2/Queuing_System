@@ -19,15 +19,15 @@
             <div class="menubar_logo">
                 <img src="{{ url('/assets/images/logo/Logo alta.png') }}" alt="Alta Media Company">
             </div>
-            <div class="menu-bar_list">
-                <a href="{{route('dashboard')}}" class="menuIconDashboard">
-                    <img class="menuIconDashboard_iteam"src="{{ url('/assets/images/icons/element-4a.png') }}"
+            <div class="menu-bar_list dashboard">
+                <a href="{{route('dashboard')}}" class="menuIconDashboard Dashboard_d1esging" >
+                    <img class="menuIconDashboard_iteam dashboard_img" src="{{ url('/assets/images/icons/element-4a.png') }}"
                         alt="">
                     <div> Dashboard</div>
 
                 </a>
                 {{--  --}}
-                <a href="{{ route('device')}}" class="menuIconDashboard">
+                <a href="{{ route('device')}}" class="menuIconDashboard dervice_d1esging">
 
                     <img class="menuIconDashboard_iteam"src="{{ url('/assets/images/icons/monitor.png') }}"
                     alt="">
@@ -35,17 +35,17 @@
 
 
 
-                <a href="{{ route('service')}}" class="menuIconDashboard">
+                <a href="{{ route('service')}}" class="menuIconDashboard service_d1esging">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/Frame 332.png') }}"
                         alt="">
                     <div> Dịch vụ</div>
                 </a>
-                <a href="{{ route('number_order')}}" class="menuIconDashboard">
+                <a href="{{ route('number_order')}}" class="menuIconDashboard numberorder_d1esging">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/icon dasboard03.png') }}"
                         alt="">
                     <div> Cấp số</div>
                 </a>
-                <a href="{{ route('notify')}}"class="menuIconDashboard">
+                <a href="{{ route('notify')}}"class="menuIconDashboard ornumberorder_d1esging">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/Frame.png') }}"
                         alt="">
                     <div>Báo cáo</div>
@@ -62,7 +62,7 @@
 
 
                 </a>
-                <a href="{{route('logout')}}"class="menuIconDashboard">
+                <a href="{{route('logout')}}"class="menuIconDashboard Dashboard_design">
                     <img class="menuIconDashboard_iteam" src="{{ url('/assets/images/icons/fi_log-out.png') }}"
                         alt="">
                     <div> Đăng xuất
@@ -147,9 +147,9 @@ menuIconDashboardIteamOption.addEventListener('mouseover', function() {
   menuIconDashboardIteamOption.style.display = 'block';
 });
 
-menuIconDashboardIteamSystem.addEventListener('mouseout', function() {
-  menuIconDashboardIteamOption.style.display = 'none';
-});
+// menuIconDashboardIteamSystem.addEventListener('mouseout', function() {
+//   menuIconDashboardIteamOption.style.display = 'none';
+// });
 
 menuIconDashboardIteamOption.addEventListener('mouseout', function() {
   menuIconDashboardIteamOption.style.display = 'none';
@@ -159,10 +159,10 @@ menuIconDashboardIteamOption.addEventListener('mouseout', function() {
 
 $('.bell_backgroud').click(function() {
   $('.bell').toggle();
-
-
-
 });
+
+
+
 </script>
 
 

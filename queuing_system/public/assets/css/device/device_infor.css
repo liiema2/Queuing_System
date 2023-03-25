@@ -233,7 +233,7 @@ width: 1112px;
   }
   table.blueTable td, table.blueTable th {
     border: 1px solid #FFF2E7;
-    padding: 3px 2px;
+    padding: 0px 0px 0 10px;
   }
   table.blueTable tbody td {
     font-family: 'Nunito';
@@ -249,6 +249,9 @@ width: 1112px;
 
     color: #535261;
 
+  }
+  .blueTable th{
+    padding: 10px!important;
   }
   table.blueTable tr:nth-child(even) {
     background: #FFF2E7;

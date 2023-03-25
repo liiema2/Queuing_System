@@ -1,6 +1,7 @@
 @extends('components.navbars.menuDashboard')
 @section('links')
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
+<link rel="stylesheet" href="{{ asset('../assets/css/device/device.css') }}">
 <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -27,7 +28,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -184,7 +185,7 @@
 
           <td>  <a href="{{ route('details', ['id' => $device->id]) }}">Chi tiết</a>
           </td>
-          <td>  <a href="{{ route('update_devices', ['id' => $device->id]) }}">Cập nhật</a> </td>
+          <td>  <a href="{{ route('update_check', ['id' => $device->id]) }}">Cập nhật</a> </td>
 
 
                 </tr>

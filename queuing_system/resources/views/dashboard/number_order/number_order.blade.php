@@ -1,6 +1,7 @@
 @extends('components.navbars.menuDashboard')
 @section('links')
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
+<link rel="stylesheet" href="{{ asset('../assets/css/device/number_order.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('../assets/css/menu/acccount_information.css') }}"> --}}
 <link rel="stylesheet"  href="{{ asset('../assets/css/service/servicemenudate.css') }}">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -29,7 +30,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 

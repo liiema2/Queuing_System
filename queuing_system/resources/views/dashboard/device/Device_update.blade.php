@@ -30,7 +30,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">Lê Quỳnh Ái Vân</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div></a>
 
 
@@ -64,8 +64,8 @@
 <div>
     <div class="container">
         {{-- action="{{route('update_check',['id' => $device->id])}}" --}}
-
-        <form action="{{route('update_device')}}" class="form_update" method="POST" >
+        {{-- {{route('update_device')}} --}}
+        <form action="" class="form_update" method="POST" >
             @csrf
         <div class="row">
             <div class="col-md-5">
@@ -126,9 +126,10 @@
 <div id="selectArrow"></div>
 
 </div>
+@endforeach
 
             {{-- parse_str(html_entity_decode($serviceStr), $services); --}}
-          @endforeach
+
 
           <div id="selectArrowoption" style="display: none">
             <div>Tất cả</div>

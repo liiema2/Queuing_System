@@ -1,0 +1,13 @@
+.numberorder_d1esging{
+    background: #FF7506;
+    color: #FFF;
+}
+.numberorder_d1esging div{
+
+    color: #FFF;
+}
+.numberorder_d1esging img{
+    filter: grayscale(100%) brightness(200%);
+  }
+
+  .numberorder_d1esging { pointer-events: none; }

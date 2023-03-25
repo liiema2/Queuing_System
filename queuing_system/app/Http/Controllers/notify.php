@@ -34,42 +34,22 @@ class notify extends Controller
     public function more(){
         return view('dashboard.manager.manager_more');
     }
-    public function mores(Request $request){
+    public function mores(){
 
-        // $role = $request->input('role');
-        // $description = $request->input('description');
-        // $name = uniqid();
-        // DB::table('accounts')->insert([
-        //     'name' => $name,
-        //     'username' => $name,
-        //     'phone_number' => 12324645,
-        //     'email' => $name,
-        //     'password' => 123245,
-        //     'role' => $role,
-        //     'description' => $description,
-        // ]);
-        // $number_order = DB::table('accounts')->get();
+
 
         return view('dashboard.manager.manager');
     }
     public function update_ad(){
 
 
-        // dd( $number_order);
+
 
         return view('dashboard.manager.manager_more_update');
     }
-    public function updated_ad(Request $request){
+    public function updated_ad(){
 
-//             $id = $request->input('id');
-//         $role = $request->input('role');
-//         $description = $request->input('description');
 
-//     DB::table('accounts')
-//     ->where('id', $id)
-//     ->update(['role' => $role, 'description' => $description]);
-// // dd($id ,$role, $description);
-// $number_order = DB::table('accounts')->get();
 return view('dashboard.manager.manager');
     }
 

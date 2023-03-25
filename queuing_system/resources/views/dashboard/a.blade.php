@@ -1,11 +1,20 @@
 @extends('components.navbars.menuDashboard')
 @section('links')
 <link rel="stylesheet" href="{{ asset('../assets/css/device/device_infor.css') }}">
+<link rel="stylesheet" href="{{ asset('../assets/css/device/dashborad.css') }}">
 <link rel="stylesheet" href="{{ asset('../assets/css/dashbroad.css') }}">
-
+<script type="text/javascript" src="{{ asset('../assets/js/fusioncharts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('../assets/js/fusioncharts.charts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('../assets/js/fusioncharts.theme.fint.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+ <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+<script src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
 
+<!-- Render the chart using the chartConfigs data -->
+ <script>
+
+</script>
 @endsection
 @section('content')
 
@@ -16,8 +25,23 @@
             <div class="informtion_page_4_img">
                 <a href="{{route('number_order')}}" style="text-decoration: none;">
                         <div class="informtion_page_4">
+
+
+                            @php
+                $count = DB::table('orders')->count();
+                $count1 = DB::table('orders')->where('status',1)->count();
+                $count2 = DB::table('orders')->where('status',3)->count();
+                $count3 = DB::table('orders')->where('status',0)->count();
+                $dervice1 = DB::table('devices')->where('status',1)->count();
+                $dervice2 = DB::table('devices')->where('status',0)->count();
+                $dervice = DB::table('devices')->count();
+                $service = DB::table('services')->count();
+                $service1 =  DB::table('services')->where('status','active')->count();
+                $service2 =  DB::table('services')->where('status','inactive')->count();
+
+                            @endphp
                             <div> <div class="informtion_page_4-img"><div> <img src="{{ url('/assets/images/dashbroad/Frame 624758 (1).png') }}" alt=""> </div> <div>số thứ tự đã cấp</div></div>
-                            <div> <div class="informtion_page_4-img1"><div >4.221</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
+                            <div> <div class="informtion_page_4-img1"><div >{{$count}}</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
 
                             </div>
 
@@ -28,8 +52,8 @@
             <a href="{{route('number_order')}}" style="text-decoration: none;">
 
                 <div class="informtion_page_4">
-                    <div> <div class="informtion_page_4-img"><div> <img src="{{ url('/assets/images/dashbroad/Frame 624759 (2).png') }}" alt=""> </div> <div>số thứ tự đã cấp</div></div>
-                    <div> <div class="informtion_page_4-img1"><div >4.221</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
+                    <div> <div class="informtion_page_4-img"><div> <img src="{{ url('/assets/images/dashbroad/Frame 624759 (2).png') }}" alt=""> </div> <div>số thứ tự đã sử dụng</div></div>
+                    <div> <div class="informtion_page_4-img1"><div >{{$count1}}</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
 
                     </div>
             </a>
@@ -38,16 +62,16 @@
             </div>
             <a href="{{route('number_order')}}" style="text-decoration: none;">
                 <div class="informtion_page_4">
-                    <div> <div class="informtion_page_4-img"><div> <img src="{{ url('/assets/images/dashbroad/Frame 624759 (3).png') }}" alt=""> </div> <div>số thứ tự đã cấp</div></div>
-                    <div> <div class="informtion_page_4-img1"><div >4.221</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
+                    <div> <div class="informtion_page_4-img"><div> <img src="{{ url('/assets/images/dashbroad/Frame 624759 (3).png') }}" alt=""> </div> <div>số thứ tự đang chờ</div></div>
+                    <div> <div class="informtion_page_4-img1"><div >{{$count2}}</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
 
                     </div>
                 </a>
             </div>
             <a href="{{route('number_order')}}" style="text-decoration: none;">
                 <div class="informtion_page_4">
-                    <div> <div class="informtion_page_4-img"><div> <img src="{{ url('/assets/images/dashbroad/Frame 624759 (4).png') }}" alt=""> </div> <div>số thứ tự đã cấp</div></div>
-                    <div> <div class="informtion_page_4-img1"><div >4.221</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
+                    <div> <div class="informtion_page_4-img"><div> <img src="{{ url('/assets/images/dashbroad/Frame 624759 (4).png') }}" alt=""> </div> <div>số thứ tự đã bỏ qua</div></div>
+                    <div> <div class="informtion_page_4-img1"><div >{{$count3}}</div> <div><img src="{{ url('/assets/images/dashbroad/Group (2).png') }}" alt=""> 32% </div></div></div>
 
                     </div>
                 </a>
@@ -58,7 +82,7 @@
 
 
             </div>
-            <div class="chart" style="margin-top:12px">
+            <div style="position: relative; margin-top:12px">
                 <img id="chartImg" src="http://127.0.0.1:8000/assets/images/dashbroad/ngay.png" alt="">
                 <div class="chart_input">
                     <label for="">Xem theo</label>
@@ -68,10 +92,28 @@
                         <option value="thang">Tháng</option>
                     </select>
                 </div>
+            <div class="chart" style="margin-top:12px">
+
             </div>
 
 
+            </div>
 
+{{--
+            <div class="chart" style="margin-top:12px">
+                <div id="chart-container">FusionCharts will render here</div> --}}
+
+                {{-- <div>
+                    {!! $chartConfigs !!}
+                  </div>
+                @php --}}
+                {{-- //  dd( $chartConfigs);
+            //   $chart = new FusionCharts($chartConfigs);
+            // $chart->render();
+            //   $chartConfigs.render();
+// echo $chart; --}}
+                {{-- @endphp --}}
+              </div>
         </div>
     <div class="nvarContent_right">
         <div class="nvarContent_right-white">
@@ -86,7 +128,7 @@
 
             <div class="nvarContent_right-xc">
                 <div>xin chào</div>
-                <div> <a href="{{route('user')}}">{{ session('username')}}</a> </div>
+                <div> <a href="{{route('user')}}">{{ session('name')}}</a> </div>
             </div>
 
 
@@ -96,13 +138,13 @@
         <div class="list_service">
             {{-- <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (1).png') }}" alt="">  <div class="list_service_device_infor"><div>44002</div> <div><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/monitor.png') }}" alt=""> thiết bị</div></div>  <div class="list_service_device_more_infor"><div> <img src="{{ url('/assets/images/dashbroad/Frame 625214.png') }}" alt=""> Đang hoạt động <div class="list_service_device_more_infor_design"  style="margin-left: 10px">3.799</div></div> <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Ngưng hoạt động <div class="list_service_device_more_infor_design"> 300</div></div></div>  </div> --}}
             <a href="{{route('device')}}" style="text-decoration: none">
-                <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (1).png') }}" alt="">  <div class="list_service_device_infor"><div>44002</div> <div><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/monitor.png') }}" alt=""> Thiết bị</div></div>  <div class="list_service_device_more_infor"><div> <img src="{{ url('/assets/images/dashbroad/Frame 625214.png') }}" alt=""> Đang hoạt động <div class="list_service_device_more_infor_design"  style="margin-left: 10px">3.799</div></div> <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Ngưng hoạt động <div class="list_service_device_more_infor_design"> 300</div></div></div>  </div>
+                <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (1).png') }}" alt="">  <div class="list_service_device_infor"><div>{{$dervice}}</div> <div><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/monitor.png') }}" alt=""> Thiết bị</div></div>  <div class="list_service_device_more_infor"><div> <img src="{{ url('/assets/images/dashbroad/Frame 625214.png') }}" alt=""> Đang hoạt động <div class="list_service_device_more_infor_design"  style="margin-left: 10px">{{$dervice1}}</div></div> <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Ngưng hoạt động <div class="list_service_device_more_infor_design">{{$dervice2}}</div></div></div>  </div>
 
             </a>
             {{-- <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (1).png') }}" alt="">  <div class="list_service_device_infor"><div>44002</div> <div><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/monitor.png') }}" alt=""> thiết bị</div></div>  <div class="list_service_device_more_infor"><div> <img src="{{ url('/assets/images/dashbroad/Frame 625214.png') }}" alt=""> Đang hoạt động <div class="list_service_device_more_infor_design"  style="margin-left: 10px">3.799</div></div> <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Ngưng hoạt động <div class="list_service_device_more_infor_design"> 300</div></div></div>  </div> --}}
 
            <a href="{{route('service')}}">
-            <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (2).png') }}" alt="">  <div class="list_service_device_infor"><div>44002</div> <div style="color: #4277FF;"><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/Frame 332.png') }}" alt=""> Dịch vụ</div></div>  <div class="list_service_device_more_infor"><div> <img src="{{ url('/assets/images/dashbroad/Frame 625214 (1).png') }}" alt=""> Đang hoạt động <div class="list_service_device_more_infor_design"  style="margin-left: 10px">3.799</div></div> <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Ngưng hoạt động <div class="list_service_device_more_infor_design"> 300</div></div></div>
+            <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (2).png') }}" alt="">  <div class="list_service_device_infor"><div>{{$service}}</div> <div style="color: #4277FF;"><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/Frame 332.png') }}" alt=""> Dịch vụ</div></div>  <div class="list_service_device_more_infor"><div> <img src="{{ url('/assets/images/dashbroad/Frame 625214 (1).png') }}" alt=""> Đang hoạt động <div class="list_service_device_more_infor_design"  style="margin-left: 10px">{{$service1}}</div></div> <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Ngưng hoạt động <div class="list_service_device_more_infor_design"> {{$service2}}</div></div></div>
 
            </a>
             {{-- <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (2).png') }}" alt="">  <div class="list_service_device_infor"><div>44002</div> <div style="color: #4277FF;"><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/Frame 332.png') }}" alt=""> thiết bị</div></div>  <div class="list_service_device_more_infor"><div> <img src="{{ url('/assets/images/dashbroad/Frame 625214 (1).png') }}" alt=""> Đang hoạt động <div class="list_service_device_more_infor_design"  style="margin-left: 10px">3.799</div></div> <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Ngưng hoạt động <div class="list_service_device_more_infor_design"> 300</div></div></div> --}}
@@ -110,14 +152,14 @@
         </div>
         <a href="{{route('number_order')}}">
             <div  class="list_service_device"><img src="{{ url('/assets/images/dashbroad/Frame 625210 (3).png') }}" alt="">
-                <div class="list_service_device_infor"><div>44002</div>
+                <div class="list_service_device_infor"><div>{{$count}}</div>
 
                 <div style="color: #35C75A;"><img class="list_service_device_infor-small" src="{{ url('/assets/images/dashbroad/fi_layers.png') }}" alt=""> Cấp số</div>
                </div>
                 <div class="list_service_device_more_infor"><div >
 
-                   <img src="{{ url('/assets/images/dashbroad/Frame 625214 (2).png') }}" alt=""> Đã sử dụng <div class="list_service_device_more_infor_design" style="margin-left: 35px">3.799</div></div> <div class="list_service_device_more_infor-last"> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Đang chờ <div class="list_service_device_more_infor_design" style="margin-left: 45px"> 300</div>
-             </div >   <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215 (1).png') }}" alt=""> Bỏ qua <div class="list_service_device_more_infor_design"  style="margin-left: 60px"> 300</div>
+                   <img src="{{ url('/assets/images/dashbroad/Frame 625214 (2).png') }}" alt=""> Đã sử dụng <div class="list_service_device_more_infor_design" style="margin-left: 35px">{{$count1}}</div></div> <div class="list_service_device_more_infor-last"> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215.png') }}" alt=""> Đang chờ <div class="list_service_device_more_infor_design" style="margin-left: 45px"> {{$count2}}</div>
+             </div >   <div> <img class="list_service_device_more_infor_img" src="{{ url('/assets/images/dashbroad/Frame 625215 (1).png') }}" alt=""> Bỏ qua <div class="list_service_device_more_infor_design"  style="margin-left: 60px"> {{$count3}}</div>
 
 
 
@@ -312,8 +354,14 @@ formSelect.addEventListener('change', function() {
 //     td.style.backgroundColor = "yellow";
 //   }
 // }
+// console.log($chartConfigs);
 
+// Render the chart using FusionCharts::render() method
 
+// $chart = new FusionCharts(!!$chartConfigs!!);
+//             $chart.render();
+
+            // $chart = new FusionCharts(!!$chartConfigs!!); $chart.render();
 
 
 </script>
